@@ -1,7 +1,7 @@
 body {
 	margin:0;
 	padding:0;
-	background: url('background.jpg') repeat 0 0;
+	background: url('background.jpg');
 	-webkit-animation: 30s linear 0s normal none infinite animate;
 	-moz-animation: 30s linear 0s normal none infinite  animate;
 	-o-filter: 30s linear 0s normal none infinite  animate;
@@ -9,28 +9,6 @@ body {
 	animation: 30s linear 0s normal none infinite  animate;
 }
 
-/* For class Mobile */
-@media screen and (max-width : 480px){
-	body {
-		width: 480px;
-	}
-}
-
-
-/* For iphone: */
-@media screen and (max-width : 320px){
-	body {
-		width: 320px;
-	}
-} 
-
-
-/* For ipad: */
-@media screen and (max-width : 768px){
-	body {
-		width: 768px;
-	}
-} 
 
 .title {
 	font-size: 80px;
@@ -58,8 +36,8 @@ a:visited {
 
 a:hover {
 	text-decoration: bolder;
-	color: #8B0000;
-	text-shadow: 0 0 5px #ff0000;
+	color: #8b0000;
+	text-shadow: 0 0 5px #8b0000;
 }
 
 hr {
