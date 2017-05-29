@@ -1,7 +1,8 @@
 body {
 	margin:0;
 	padding:0;
-	background: url('background.jpg');
+	background-image: url('background.jpg');
+	background-repeat:  repeat 0 0
 	-webkit-animation: 30s linear 0s normal none infinite animate;
 	-moz-animation: 30s linear 0s normal none infinite  animate;
 	-o-filter: 30s linear 0s normal none infinite  animate;
