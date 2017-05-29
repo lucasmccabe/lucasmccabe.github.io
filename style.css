@@ -1,0 +1,87 @@
+body {
+	margin:0;
+	padding:0;
+	background: url('background.jpg') repeat 0 0;
+	-webkit-animation: 30s linear 0s normal none infinite animate;
+	-moz-animation: 30s linear 0s normal none infinite  animate;
+	-o-filter: 30s linear 0s normal none infinite  animate;
+	-ms-filter: 30s linear 0s normal none infinite  animate;
+	animation: 30s linear 0s normal none infinite  animate;
+}
+
+/* For class Mobile */
+@media screen and (max-width : 480px){
+	body {
+		width: 480px;
+	}
+}
+
+
+/* For iphone: */
+@media screen and (max-width : 320px){
+	body {
+		width: 320px;
+	}
+} 
+
+
+/* For ipad: */
+@media screen and (max-width : 768px){
+	body {
+		width: 768px;
+	}
+} 
+
+.title {
+	font-size: 80px;
+	color: rgba(0,0,0,0.6);
+	margin: auto; 
+	height: 290px;
+	text-align: center;
+	font-family: 'Lato', Arial, sans-serif;
+}
+
+.container {
+	margin: 0 auto;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	outline: 0;
+	color: #996515;
+}
+
+a:visited {
+	color: #996515;
+}
+
+a:hover {
+	text-decoration: bolder;
+	color: #8B0000;
+	text-shadow: 0 0 5px #ff0000;
+}
+
+hr {
+	border: solid;
+	width: 80%;
+	height: 5px;
+	border-color: rgba(0,0,0,0.5);
+	color: rgba(0,0,0,0.5);
+}
+
+ul > *{
+	font-family: 'Lato', Arial, sans-serif;
+	font-size: 25px;
+	margin-left: 30px;	
+	list-style-type: none;
+	display: inline-block;
+}
+
+.emails {
+	color: rgba(0,0,0,0.7);
+	font-size: 30px;
+	margin: auto;
+	text-align: center;
+	font-family: 'Lato', Arial, sans-serif;
+}
