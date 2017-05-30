@@ -7,14 +7,14 @@ body {
 .navigation {
     text-align:center;
     width: 100%;
-    height: 200px;
+    height: 150px;
     background-color: black; 
 }
 .logo {
     display: inline-block;
     vertical-align: bottom;
     width: 400px;
-    height: 175px;
+    height: 125px;
     margin-right: 0px;
     margin-top: 15px;    /* if you want it vertically middle of the navbar. */
 }
@@ -55,11 +55,12 @@ ul {
 }
 
 li {
+    display: inline;
     float: left
 }
 
 li a {
-    display: block;
+    display: inline-block;
     color: white;
     text-align: center;
     padding: 14px 16px;
