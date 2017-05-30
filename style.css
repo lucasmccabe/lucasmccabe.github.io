@@ -5,6 +5,7 @@ body {
 }
 
 .navigation {
+    text-align:center;
     width: 100%;
     height: 200px;
     background-color: black; 
@@ -13,8 +14,8 @@ body {
     display: inline-block;
     vertical-align: bottom;
     width: 400px;
-    height: 150px;
-    margin-right: 20px;
+    height: 175px;
+    margin-right: 0px;
     margin-top: 15px;    /* if you want it vertically middle of the navbar. */
 }
 
@@ -28,6 +29,7 @@ body {
 }
 
 a {
+
 	text-decoration: none;
 	outline: 0;
 	color: 	#FFCC00;
@@ -40,20 +42,16 @@ a:hover {
 }
 
 ul {
+  text-align:center;
 	position: left;
   top: 0;
   width: 100%;
 	list-style-type: none;
-	margin: 0px;
-	padding: 65px;
+	margin: auto;
+	padding: 0;
 	overflow: hidden;
 	background-color: #000;
-	font-family: "Open Sans";
-	font-size: 40px;
-	margin-left: 0px;	
-	list-style-type: none;
-	display: inline-block;
-	color: rgba(255, 204, 0);
+	font-size: 30px;
 }
 
 li {
@@ -68,7 +66,7 @@ li a {
     text-decoration: none;
 }
 
-/* link becomes grey on hover */
+/* link becomes grey when the user hovers */
 li a:hover {
     background-color: #333;
 }
