@@ -24,11 +24,17 @@ a:hover {
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #000;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #000;
+	font-family: "Open Sans";
+	font-size: 25px;
+	margin-left: 30px;	
+	list-style-type: none;
+	display: inline-block;
+	color: rgba(255, 204, 0);
 }
 
 li {
@@ -53,15 +59,6 @@ hr {
 	width: 80%;
 	height: 5px;
 	border-color: rgba(255, 204, 0);
-	color: rgba(255, 204, 0);
-}
-
-ul > *{
-	font-family: "Open Sans";
-	font-size: 25px;
-	margin-left: 30px;	
-	list-style-type: none;
-	display: inline-block;
 	color: rgba(255, 204, 0);
 }
 
