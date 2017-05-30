@@ -6,19 +6,6 @@ body {
 }
 
 
-.title {
-	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-	font-size: 50px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 26.4px;
-	color: rgba(153, 101, 21);
-	margin: auto; 
-	height: 290px;
-	text-align: center;
-}
-
 .container {
 	margin: 0 auto;
 	text-align: center;
