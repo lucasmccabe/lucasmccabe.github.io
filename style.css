@@ -1,7 +1,6 @@
 body {
 	margin:0;
 	padding:0;
-	
 	background: #333
 }
 
@@ -13,7 +12,7 @@ body {
 .logo {
     display: inline-block;
     vertical-align: bottom;
-    width: 450px;
+    width: 400px;
     height: 150px;
     margin-right: 20px;
     margin-top: 15px;    /* if you want it vertically middle of the navbar. */
@@ -22,8 +21,8 @@ body {
 .navigation > a {
     display: inline-block;
     vertical-align: top;
-    margin- left: 400px;
-    margin-right: 200px;
+    margin- left: 615px;
+    margin-right: 231px;
     height: 80px;        /* if you want it to take the full height of the bar */
     line-height: 80px;    /* if you want it vertically middle of the navbar */
 }
@@ -58,7 +57,7 @@ ul {
 }
 
 li {
-    float: left
+    float: right;
 }
 
 li a {
@@ -74,23 +73,8 @@ li a:hover {
     background-color: #333;
 }
 
-hr {
-	border: solid;
-	width: 80%;
-	height: 5px;
-	border-color: rgba(255, 204, 0);
-	color: rgba(255, 204, 0);
-}
 
 /* lets users know what page they are on */
 .active {
     background-color: #333;
-}
-
-.emails {
-	color: rgba(255, 204, 0);
-	font-size: 30px;
-	margin: auto;
-	text-align: center;
-	font-family: "Open Sans";
 }
