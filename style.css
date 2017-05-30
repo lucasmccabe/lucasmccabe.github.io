@@ -16,7 +16,7 @@ body {
     width: 400px;
     height: 125px;
     margin-right: 0px;
-    margin-top: 15px;    /* if you want it vertically middle of the navbar. */
+    margin-top: 15px;
 }
 
 .navigation > a {
@@ -55,8 +55,8 @@ ul {
 }
 
 li {
+    text-align:center;
     display: inline;
-    float: left
 }
 
 li a {
