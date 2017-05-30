@@ -67,7 +67,7 @@ hr {
 
 /* lets users know what page they are on */
 .active {
-    background-color: #000;
+    background-color: #333;
 }
 
 .emails {
