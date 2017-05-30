@@ -24,8 +24,8 @@ body {
     vertical-align: top;
     margin- left: 824px;
     margin-right: 308px;
-    height: 80px;        /* if you want it to take the full height of the bar */
-    line-height: 80px;    /* if you want it vertically middle of the navbar */
+    height: 80px;    
+    line-height: 80px;
 }
 
 a {
@@ -67,13 +67,13 @@ li a {
     text-decoration: none;
 }
 
-/* link becomes grey when the user hovers */
+/* box becomes grey when user hovers over*/
 li a:hover {
     background-color: #333;
 }
 
 
-/* lets users know what page they are on */
+/* indicates which page user is on - for later use */
 .active {
     background-color: #333;
 }
