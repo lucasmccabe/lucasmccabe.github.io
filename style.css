@@ -21,8 +21,8 @@ body {
 .navigation > a {
     display: inline-block;
     vertical-align: top;
-    margin- left: 615px;
-    margin-right: 231px;
+    margin- left: 824px;
+    margin-right: 308px;
     height: 80px;        /* if you want it to take the full height of the bar */
     line-height: 80px;    /* if you want it vertically middle of the navbar */
 }
