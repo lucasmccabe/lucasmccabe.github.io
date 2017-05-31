@@ -73,7 +73,7 @@ li a:hover {
 }
 
 
-/* indicates which page user is on - for later use */
-.active {
+/* box becomes grey to show what page the user is on */
+li a:active {
     background-color: #333;
 }
