@@ -1,82 +1,3 @@
-body {
-	margin:0;
-	padding:0;
-	background: #333
-}
-
-.navigation {
-    text-align:center;
-    width: 100%;
-    height: 200px;
-    background-color: black; 
-}
-.logo {
-    display: inline-block;
-    vertical-align: bottom;
-    width: 475px;
-    height: 175px;
-    margin-right: 0px;
-    margin-top: 15px;
-}
-
-.navigation > a {
-    display: inline-block;
-    vertical-align: top;
-    margin- left: 824px;
-    margin-right: 308px;
-    height: 80px;    
-    line-height: 80px;
-}
-
-a {
-
-	text-decoration: none;
-	outline: 0;
-	color: 	#FFCC00;
-}
-
-a:hover {
-	text-decoration: bolder;
-	color: 	#FFCC00;
-	text-shadow: 0 0 5px #8b0000;
-}
-
-ul {
-  text-align:center;
-	position: left;
-  top: 0;
-  width: 100%;
-	list-style-type: none;
-	margin: auto;
-	padding: 0;
-	overflow: hidden;
-	background-color: #000;
-	font-size: 30px;
-}
-
-li {
-    text-align:center;
-    display: inline;
-}
-
-li a {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* box becomes grey when user hovers over*/
-li a:hover {
-    background-color: #333;
-}
-
-
-/* box becomes grey to show what page the user is on */
-li a:active {
-    background-color: #333;
-}
 
 body {
 	margin:0;
@@ -158,6 +79,8 @@ li a:active {
     background-color: #333;
 }
 
+
+/*blinking cursor for typed.js */
 .typed-cursor{
 	opacity: 1;
 	-webkit-animation: blink 0.7s infinite;
