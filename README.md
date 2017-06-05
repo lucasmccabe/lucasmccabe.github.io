@@ -1,6 +1,6 @@
 # lucasmccabe.github.io
 
-![alt text](https://github.com/lucasmccabe/header_name_cropped.jpg)
+![alt text](header_name_cropped.jpg)
 
 Personal web page
 
