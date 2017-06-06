@@ -102,3 +102,8 @@ li a:active {
 	50% { opacity:0; }
 	100% { opacity:1; }
 }
+
+/*Make the square floating image a circle*/
+.img-circle {
+    border-radius: 50%;
+}
