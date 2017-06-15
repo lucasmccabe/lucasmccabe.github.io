@@ -161,7 +161,7 @@ p:after {
 	animation: cursor 1s infinite;
 }
 
-.font {
+.writing {
 	line-height: 2;
 	color: white;
 	font-family: monospace;
