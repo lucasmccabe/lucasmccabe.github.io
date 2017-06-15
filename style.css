@@ -103,8 +103,10 @@ li a:active {
 	100% { opacity:1; }
 }
 
-/*Make the square floating image a circle*/
+/*Make the avatar a circle*/
 .img-circle {
+	display: inline-block;
+	vertical-align: bottom;
 	border-radius: 50%;
 }
 
