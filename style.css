@@ -111,6 +111,7 @@ li a:active {
 }
 
 .content {
+	display:inline-block;
 	font-family: "Lucida Sans Unicode";
 	font-style: normal;
 	font-variant: normal;
