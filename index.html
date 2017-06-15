@@ -48,24 +48,22 @@
 			>>> print greeting <br>
 			Hi, I'm Lucas. <br>
 			>>> print desc_edu <br>
-			I study math and computer science at <a href="http://www.rutgers.edu/">Rutgers University</a>.<br>
+			I study math, computer science, and biology at Rutgers University.<br>
 			>>> print desc_research <br>
 			I conduct bioinformatics research under Dr. Prabhas V. Moghe, studying oncogenetics and stem cell differentiation.<br>
 			>>> print interests <br>
 			My interests include machine learning, in vitro diagnostics, and big data analytics.
 		
-		<!-- JQuery -->
+		<!--typed.js in terminal window -->	
 		<script src="jquery.js"></script>
-
-		<!-- typed.js -->
 		<script src="typed.js"></script>
 		<script>
 			$(function(){
 				$("#element").typed({
-					strings: ["$ python <br>>>> print greeting <br>Hi, I'm Lucas. <br>>>> print desc_edu <br>I study math and computer science at Rutgers University.<br>>>> print desc_research <br>I conduct bioinformatics research under Dr. Prabhas V. Moghe, studying oncogenetics and stem cell differentiation.<br>>>> print interests <br>My interests include machine learning, in vitro diagnostics, and big data analytics."],
-					typeSpeed: 100,
+					strings: ["$ python <br>>>> print greeting <br>Hi, I'm Lucas. <br>>>> print desc_edu <br>I study math, computer science, and biology at Rutgers University.<br>>>> print desc_research <br>I conduct bioinformatics research under Dr. Prabhas V. Moghe, studying oncogenetics and stem cell differentiation.<br>>>> print interests <br>My interests include machine learning, in vitro diagnostics, and big data analytics."],
+					typeSpeed: 125,
 					backDelay: 500,
-					showCursor: true,
+					showCursor: false,
 					loopCount: false
 				});
 			});
@@ -73,18 +71,5 @@
 		
 		</p>
 	</div>
-	
-	<!--This part will be implementing typed.js for a greeting. Finish later.
-	<script src="jquery.js"></script>
-	<script src="typed.js"></script>
-	<script>
-		$(function(){
-			$(".element").typed({
-				strings: ["Hi, I'm Lucas."],
-				typeSpeed: 0
-			});
-		});
-	</script>
-	-->
 
 </html>
