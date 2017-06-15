@@ -79,30 +79,6 @@ li a:active {
 	background-color: #333;
 }
 
-
-/*blinking cursor for typed.js */
-.typed-cursor{
-	opacity: 1;
-	-webkit-animation: blink 0.7s infinite;
-	-moz-animation: blink 0.7s infinite;
-	animation: blink 0.7s infinite;
-}
-@keyframes blink{
-	0% { opacity:1; }
-	50% { opacity:0; }
-	100% { opacity:1; }
-}
-@-webkit-keyframes blink{
-	0% { opacity:1; }
-	50% { opacity:0; }
-	100% { opacity:1; }
-}
-@-moz-keyframes blink{
-	0% { opacity:1; }
-	50% { opacity:0; }
-	100% { opacity:1; }
-}
-
 /*Make the avatar a circle*/
 .img-circle {
 	display: inline-block;
@@ -119,10 +95,6 @@ li a:active {
 	line-height: 1.5;
 }
 
-body {
-	background-color: black;
-}
-
 #control {
 	text-align: center;
 	width: 750px;
@@ -132,16 +104,6 @@ body {
 	font-family: monospace;
 	float: none;
 	border-radius: 5px;
-}
-
-p {
-	margin-left: 15px;
-}
-
-p:after {
-	content: "_";
-	opacity: 0;
-	animation: cursor 1s infinite;
 }
 
 #close {
@@ -189,6 +151,16 @@ p:after {
 	border-radius: 5px;
 }
 
+p {
+	margin-left: 15px;
+}
+
+p:after {
+	content: "_";
+	opacity: 0;
+	animation: cursor 1s infinite;
+}
+
 .font {
 	line-height: 2;
 	color: white;
@@ -198,6 +170,7 @@ p:after {
 	position: static;
 }
 
+/*blinking cursor for terminal text */
 @keyframes cursor {
 	0% {
 		opacity: 0;
@@ -214,4 +187,27 @@ p:after {
 	100% {
 		opacity: 0;
 	}
+}
+
+/*blinking cursor for typed.js */
+.typed-cursor{
+	opacity: 1;
+	-webkit-animation: blink 0.7s infinite;
+	-moz-animation: blink 0.7s infinite;
+	animation: blink 0.7s infinite;
+}
+@keyframes blink{
+	0% { opacity:1; }
+	50% { opacity:0; }
+	100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+	0% { opacity:1; }
+	50% { opacity:0; }
+	100% { opacity:1; }
+}
+@-moz-keyframes blink{
+	0% { opacity:1; }
+	50% { opacity:0; }
+	100% { opacity:1; }
 }
