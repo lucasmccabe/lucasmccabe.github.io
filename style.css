@@ -95,6 +95,10 @@ li a:active {
 	line-height: 1.5;
 }
 
+body {
+	background-color: black;
+}
+
 #control {
 	text-align: center;
 	width: 750px;
