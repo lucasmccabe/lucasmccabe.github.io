@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		
-		<!-- Font Awesome pictographic icons-->
+		<!-- Font Awesome pictographic icons -->
   		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		
 		<title>Lucas McCabe</title>
@@ -29,36 +29,34 @@
 	
 	</nav>
 	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	<!--ugly spacing -->
+	<br><br><br><br>
 	
-	<!--profile picture -->
-	<div>
-		<img class="img-circle" src="avatar.jpg" hspace="200" style="width:250; height:250;">
+	<!--control bar for terminal -->
+	<div id="control">
+		<div id="close">
+		</div>
+		<div id="minimize">
+		</div>
+		<div id="enlarge">
+		</div>
 	</div>
 	
-	<br>
-	<br>
-	<br>
-	
-	<!--brief bio -->
-	<div class="content">
-		<h1 class="title">Hi, I'm Lucas.</h1>
-
-		<p>
+	<!-- actual terminal window -->
+	<div id="window">
+		<p class="font">$ python <br>
+			>>> print greeting <br>
+			Hi, I'm Lucas. <br>
+			>>> print desc_edu <br>
 			I study math and computer science at <a href="http://www.rutgers.edu/">Rutgers University</a>.<br>
+			>>> print desc_research <br>
 			I conduct bioinformatics research in the <a href="http://moghe3.wixsite.com/rutgers">Moghe Lab</a>.<br>
+			>>> print interests <br>
 			My interests include machine learning, in vitro diagnostics, and systems biology.
 		</p>
 	</div>
 	
-	<!--This part will be implementing typed.js for a greeting. Finish later.-->
+	<!--This part will be implementing typed.js for a greeting. Finish later.
 	<script src="jquery.js"></script>
 	<script src="typed.js"></script>
 	<script>
@@ -69,5 +67,6 @@
 			});
 		});
 	</script>
+	--->
 
 </html>
