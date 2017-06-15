@@ -112,4 +112,6 @@ li a:active {
 	font-family: "Lucida Sans Unicode";
 	font-style: normal;
 	font-variant: normal;
+	color: white;
+	line-height: 1.5
 }
