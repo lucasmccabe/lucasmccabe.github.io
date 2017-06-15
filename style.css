@@ -118,3 +118,100 @@ li a:active {
 	color: white;
 	line-height: 1.5;
 }
+
+body {
+	background-color: black;
+}
+
+#control {
+	text-align: center;
+	width: 750px;
+	height: 25px;
+	background-color: #999;
+	margin: auto;
+	font-family: monospace;
+	float: none;
+	border-radius: 5px;
+}
+
+p {
+	margin-left: 15px;
+}
+
+p:after {
+	content: "_";
+	opacity: 0;
+	animation: cursor 1s infinite;
+}
+
+#close {
+	background-color: red;
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	margin: auto;
+	left: -352px;
+	bottom: -20%;
+	position: relative;
+}
+
+#minimize {
+	display: block;
+	background-color: #FFCC00;
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	margin: auto;
+	left: -330px;
+	bottom: 40%;
+	position: relative;
+
+}
+
+#enlarge {
+	background-color: green;
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	margin: 0 auto;
+	left: -308px;
+	bottom: 99%;
+	position:relative;
+	display: block;
+}
+
+#window {
+	background-color: #333;
+	width: 750px;
+	height: 380px;
+	margin: 0 auto;
+	padding: 1px;
+	border-radius: 5px;
+}
+
+.font {
+	line-height: 2;
+	color: white;
+	font-family: monospace;
+	font-size: 17px;
+	text-align: left;
+	position: static;
+}
+
+@keyframes cursor {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
