@@ -15,10 +15,11 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	
-	<!--navigation bar with header and links -->
+	<!--navigation bar -->
 	<nav class="navigation">
 		<img class="logo" src="header_name_cropped.jpg">
 		
+		<!--link icons -->
 		<ul>	
       			<li><a href="resume.html"><i class="fa fa-file-pdf-o"></i></a></li>
      			<li><a href="mailto:lucas.mccabe@rutgers.edu"><i class="fa fa-paper-plane"></i></a></li>
@@ -34,6 +35,7 @@
 	
 	<!--control bar for terminal -->
 	<div id="control">
+		<!-- Mac OSX-style buttons -->
 		<div id="close">
 		</div>
 		<div id="minimize">
@@ -42,7 +44,7 @@
 		</div>
 	</div>
 	
-	<!-- actual terminal window -->
+	<!-- animated terminal window -->
 	<div id="window">
 		<p id="element" class="writing">$ python <br>
 			>>> print greeting <br>
@@ -54,21 +56,20 @@
 			>>> print interests <br>
 			My interests include machine learning, in vitro diagnostics, and big data analytics.
 		
-		<!--typed.js in terminal window -->	
-		<script src="jquery.js"></script>
-		<script src="typed.js"></script>
-		<script>
-			$(function(){
-				$("#element").typed({
-					strings: ["$ python <br>>>> print greeting <br>Hi, I'm Lucas. <br>>>> print desc_edu <br>I study math, computer science, and biology at Rutgers University.<br>>>> print desc_research <br>I conduct bioinformatics research under Dr. Prabhas V. Moghe, studying oncogenetics and stem cell differentiation.<br>>>> print interests <br>My interests include machine learning, in vitro diagnostics, and big data analytics."],
-					typeSpeed: 0,
-					showCursor: false,
-					loopCount: false
+			<!--using typed.js for typing animation in terminal window -->
+			<!--typed.js is by Matt Boldt: http://www.mattboldt.com/demos/typed-js/ -->
+			<script src="jquery.js"></script>
+			<script src="typed.js"></script>
+			<script>
+				$(function(){
+					$("#element").typed({
+						strings: ["$ python <br>>>> print greeting <br>Hi, I'm Lucas. <br>>>> print desc_edu <br>I study math, computer science, and biology at Rutgers University.<br>>>> print desc_research <br>I conduct bioinformatics research under Dr. Prabhas V. Moghe, studying oncogenetics and stem cell differentiation.<br>>>> print interests <br>My interests include machine learning, in vitro diagnostics, and big data analytics."],
+						typeSpeed: 0,
+						showCursor: false,
+						loopCount: false
+					});
 				});
-			});
-		</script>
-		
+			</script>
 		</p>
 	</div>
-
 </html>
