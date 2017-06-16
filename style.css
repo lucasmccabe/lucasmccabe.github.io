@@ -82,6 +82,7 @@ li a:active {
 	background-color: #333;
 }
 
+/* This is dead now, but I might use it later */
 /*Make the avatar a circle*/
 .img-circle {
 	display: inline-block;
@@ -140,7 +141,6 @@ body {
 	left: -330px;
 	bottom: 40%;
 	position: relative;
-
 }
 
 /* green enlarge button */
@@ -171,7 +171,7 @@ p {
 	margin-left: 15px;
 }
 
-/* blinking cursor at the end */
+/* cursor at the end of terminal text */
 p:after {
 	content: "_";
 	opacity: 0;
@@ -187,7 +187,7 @@ p:after {
 	position: static;
 }
 
-/*blinking cursor for terminal text */
+/* blinking animation for cursor */
 @keyframes cursor {
 	0% {
 		opacity: 0;
