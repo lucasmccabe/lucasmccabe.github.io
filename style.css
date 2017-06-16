@@ -1,16 +1,10 @@
-
 body {
 	margin:0;
 	padding:0;
 	background-color: black;
 }
 
-.navigation {
-	text-align:center;
-	width: 100%;
-	height: 200px;
-	background-color: black; 
-}
+/* header at the top */
 .logo {
 	display: inline-block;
 	vertical-align: bottom;
@@ -18,6 +12,14 @@ body {
 	height: 175px;
 	margin-right: 0px;
 	margin-top: 15px;
+}
+
+/* navigation bar with links */
+.navigation {
+	text-align:center;
+	width: 100%;
+	height: 200px;
+	background-color: black; 
 }
 
 .navigation > a {
@@ -36,6 +38,7 @@ a {
 	color: 	#FFCC00;
 }
 
+/* icons become gold with red shadow when user hovers over */
 a:hover {
 	text-decoration: bolder;
 	color: 	#FFCC00;
@@ -86,6 +89,7 @@ li a:active {
 	border-radius: 50%;
 }
 
+/* I think this is dead now. Consider deleting */
 .content {
 	display:inline-block;
 	font-family: "Lucida Sans Unicode";
@@ -99,6 +103,7 @@ body {
 	background-color: black;
 }
 
+/* grey control bar - Mac OSX style */
 #control {
 	text-align: center;
 	width: 750px;
@@ -110,6 +115,9 @@ body {
 	border-radius: 5px;
 }
 
+/* pretty, but non-functional buttons */
+
+/* red close button */
 #close {
 	background-color: red;
 	border-radius: 50%;
@@ -121,6 +129,7 @@ body {
 	position: relative;
 }
 
+/* yellow minimize button */
 #minimize {
 	display: block;
 	background-color: #FFCC00;
@@ -134,6 +143,7 @@ body {
 
 }
 
+/* green enlarge button */
 #enlarge {
 	background-color: green;
 	border-radius: 50%;
@@ -146,6 +156,7 @@ body {
 	display: block;
 }
 
+/* terminal window itself */
 #window {
 	background-color: #333;
 	width: 750px;
@@ -155,10 +166,12 @@ body {
 	border-radius: 5px;
 }
 
+/* brief description with python commands */
 p {
 	margin-left: 15px;
 }
 
+/* blinking cursor at the end */
 p:after {
 	content: "_";
 	opacity: 0;
@@ -191,27 +204,4 @@ p:after {
 	100% {
 		opacity: 0;
 	}
-}
-
-/*blinking cursor for typed.js */
-.typed-cursor{
-	opacity: 1;
-	-webkit-animation: blink 0.7s infinite;
-	-moz-animation: blink 0.7s infinite;
-	animation: blink 0.7s infinite;
-}
-@keyframes blink{
-	0% { opacity:1; }
-	50% { opacity:0; }
-	100% { opacity:1; }
-}
-@-webkit-keyframes blink{
-	0% { opacity:1; }
-	50% { opacity:0; }
-	100% { opacity:1; }
-}
-@-moz-keyframes blink{
-	0% { opacity:1; }
-	50% { opacity:0; }
-	100% { opacity:1; }
 }
