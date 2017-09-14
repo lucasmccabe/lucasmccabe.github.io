@@ -1,8 +1,6 @@
 # lucasmccabe.github.io
 
-![Header](header_name_cropped.jpg)
-
-Personal web page
+Personal homepage.
 
 ### To do:
 
