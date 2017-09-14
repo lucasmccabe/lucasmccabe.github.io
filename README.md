@@ -1,6 +1,6 @@
 # lucasmccabe.github.io
 
-Personal homepage.
+Personal homepage
 
 ### To do:
 
