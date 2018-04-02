@@ -47,13 +47,13 @@
 	<!-- animated terminal window -->
 	<div id="window">
 		<p id="element" class="writing">$ python <br>
-			>>> print greeting <br>
+			>>> print(greeting)<br>
 			Hi, I'm Lucas. <br>
-			>>> print desc_edu <br>
+			>>> print(desc_edu)<br>
 			I study math, computer science, and biology at Rutgers University.<br>
-			>>> print desc_research <br>
+			>>> print(desc_research)<br>
 			I conduct bioinformatics research under Dr. Prabhas V. Moghe, using machine learning to study stem cell mechanobiology.<br>
-			>>> print interests <br>
+			>>> print(interests)<br>
 			My interests include neuro-mimetic computing, natural language processing, data analytics, and computational diagnostics.
 		
 			<!--using typed.js for typing animation in terminal window -->
@@ -63,7 +63,7 @@
 			<script>
 				$(function(){
 					$("#element").typed({
-						strings: ["$ python <br>>>> print greeting <br>Hi, I'm Lucas. <br>>>> print desc_edu <br>I study math, computer science, and biology at Rutgers University.<br>>>> print desc_research <br>I conduct bioinformatics research under Dr. Prabhas V. Moghe, using machine learning to study stem cell mechanobiology.<br>>>> print interests <br>My interests include neuro-mimetic computing, natural language processing, data analytics, and computational diagnostics."],
+						strings: ["$ python <br>>>> print(greeting)<br>Hi, I'm Lucas. <br>>>> print(desc_edu)<br>I study math, computer science, and biology at Rutgers University.<br>>>> print(desc_research)<br>I conduct bioinformatics research under Dr. Prabhas V. Moghe, using machine learning to study stem cell mechanobiology.<br>>>> print(interests)<br>My interests include neuro-mimetic computing, natural language processing, data analytics, and computational diagnostics."],
 						typeSpeed: 0,
 						showCursor: false,
 						loopCount: false
