@@ -1,0 +1,200 @@
+body {
+	margin:0;
+	padding:0;
+	background-color: black;
+}
+
+/* header at the top */
+.logo {
+	display: inline-block;
+	vertical-align: bottom;
+	width: 475px;
+	height: 175px;
+	margin-right: 0px;
+	margin-top: 15px;
+}
+
+/* navigation bar with links */
+.navigation {
+	text-align:center;
+	width: 100%;
+	height: 200px;
+	background-color: black; 
+}
+
+.navigation > a {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 824px;
+	margin-right: 308px;
+	height: 80px;    
+	line-height: 80px;
+}
+
+a {
+
+	text-decoration: none;
+	outline: 0;
+	color: 	#FFCC00;
+}
+
+/* icons become gold with red shadow when user hovers over */
+a:hover {
+	text-decoration: bolder;
+	color: 	#FFCC00;
+	text-shadow: 0 0 5px #8b0000;
+}
+
+ul {
+	text-align:center;
+	position: left;
+ 	top: 0;
+	width: 100%;
+	list-style-type: none;
+	margin: auto;
+	padding: 0;
+	overflow: hidden;
+	background-color: #000;
+	font-size: 30px;
+}
+
+li {
+	text-align:center;
+	display: inline;
+}
+
+li a {
+	display: inline-block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+/* box becomes grey when user hovers over*/
+li a:hover {
+	background-color: #333;
+}
+
+
+/* box becomes grey to show what page the user is on */
+li a:active {
+	background-color: #333;
+}
+
+
+/* I think this is dead now. Delete later */
+.content {
+	display:inline-block;
+	font-family: "Lucida Sans Unicode";
+	font-style: normal;
+	font-variant: normal;
+	color: white;
+	line-height: 1.5;
+}
+
+body {
+	background-color: black;
+}
+
+/* grey control bar - Mac OSX style */
+#control {
+	text-align: center;
+	width: 750px;
+	height: 25px;
+	background-color: black;/*#999;*/
+	margin: auto;
+	font-family: monospace;
+	float: none;
+	border-radius: 5px;
+}
+
+/* pretty, but non-functional buttons */
+
+/* red close button */
+#close {
+	background-color: red;
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	margin: auto;
+	left: -352px;
+	bottom: -20%;
+	position: relative;
+}
+
+/* yellow minimize button */
+#minimize {
+	display: block;
+	background-color: #FFCC00;
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	margin: auto;
+	left: -330px;
+	bottom: 40%;
+	position: relative;
+}
+
+/* green enlarge button */
+#enlarge {
+	background-color: green;
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	margin: 0 auto;
+	left: -308px;
+	bottom: 99%;
+	position:relative;
+	display: block;
+}
+
+/* terminal window itself */
+#window {
+	background-color: black; /*#333;*/
+	width: 750px;
+	height: 475px;
+	margin: 0 auto;
+	padding: 1px;
+	border-radius: 5px;
+}
+
+/* brief bio */
+p {
+	margin-left: 15px;
+}
+
+/* cursor at the end of terminal text */
+p:after {
+	content: "_";
+	opacity: 0;
+	animation: cursor 1s infinite;
+}
+
+.writing {
+	line-height: 2;
+	color: white;
+	font-family: 'Open Sans';
+	font-size: 17px;
+	text-align: left;
+	position: static;
+}
+
+/* blinking animation for cursor */
+@keyframes cursor {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
