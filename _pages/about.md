@@ -2,23 +2,34 @@
 layout: about
 title: about
 permalink: /
-description: <a href="#">Affiliations</a>. Address. Contacts. Moto. Etc.
+description: Senior Data Scientist @ <a href="https://www.lmi.org/">LMI</a>.  Math Grad Student @ <a href="https://math.columbian.gwu.edu/">GWU</a>.
 
 profile:
   align: right
   image: prof_pic.jpg
   address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  #  <p>555 your office number</p>
+  #  <p>123 your address street</p>
+  #  <p>Your City, State 12345</p>
 
 news: true  # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com){:target="\_blank"}. You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+###### **Professional:**
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I am a senior data scientist at <a href="https://www.lmi.org/">LMI</a>, working on applied research sponsored by <a href="https://www.darpa.mil">DARPA</a>, <a href="https://www.nrl.navy.mil/">NRL</a>, and others.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/){:target="\_blank"} and [Academicons](https://jpswalsh.github.io/academicons/){:target="\_blank"}, like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+###### **Academic Interests:**
+
+Discrete mathematics, theoretical computer science, and computational statistics.
+
+###### **Background:**
+
+I wrote my master's thesis at <a href="https://engineering.jhu.edu/">Johns Hopkins</a> on node immunization with incomplete information, under the supervision of <a href="http://physiology.bs.jhmi.edu/department-member/thomas-b-woolf-professor/">Tom Woolf</a>.
+
+Before that, I earned my bachelor's degree in Mathematics and Computer Science at <a href="https://www.math.rutgers.edu/">Rutgers</a>, where I worked in the lab of <a href="https://bme.rutgers.edu/prabhas-v-moghe">Prabhas Moghe</a>.
+
+
+<!-- Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically. -->
