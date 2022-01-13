@@ -3,13 +3,11 @@ layout: page
 title: tusc
 description: 🐘 a Python library providing tools for combinatorial maths
 img: https://raw.githubusercontent.com/lucasmccabe/tusc/main/assets/elephant_header.png
-importance: 1
+importance: 2
 category: work
 ---
 
-
-
-[<a href="https://pypi.org/project/tusc/">PyPI</a>]  [<a href="https://github.com/lucasmccabe/tusc">GitHub</a>]  [<a href="https://tusc.readthedocs.io/en/latest/?badge=latest">Read the Docs</a>]
+[![PyPI version](https://badge.fury.io/py/tusc.svg)](https://badge.fury.io/py/tusc) [![Documentation Status](https://readthedocs.org/projects/tusc/badge/?version=latest)](https://tusc.readthedocs.io/en/latest/?badge=latest) [![Build Status](https://app.travis-ci.com/lucasmccabe/tusc.svg?branch=main)](https://app.travis-ci.com/lucasmccabe/tusc) [![Downloads](https://pepy.tech/badge/tusc)](https://pepy.tech/project/tusc) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/) [![GitHub version](https://badge.fury.io/gh/lucasmccabe%2Ftusc.svg)](https://badge.fury.io/gh/lucasmccabe%2Ftusc)
 
 ### Summary
 

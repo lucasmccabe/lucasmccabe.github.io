@@ -3,11 +3,16 @@ layout: page
 title: contagion
 description: 📦🦠 a Python package for node immunization and network contagion simulation
 img: https://raw.githubusercontent.com/lucasmccabe/contagion/master/images/carbon_snippet.png
-importance: 2
+importance: 3
 category: work
 ---
 
-[<a href="https://pypi.org/project/contagion/">PyPI</a>]  [<a href="https://github.com/lucasmccabe/contagion">GitHub</a>]  [<a href="https://contagion.readthedocs.io/en/latest/?badge=latest">Read the Docs</a>]
+[![PyPI version](https://badge.fury.io/py/contagion.svg)](https://badge.fury.io/py/contagion)
+[![Documentation Status](https://readthedocs.org/projects/contagion/badge/?version=latest)](https://contagion.readthedocs.io/en/latest/?badge=latest)
+[![Build Status](https://travis-ci.com/lucasmccabe/contagion.svg?branch=master)](https://travis-ci.com/lucasmccabe/contagion)
+[![Downloads](https://pepy.tech/badge/contagion)](https://pepy.tech/project/contagion)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+[![GitHub version](https://badge.fury.io/gh/lucasmccabe%2Fcontagion.svg)](https://badge.fury.io/gh/lucasmccabe%2Fcontagion)
 
 ### Summary
 
