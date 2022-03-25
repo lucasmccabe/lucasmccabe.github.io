@@ -7,12 +7,7 @@ importance: 3
 category: work
 ---
 
-[![PyPI version](https://badge.fury.io/py/contagion.svg)](https://badge.fury.io/py/contagion)
-[![Documentation Status](https://readthedocs.org/projects/contagion/badge/?version=latest)](https://contagion.readthedocs.io/en/latest/?badge=latest)
-[![Build Status](https://travis-ci.com/lucasmccabe/contagion.svg?branch=master)](https://travis-ci.com/lucasmccabe/contagion)
-[![Downloads](https://pepy.tech/badge/contagion)](https://pepy.tech/project/contagion)
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
-[![GitHub version](https://badge.fury.io/gh/lucasmccabe%2Fcontagion.svg)](https://badge.fury.io/gh/lucasmccabe%2Fcontagion)
+[![PyPI version](https://badge.fury.io/py/contagion.svg)](https://badge.fury.io/py/contagion) [![Documentation Status](https://readthedocs.org/projects/contagion/badge/?version=latest)](https://contagion.readthedocs.io/en/latest/?badge=latest) [![Build Status](https://travis-ci.com/lucasmccabe/contagion.svg?branch=master)](https://travis-ci.com/lucasmccabe/contagion) [![Downloads](https://pepy.tech/badge/contagion)](https://pepy.tech/project/contagion) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/) [![GitHub version](https://badge.fury.io/gh/lucasmccabe%2Fcontagion.svg)](https://badge.fury.io/gh/lucasmccabe%2Fcontagion)
 
 ### Summary
 
