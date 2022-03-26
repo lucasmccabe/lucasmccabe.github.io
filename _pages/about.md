@@ -19,12 +19,7 @@ social: true  # includes social icons at the bottom of the page
 
 ###### **Professional:**
 
-I'm a senior data scientist at <a href="https://www.lmi.org/">LMI</a>, working on applied research sponsored by <a href="https://www.darpa.mil">DARPA</a>, <a href="https://www.nrl.navy.mil/">NRL</a>, and others. I'm also a grad student at <a href="https://math.columbian.gwu.edu/">GWU</a>, particularly focused on discrete and applied mathematics.
-
-
-###### **Academic Interests:**
-
-Graphs, algorithms, and inference.
+I'm a senior data scientist at <a href="https://www.lmi.org/">LMI</a>, working on applied research sponsored by <a href="https://www.darpa.mil">DARPA</a>, <a href="https://www.nrl.navy.mil/">NRL</a>, and others. I'm also a grad student at <a href="https://math.columbian.gwu.edu/">GWU</a>, particularly focused on discrete and applied mathematics. I have broad interests involving discrete math, computational stats, and EconCS.
 
 ###### **Background:**
 
