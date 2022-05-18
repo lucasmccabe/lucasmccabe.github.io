@@ -19,13 +19,13 @@ social: true  # includes social icons at the bottom of the page
 
 ###### **Professional:**
 
-I'm a senior data scientist at <a href="https://www.lmi.org/">LMI</a>, working on applied research sponsored by <a href="https://www.darpa.mil">DARPA</a>, <a href="https://www.nrl.navy.mil/">NRL</a>, and others. I'm also a grad student at <a href="https://math.columbian.gwu.edu/">GWU</a>, particularly focused on discrete and applied mathematics. I have broad interests involving discrete math and computational stats.
+I'm a senior data scientist at <a href="https://www.lmi.org/">LMI</a>, working on applied research sponsored by <a href="https://www.darpa.mil">DARPA</a>, <a href="https://www.nrl.navy.mil/">NRL</a>, and others. I'm also a grad student at <a href="https://math.columbian.gwu.edu/">GWU</a>, particularly focused on discrete and applied mathematics.
 
 ###### **Background:**
 
 I wrote my master's thesis at <a href="https://engineering.jhu.edu/">Johns Hopkins</a> on node immunization with incomplete information, under the supervision of <a href="https://www.hopkinsmedicine.org/research/labs/tom-woolf-lab">Tom Woolf</a>.
 
-Before that, I earned my bachelor's degree in Mathematics and Computer Science at <a href="https://www.math.rutgers.edu/">Rutgers</a> and developed computational tools for biological applications in the lab of <a href="https://bme.rutgers.edu/prabhas-v-moghe">Prabhas Moghe</a>.
+Before that, I studied math and computer science at <a href="https://www.math.rutgers.edu/">Rutgers</a> and developed computational tools for biological applications in the lab of <a href="https://bme.rutgers.edu/prabhas-v-moghe">Prabhas Moghe</a>.
 
 
 <!-- Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically. -->

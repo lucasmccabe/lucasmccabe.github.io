@@ -1,7 +1,7 @@
 ---
 layout: page
 title: tusc
-description: 🐘 a Python library providing tools for combinatorial maths
+description: 🐘 tools for combinatorial maths
 img: https://raw.githubusercontent.com/lucasmccabe/tusc/main/assets/elephant_header.png
 importance: 2
 category: work
