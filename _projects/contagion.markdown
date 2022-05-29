@@ -1,7 +1,7 @@
 ---
 layout: page
 title: contagion
-description: 📦🦠 a Python package for node immunization and network contagion simulation
+description: Python package for node immunization and network contagion simulation
 img: https://raw.githubusercontent.com/lucasmccabe/contagion/master/images/carbon_snippet.png
 importance: 3
 category: work
