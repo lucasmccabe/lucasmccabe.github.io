@@ -12,7 +12,9 @@ category: work
 
 ### Overview of Contributions
 
-<a href="https://github.com/networkx/networkx/pull/5675">#5265</a>: implements the <a href="https://en.wikipedia.org/wiki/Chromatic_polynomial">chromatic polynomial</a>.
+Currently focused on building out the graph polynomials module:
+
+<a href="https://github.com/networkx/networkx/pull/5675">#5675</a>: implements the <a href="https://en.wikipedia.org/wiki/Chromatic_polynomial">chromatic polynomial</a>.
 
 <a href="https://github.com/networkx/networkx/pull/5397">#5397</a>: modifies the <a href="https://arxiv.org/abs/1209.0700">fast bridge-finding algorithm</a> to accommodate multigraphs.
 
