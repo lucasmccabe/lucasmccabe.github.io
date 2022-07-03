@@ -3,7 +3,7 @@ layout: page
 permalink: /talks/
 title: talks
 description: research presentations, etc.
-years: [2021, 2020]
+years: [2022, 2021, 2020]
 nav: true
 ---
 

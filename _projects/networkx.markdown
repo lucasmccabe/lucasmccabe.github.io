@@ -1,7 +1,7 @@
 ---
 layout: page
 title: NetworkX
-description: contributions to package for studying complex networks
+description: contributions to network science software
 img: https://raw.githubusercontent.com/networkx/networkx.github.io/c3942ae93687b71feed30e1b9abe92a69d10b420/_static/networkx_logo.svg
 importance: 1
 category: work
@@ -13,6 +13,8 @@ category: work
 ### Overview of Contributions
 
 Currently focused on building out the graph polynomials module:
+
+<a href="https://github.com/networkx/networkx/pull/5730">#5730</a>: <a href="https://en.wikipedia.org/wiki/Characteristic_polynomial">characteristic polynomial</a> example.
 
 <a href="https://github.com/networkx/networkx/pull/5675">#5675</a>: implements the <a href="https://en.wikipedia.org/wiki/Chromatic_polynomial">chromatic polynomial</a>.
 
