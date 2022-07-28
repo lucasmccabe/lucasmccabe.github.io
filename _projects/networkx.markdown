@@ -1,7 +1,7 @@
 ---
 layout: page
 title: NetworkX
-description: contributions to network science software
+description: software for network analysis and graph algorithms
 img: https://raw.githubusercontent.com/networkx/networkx.github.io/c3942ae93687b71feed30e1b9abe92a69d10b420/_static/networkx_logo.svg
 importance: 1
 category: work
@@ -12,7 +12,7 @@ category: work
 
 ### Overview of Contributions
 
-Currently focused on building out the graph polynomials module:
+<a href="https://github.com/networkx/networkx/pull/5305">#5305</a>: extends <a href="https://networkx.org/documentation/stable/reference/algorithms/distance_measures.html">distance measures</a> module to handle weighted graphs and user-specified weight functions.
 
 <a href="https://github.com/networkx/networkx/pull/5730">#5730</a>: <a href="https://en.wikipedia.org/wiki/Characteristic_polynomial">characteristic polynomial</a> example.
 
