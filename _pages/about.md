@@ -8,9 +8,9 @@ profile:
   align: right
   image: prof_pic.jpg
   address: >
-  #  <p>555 your office number</p>
-  #  <p>123 your address street</p>
-  #  <p>Your City, State 12345</p>
+    <p>GWU Math: 801 22nd St. NW</p>
+    <p>󠁤󠁣󠁿󠁳Washington, DC 20052󠁣</p>
+
 
 news: true  # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
