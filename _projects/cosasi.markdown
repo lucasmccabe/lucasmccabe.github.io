@@ -3,11 +3,12 @@ layout: page
 title: cosasi
 description: COntagion Simulation And Source Identification
 img: https://raw.githubusercontent.com/lmiconsulting/cosasi/main/docs/_assets/grasshopper.png
-importance: 2
+importance: 1
 category: work
 ---
 
 [![PyPI version](https://badge.fury.io/py/cosasi.svg)](https://badge.fury.io/py/cosasi) [![Documentation Status](https://readthedocs.org/projects/cosasi/badge/?version=latest)](https://cosasi.readthedocs.io/en/latest/?badge=latest) [![Downloads](https://pepy.tech/badge/cosasi)](https://pepy.tech/project/cosasi) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/) [![GitHub version](https://badge.fury.io/gh/lmiconsulting%2Fcosasi.svg)](https://badge.fury.io/gh/lmiconsulting%2Fcosasi)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ### Summary
 
