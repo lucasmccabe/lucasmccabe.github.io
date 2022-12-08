@@ -7,7 +7,7 @@ importance: 2
 category: work
 ---
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://lucasmccabe-emailgpt-app-jspyxu.streamlit.app/) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://lucasmccabe-emailgpt-app-jspyxu.streamlit.app/) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![GitHub version](https://badge.fury.io/gh/lucasmccabe%2Femailgpt.svg)](https://badge.fury.io/gh/lucasmccabe%2Femailgpt) ![GitHub Repo stars](https://img.shields.io/github/stars/lucasmccabe/emailGPT?style=social)
 
 # Summary
 
@@ -34,7 +34,7 @@ category: work
 If you're using the [`Streamlit`](https://lucasmccabe-emailgpt-app-jspyxu.streamlit.app/) app, no installation is necessary. Otherwise:
 
 ##### Installation via GitHub
-Clone the repo from [here](https://github.com/lucasmccabe/emailGPT) (this repo).
+Clone the repo from [here](https://github.com/lucasmccabe/emailGPT).
 
 Install requirements:
 ```bash
