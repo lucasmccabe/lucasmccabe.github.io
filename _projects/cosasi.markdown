@@ -7,8 +7,7 @@ importance: 1
 category: work
 ---
 
-[![PyPI version](https://badge.fury.io/py/cosasi.svg)](https://badge.fury.io/py/cosasi) [![Documentation Status](https://readthedocs.org/projects/cosasi/badge/?version=latest)](https://cosasi.readthedocs.io/en/latest/?badge=latest) [![Downloads](https://pepy.tech/badge/cosasi)](https://pepy.tech/project/cosasi) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/) [![GitHub version](https://badge.fury.io/gh/lmiconsulting%2Fcosasi.svg)](https://badge.fury.io/gh/lmiconsulting%2Fcosasi)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PyPI version](https://badge.fury.io/py/cosasi.svg)](https://badge.fury.io/py/cosasi) [![Documentation Status](https://readthedocs.org/projects/cosasi/badge/?version=latest)](https://cosasi.readthedocs.io/en/latest/?badge=latest) [![Downloads](https://pepy.tech/badge/cosasi)](https://pepy.tech/project/cosasi) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/) [![GitHub version](https://badge.fury.io/gh/lmiconsulting%2Fcosasi.svg)](https://badge.fury.io/gh/lmiconsulting%2Fcosasi) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![DOI](https://zenodo.org/badge/541174642.svg)](https://zenodo.org/badge/latestdoi/541174642) [![JOSS](https://joss.theoj.org/papers/10.21105/joss.04894/status.svg)](https://doi.org/10.21105/joss.04894)
 
 ### Summary
 
@@ -53,6 +52,31 @@ To read the .coverage file:
     coverage report
 ```
 
+## Citing
+
+If you found `cosasi` helpful in your work, please consider citing it with:
+
+```bibtex
+@article{McCabe2022joss,
+  doi = {10.21105/joss.04894},
+  url = {https://doi.org/10.21105/joss.04894},
+  year = {2022},
+  publisher = {The Open Journal},
+  volume = {7},
+  number = {80},
+  pages = {4894},
+  author = {Lucas H. McCabe},
+  title = {cosasi: Graph Diffusion Source Inference in Python},
+  journal = {Journal of Open Source Software}
+}
+```
+
+McCabe, L. H., (2022). cosasi: Graph Diffusion Source Inference in Python. Journal of Open Source Software, 7(80), 4894, https://doi.org/10.21105/joss.04894
+
+
 ## Support
 
 `cosasi` was developed in [Forge](https://www.lmi.org/forge), the technology accelerator of the [Logistics Management Institute](https://www.lmi.org/about-lmi).
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
