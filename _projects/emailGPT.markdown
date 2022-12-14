@@ -13,6 +13,8 @@ category: work
 
 `emailGPT` is a quick and easy interface to generate emails with [ChatGPT](https://openai.com/blog/chatgpt/). To try it out, click the "Open in Streamlit" button above, or click [here](https://lucasmccabe-emailgpt-app-jspyxu.streamlit.app/).
 
+> Note: This Streamlit app is no longer functional, after OpenAI added Cloudflare protections to their API (12/12/2022)
+
 ## Examples
 
 <img src="https://raw.githubusercontent.com/lucasmccabe/emailGPT/main/assets/vader.png" alt="vader" width="500"/>
