@@ -2,7 +2,7 @@
 layout: page
 title: code
 permalink: /code/
-description: See <a href="https://github.com/lucasmccabe">my GitHub</a> for more.
+description: see <a href="https://github.com/lucasmccabe">GitHub</a> for more.
 nav: true
 #display_categories: [work, fun]
 horizontal: false
