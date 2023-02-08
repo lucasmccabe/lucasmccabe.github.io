@@ -3,7 +3,7 @@ layout: page
 title: tusc
 description: tools for combinatorial maths
 img: https://raw.githubusercontent.com/lucasmccabe/tusc/main/assets/elephant_header.png
-importance: 3
+importance: 998
 category: work
 ---
 

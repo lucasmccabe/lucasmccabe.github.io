@@ -3,7 +3,7 @@ layout: page
 title: emailGPT
 description: a quick and easy interface to generate emails with ChatGPT
 img: https://raw.githubusercontent.com/lucasmccabe/emailGPT/main/assets/lazy_email.png
-importance: 2
+importance: 997
 category: work
 ---
 

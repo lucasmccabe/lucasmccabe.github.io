@@ -3,7 +3,7 @@ layout: page
 title: rundown
 description: 🏃‍♀️ a Twitter bot providing on-demand NLP features to newsreaders
 img: https://raw.githubusercontent.com/lucasmccabe/rundown/main/img/logo_large.png
-importance: 6
+importance: 1000
 category: work
 ---
 
