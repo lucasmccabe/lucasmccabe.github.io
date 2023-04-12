@@ -2,13 +2,13 @@
 layout: about
 title: about
 permalink: /
-description: Senior Data Scientist @ <a href="https://www.lmi.org/">LMI</a>.  Math Grad Student @ <a href="https://math.columbian.gwu.edu/">GWU</a>.
+description: Principal Data Scientist @ <a href="https://www.lmi.org/">LMI</a>.  Math Grad Student @ <a href="https://math.columbian.gwu.edu/">GW</a>.
 
 profile:
   align: right
   image: prof_pic.jpg
   address: >
-    <p>GWU Math: 801 22nd St. NW</p>
+    <p>GW Math: 801 22nd St. NW</p>
     <p>󠁤󠁣󠁿󠁳Washington, DC 20052󠁣</p>
 
 
@@ -17,15 +17,15 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-###### **Professional:**
+###### **Present:**
 
-I'm a data scientist at <a href="https://www.lmi.org/">LMI</a>, working on applied research sponsored by <a href="https://www.darpa.mil">DARPA</a>, <a href="https://www.nrl.navy.mil/">NRL</a>, and others. I'm also a graduate student at <a href="https://math.columbian.gwu.edu/">GWU</a>, focused on discrete and applied mathematics.
+I'm an R&D data scientist at <a href="https://www.lmi.org/">LMI</a>, working on machine learning, graph algorithms, and simulation. Beginning Fall 2023, I will be an <a href="https://www.cs.seas.gwu.edu/algorithms-and-theory">algorithms and theory</a> PhD student at <a href="https://www.cs.seas.gwu.edu">GW CS</a>.
 
-###### **Background:**
+###### **Past:**
 
-I wrote my master's thesis at <a href="https://engineering.jhu.edu/">Johns Hopkins</a> on node immunization with incomplete information, under the supervision of <a href="https://www.hopkinsmedicine.org/research/labs/tom-woolf-lab">Tom Woolf</a>.
+I wrote my master's thesis at <a href="https://engineering.jhu.edu/">Johns Hopkins</a> on node immunization with incomplete information, under the supervision of <a href="https://www.hopkinsmedicine.org/research/labs/tom-woolf-lab">Tom Woolf</a>. After that, I completed additional graduate coursework in mathematics at <a href="https://math.columbian.gwu.edu/">GW</a>.
 
-Before that, I studied math and computer science at <a href="https://www.math.rutgers.edu/">Rutgers</a> and developed computational tools for biological applications in the lab of <a href="https://bme.rutgers.edu/prabhas-v-moghe">Prabhas Moghe</a>.
+Previously, I studied math and computer science at <a href="https://www.math.rutgers.edu/">Rutgers</a> and developed computational tools for biological applications in the <a href="https://bme.rutgers.edu/prabhas-v-moghe">Moghe Lab</a>.
 
 
 <!-- Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically. -->
