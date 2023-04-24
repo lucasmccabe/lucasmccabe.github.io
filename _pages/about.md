@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-description: Principal Data Scientist @ <a href="https://www.lmi.org/">LMI</a>.  Math Grad Student @ <a href="https://math.columbian.gwu.edu/">GW</a>.
+description: Principal Data Scientist @ <a href="https://www.lmi.org/">LMI</a>.  Grad Student @ <a href="https://math.columbian.gwu.edu/">GW</a>.
 
 profile:
   align: right
@@ -19,7 +19,7 @@ social: true  # includes social icons at the bottom of the page
 
 ###### **Present:**
 
-I'm an R&D data scientist at <a href="https://www.lmi.org/">LMI</a>, working on machine learning, graph algorithms, and simulation. Beginning Fall 2023, I will be an <a href="https://www.cs.seas.gwu.edu/algorithms-and-theory">algorithms and theory</a> PhD student at <a href="https://www.cs.seas.gwu.edu">GW CS</a>.
+I'm an R&D data scientist at <a href="https://www.lmi.org/">LMI</a>, working on machine learning, graph algorithms, and simulation. Beginning Fall 2023, I will be an <a href="https://www.cs.seas.gwu.edu/algorithms-and-theory">algorithms and theory</a> PhD student at <a href="https://www.cs.seas.gwu.edu">GW CS</a>, advised by <a href="https://www2.seas.gwu.edu/~howie/">Howie Huang</a>.
 
 ###### **Past:**
 
