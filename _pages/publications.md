@@ -1,8 +1,8 @@
 ---
 layout: page
-permalink: /publications/
-title: publications
-description: articles, proceedings, preprints, etc.
+permalink: /papers/
+title: papers
+description: See <a href="https://scholar.google.com/citations?user=fXWneGkAAAAJ&hl=en">Google Scholar</a> for more.
 years: [2023, 2022, 2017, 2016]
 nav: true
 ---

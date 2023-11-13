@@ -8,7 +8,8 @@ profile:
   align: right
   image: prof_pic.jpg
   address: >
-    <p>GraphLab: 800 22nd St. NW</p>
+    <p>Graph Computing Lab</p>
+    <p>800 22nd St. NW</p>
     <p>󠁤󠁣󠁿󠁳Washington, DC 20052󠁣</p>
 
 
@@ -18,11 +19,11 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 ###### **Present:**
-I am an R&D data scientist at <a href="https://www.lmi.org/">LMI</a> and an <a href="https://www.cs.seas.gwu.edu/algorithms-and-theory">algorithms and theory</a> PhD student at <a href="https://www.cs.seas.gwu.edu">GW</a>, advised by <a href="https://www2.seas.gwu.edu/~howie/">Howie Huang</a>. My work involves machine learning, graph algorithms, network science, and simulation.
+I am an R&D data scientist at <a href="https://www.lmi.org/">LMI</a> and an <a href="https://www.cs.seas.gwu.edu/algorithms-and-theory">algorithms and theory</a> PhD student at <a href="https://www.cs.seas.gwu.edu">GW</a>, advised by <a href="https://www2.seas.gwu.edu/~howie/">Howie Huang</a>. I am broadly interested in graphs, algorithms, and inference.
 
 ###### **Past:**
 
-I wrote my master's thesis at <a href="https://engineering.jhu.edu/">Johns Hopkins</a> on node immunization with incomplete information, under the supervision of <a href="https://www.hopkinsmedicine.org/research/labs/tom-woolf-lab">Tom Woolf</a>. After that, I completed additional graduate coursework in mathematics at <a href="https://math.columbian.gwu.edu/">GW</a>.
+I wrote my master's thesis at <a href="https://engineering.jhu.edu/">Johns Hopkins</a> on node immunization with incomplete information, under the supervision of <a href="https://www.hopkinsmedicine.org/research/labs/tom-woolf-lab">Tom Woolf</a>.
 
 Previously, I studied math and computer science at <a href="https://www.math.rutgers.edu/">Rutgers</a> and developed computational tools for biological applications in the <a href="https://bme.rutgers.edu/prabhas-v-moghe">Moghe Lab</a>.
 
