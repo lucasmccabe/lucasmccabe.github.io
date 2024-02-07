@@ -3,7 +3,7 @@ layout: page
 permalink: /papers/
 title: papers
 description: See <a href="https://scholar.google.com/citations?user=fXWneGkAAAAJ&hl=en">Google Scholar</a> for the most up-to-date listing.
-years: [2023, 2022, 2017, 2016]
+years: [2024, 2023, 2022, 2017, 2016]
 nav: true
 ---
 
