@@ -19,7 +19,7 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 ###### **Present:**
-I am an R&D data scientist at <a href="https://www.lmi.org/">LMI</a>, where I serve as technical lead for LLM-related efforts, such as <a href="https://www.lmi.org/capabilities/solutions/liger">LIGER</a>. I am also an <a href="https://www.cs.seas.gwu.edu/algorithms-and-theory">algorithms and theory</a> PhD student at <a href="https://www.cs.seas.gwu.edu">GW</a>, advised by <a href="https://www2.seas.gwu.edu/~howie/">Howie Huang</a>, where my work broadly pertains to graphs, algorithms, and inference.
+I am a data scientist at <a href="https://www.lmi.org/">LMI</a>, where I work on LLM-related efforts, such as <a href="https://www.lmi.org/capabilities/solutions/liger">LIGER</a>. I am also a CS PhD student at <a href="https://www.cs.seas.gwu.edu">GW</a>, advised by <a href="https://www2.seas.gwu.edu/~howie/">Howie Huang</a>.
 
 ###### **Past:**
 
