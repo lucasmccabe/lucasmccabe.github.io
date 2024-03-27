@@ -1,6 +1,6 @@
 ---
 layout: page
-title: software
+title: code
 permalink: /code/
 description: See <a href="https://github.com/lucasmccabe">GitHub</a> for more.
 nav: true
