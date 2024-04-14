@@ -1,13 +1,18 @@
 ---
 layout: page
 title: Juissie.jl
-description: 🥝 RAG for Julia!
+description: 🥝 A Julia-native semantic query engine
 img: https://raw.githubusercontent.com/Juissie-GW/Juissie.jl/main/assets/kiwi.png
 importance: 993
 category: work
 ---
 
+![GitHub Repo stars](https://img.shields.io/github/stars/Juissie-GW/Juissie.jl)
+![GitHub top language](https://img.shields.io/github/languages/top/Juissie-GW/Juissie.jl)
+
+
 # 🥝 [JUISSIE (JUlIa Semantic Search pIpelinE)](https://github.com/Juissie-GW/Juissie.jl)
+
 
 [Juissie](https://github.com/Juissie-GW/Juissie.jl) is a Julia-native semantic query engine. It can be used as a package in software development workflows, or via its desktop user interface.
 
