@@ -14,7 +14,7 @@ category: work
 # 🥝 [JUISSIE (JUlIa Semantic Search pIpelinE)](https://github.com/Juissie-GW/Juissie.jl)
 
 
-[Juissie](https://github.com/Juissie-GW/Juissie.jl) is a Julia-native semantic query engine. It can be used as a package in software development workflows, or via its desktop user interface.
+[Juissie](https://github.com/Juissie-GW/Juissie.jl) is a Julia-native semantic query engine. It can be used as a package in software development workflows, or via its desktop user interface. We can support both [commercial](#api-keys) and local [LLMs](#local-llms).
 
 Juissie was developed as a class project for *CSCI 6221: Advanced Software Paradigms* at [The George Washington University](https://cs.engineering.gwu.edu).
 
@@ -29,6 +29,7 @@ Juissie was developed as a class project for *CSCI 6221: Advanced Software Parad
 * [Tech Stack](#tech-stack)
 * [External Resources](#external-resources)
 * [Contact](#contact)
+* [License](#license)
 
 
 ## Getting Started
@@ -218,3 +219,12 @@ Questions? Reach out to our team:
 - Arthur Bacon ([@toon-leader-bacon](https://github.com/toon-leader-bacon), [email](mailto:ArthurBacon@NocabSoftware.com))
 - Alexey Iakovenko ([@AlexeyIakovenko](https://github.com/AlexeyIakovenko), [email](mailto:alexey@iakovenko.com))
 - Artin Yousefi ([@ArtinYousefi](https://github.com/ArtinYousefi), [email](mailto:artinyousefi@gwmail.gwu.edu))
+
+## License
+This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-by-nc].
+
+[![CC BY-NC 4.0][cc-by-nc-image]][cc-by-nc]
+
+[cc-by-nc]: https://creativecommons.org/licenses/by-nc/4.0/
+[cc-by-nc-image]: https://licensebuttons.net/l/by-nc/4.0/88x31.png
+[cc-by-nc-shield]: https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg
