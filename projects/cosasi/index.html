@@ -11,7 +11,7 @@
   Lucas H. McCabe
 
 
-  | blog
+  | cosasi
 
 </title>
 <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
@@ -37,7 +37,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦑</text></svg>">
 
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="canonical" href="/blog/">
+<link rel="canonical" href="/projects/cosasi/">
 
 <!-- JQuery -->
 <!-- jQuery -->
@@ -159,19 +159,82 @@
     <div class="container mt-5">
       <div class="post">
 
-  <div class="header-bar">
-    <h1></h1>
-    <h2></h2>
-  </div>
+  <header class="post-header">
+    <h1 class="post-title">cosasi</h1>
+    <p class="post-description">COntagion Simulation And Source Identification</p>
+  </header>
 
-  <!--
-  <ul class="post-list">
-    
-  </ul>
-  -->
+  <article>
+    <p><a href="https://badge.fury.io/py/cosasi"><img src="https://badge.fury.io/py/cosasi.svg" alt="PyPI version" /></a> <a href="https://cosasi.readthedocs.io/en/latest/?badge=latest"><img src="https://readthedocs.org/projects/cosasi/badge/?version=latest" alt="Documentation Status" /></a> <a href="https://pepy.tech/project/cosasi"><img src="https://pepy.tech/badge/cosasi" alt="Downloads" /></a> <a href="https://lbesson.mit-license.org/"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT license" /></a> <a href="https://badge.fury.io/gh/lmiconsulting%2Fcosasi"><img src="https://badge.fury.io/gh/lmiconsulting%2Fcosasi.svg" alt="GitHub version" /></a> <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black" /></a> <a href="https://zenodo.org/badge/latestdoi/541174642"><img src="https://zenodo.org/badge/541174642.svg" alt="DOI" /></a> <a href="https://doi.org/10.21105/joss.04894"><img src="https://joss.theoj.org/papers/10.21105/joss.04894/status.svg" alt="JOSS" /></a></p>
 
-  
+<h3 id="summary">Summary</h3>
 
+<p><code class="language-plaintext highlighter-rouge">cosasi</code> is a Python package for graph diffusion source localization, allowing users to:</p>
+
+<ul>
+  <li><strong>perform and evaluate</strong> source inference using standard techniques from literature,</li>
+  <li><strong>contribute</strong> innovative localization methods to a growing core library, and</li>
+  <li><strong>benchmark</strong> new techniques against a battery of comparable schemes.</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<h4 id="installation-via-pypi">Installation via PyPI</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>cosasi
+</code></pre></div></div>
+
+<h4 id="installation-via-github">Installation via GitHub</h4>
+<p>Clone the repo from <a href="https://github.com/lmiconsulting/cosasi">here</a>.</p>
+
+<p>Install requirements:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+</code></pre></div></div>
+
+<h2 id="getting-started">Getting Started</h2>
+<p>Once <code class="language-plaintext highlighter-rouge">cosasi</code> is installed, feel free to review our <a href="https://cosasi.readthedocs.io/en/latest/tutorial.html">tutorial</a> introducing major functionality. Official documentation, including a detailed <a href="https://cosasi.readthedocs.io/en/latest/apiref.html">API reference</a>, is available on <a href="https://cosasi.readthedocs.io/">Read the Docs</a>.</p>
+
+<h2 id="testing">Testing</h2>
+
+<p>Extensive unit testing is employed throughout, with ~97% code coverage.</p>
+
+<p>If you’ve cloned our repo from <a href="https://github.com/lmiconsulting/cosasi">GitHub</a>, you can cd into the root directory and run <a href="https://docs.pytest.org/en/7.1.x/contents.html">pytest</a> via <a href="https://coverage.readthedocs.io/en/6.3.2/">coverage</a>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    coverage run <span class="nt">-m</span> pytest
+</code></pre></div></div>
+
+<p>To read the .coverage file:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    coverage report
+</code></pre></div></div>
+
+<h2 id="citing">Citing</h2>
+
+<p>If you found <code class="language-plaintext highlighter-rouge">cosasi</code> helpful in your work, please consider citing it with:</p>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">McCabe2022joss</span><span class="p">,</span>
+  <span class="na">doi</span> <span class="p">=</span> <span class="s">{10.21105/joss.04894}</span><span class="p">,</span>
+  <span class="na">url</span> <span class="p">=</span> <span class="s">{https://doi.org/10.21105/joss.04894}</span><span class="p">,</span>
+  <span class="na">year</span> <span class="p">=</span> <span class="s">{2022}</span><span class="p">,</span>
+  <span class="na">publisher</span> <span class="p">=</span> <span class="s">{The Open Journal}</span><span class="p">,</span>
+  <span class="na">volume</span> <span class="p">=</span> <span class="s">{7}</span><span class="p">,</span>
+  <span class="na">number</span> <span class="p">=</span> <span class="s">{80}</span><span class="p">,</span>
+  <span class="na">pages</span> <span class="p">=</span> <span class="s">{4894}</span><span class="p">,</span>
+  <span class="na">author</span> <span class="p">=</span> <span class="s">{Lucas H. McCabe}</span><span class="p">,</span>
+  <span class="na">title</span> <span class="p">=</span> <span class="s">{cosasi: Graph Diffusion Source Inference in Python}</span><span class="p">,</span>
+  <span class="na">journal</span> <span class="p">=</span> <span class="s">{Journal of Open Source Software}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>McCabe, L. H., (2022). cosasi: Graph Diffusion Source Inference in Python. Journal of Open Source Software, 7(80), 4894, https://doi.org/10.21105/joss.04894</p>
+
+<h2 id="support">Support</h2>
+
+<p><code class="language-plaintext highlighter-rouge">cosasi</code> was developed in <a href="https://www.lmi.org/forge">Forge</a>, the technology accelerator of the <a href="https://www.lmi.org/about-lmi">Logistics Management Institute</a>.</p>
+
+<h2 id="license">License</h2>
+<p><a href="https://choosealicense.com/licenses/mit/">MIT</a></p>
+
+  </article>
 
 </div>
 

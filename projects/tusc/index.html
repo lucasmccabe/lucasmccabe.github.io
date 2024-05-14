@@ -11,7 +11,7 @@
   Lucas H. McCabe
 
 
-  | blog
+  | tusc
 
 </title>
 <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
@@ -37,7 +37,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦑</text></svg>">
 
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="canonical" href="/blog/">
+<link rel="canonical" href="/projects/tusc/">
 
 <!-- JQuery -->
 <!-- jQuery -->
@@ -159,19 +159,39 @@
     <div class="container mt-5">
       <div class="post">
 
-  <div class="header-bar">
-    <h1></h1>
-    <h2></h2>
-  </div>
+  <header class="post-header">
+    <h1 class="post-title">tusc</h1>
+    <p class="post-description">tools for combinatorial maths</p>
+  </header>
 
-  <!--
-  <ul class="post-list">
-    
-  </ul>
-  -->
+  <article>
+    <p><a href="https://badge.fury.io/py/tusc"><img src="https://badge.fury.io/py/tusc.svg" alt="PyPI version" /></a> <a href="https://tusc.readthedocs.io/en/latest/?badge=latest"><img src="https://readthedocs.org/projects/tusc/badge/?version=latest" alt="Documentation Status" /></a> <a href="https://app.travis-ci.com/lucasmccabe/tusc"><img src="https://app.travis-ci.com/lucasmccabe/tusc.svg?branch=main" alt="Build Status" /></a> <a href="https://pepy.tech/project/tusc"><img src="https://pepy.tech/badge/tusc" alt="Downloads" /></a> <a href="https://lbesson.mit-license.org/"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT license" /></a> <a href="https://badge.fury.io/gh/lucasmccabe%2Ftusc"><img src="https://badge.fury.io/gh/lucasmccabe%2Ftusc.svg" alt="GitHub version" /></a></p>
 
-  
+<h3 id="summary">Summary</h3>
 
+<p><code class="language-plaintext highlighter-rouge">tusc</code> is work-in-progress Python library providing tools for combinatorial maths (partially-ordered sets, graph polynomials, etc.). Documentation is available on <a href="https://tusc.readthedocs.io/en/latest/?badge=latest">Read the Docs</a>. You can install a preliminary version of <code class="language-plaintext highlighter-rouge">tusc</code> using <a href="https://pypi.org/project/tusc/">pip</a>.</p>
+
+<h3 id="example-usage">Example Usage</h3>
+
+<p>Create a <a href="https://en.wikipedia.org/wiki/Boolean_algebra_(structure)">Boolean lattice</a> B<sub>5</sub>, and check if it is an <a href="https://en.wikipedia.org/wiki/Eulerian_poset">Eulerian poset</a>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">examples</span> <span class="o">=</span> <span class="n">tusc</span><span class="p">.</span><span class="n">posets</span><span class="p">.</span><span class="nc">ExamplePosets</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">boolean_lattice</span> <span class="o">=</span> <span class="n">examples</span><span class="p">.</span><span class="nf">boolean_lattice</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">tusc</span><span class="p">.</span><span class="n">posets</span><span class="p">.</span><span class="nc">Poset</span><span class="p">(</span><span class="n">boolean_lattice</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nf">print</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="nf">is_Eulerian</span><span class="p">())</span>
+<span class="bp">True</span>
+</code></pre></div></div>
+
+<p>Compute the <a href="https://en.wikipedia.org/wiki/Tutte_polynomial">Tutte polynomial</a> for the cycle graph C<sub>5</sub>, and use it to find the number of <a href="https://en.wikipedia.org/wiki/Acyclic_orientation">acyclic orientations</a> of C<sub>5</sub>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">tutte_C5</span> <span class="o">=</span> <span class="n">tusc</span><span class="p">.</span><span class="n">graph</span><span class="p">.</span><span class="n">polynomial</span><span class="p">.</span><span class="nc">Tutte</span><span class="p">(</span><span class="n">nx</span><span class="p">.</span><span class="nf">cycle_graph</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nf">print</span><span class="p">(</span><span class="n">tutte_C5</span><span class="p">.</span><span class="n">polynomial</span><span class="p">)</span>
+<span class="sh">'</span><span class="s">x**4 + x**3 + x**2 + x + y</span><span class="sh">'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tutte_C5</span><span class="p">.</span><span class="nf">evaluate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="mi">30</span>
+</code></pre></div></div>
+
+  </article>
 
 </div>
 
