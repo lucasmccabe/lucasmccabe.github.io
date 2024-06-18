@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Principal Data Scientist @ <a href="https://www.lmi.org/">LMI</a>. CS PhD Student @ <a href="https://math.columbian.gwu.edu/">GW</a>.
+subtitle: Principal Data Scientist @ <a href="https://www.lmi.org/">LMI</a>. CS PhD Student @ <a href="https://www.cs.seas.gwu.edu">GW</a>.
 
 profile:
   align: right
@@ -20,7 +20,7 @@ social: true  # includes social icons at the bottom of the page
 
 ###### **Present:**
 
-I am Data Science Fellow and Principal Technical Advisor at <a href="https://www.lmi.org/">LMI</a>, where I serve as ML lead for the <a href="https://www.lmi.org/capabilities/solutions/liger">LIGER</a> application, among other things.
+I am Data Science Fellow and Principal Technical Advisor at <a href="https://www.lmi.org/">LMI</a>. There, I have served as machine learning lead for the <a href="https://www.lmi.org/capabilities/solutions/liger">LIGER</a> effort, modeled the climatic impacts of synthetic jet fuel, developed software for maritime logistics, and more.
 
 I am also a CS PhD student at <a href="https://www.cs.seas.gwu.edu">GW</a>, advised by <a href="https://www2.seas.gwu.edu/~howie/">Howie Huang</a>. My research examines practical topics in machine learning and computational social science, with a recent focus on language models.
 

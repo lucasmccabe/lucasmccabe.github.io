@@ -2,7 +2,7 @@
 layout: page
 title: Juissie.jl
 description: 🥝 A Julia-native semantic query engine
-img: assets/img/juissie-ui.PNG
+img: assets/img/juissie-ui.png
 importance: 993
 category: work
 ---
