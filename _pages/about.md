@@ -6,7 +6,7 @@ subtitle: Data Science Fellow @ <a href="https://www.lmi.org/">LMI</a>. PhD Cand
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: prof_pic.png
   more_info: >
 
 
