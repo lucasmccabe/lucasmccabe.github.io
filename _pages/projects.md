@@ -1,7 +1,7 @@
 ---
 layout: page
-title: open source
-permalink: /open-source/
+title: code
+permalink: /code/
 description: 
 nav: true
 nav_order: 3

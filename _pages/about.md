@@ -26,7 +26,7 @@ I am grateful to have been recognized as a <a href="https://forward.darpa.mil/ri
 
 ###### **Past:**
 
-I completed my master's at <a href="https://engineering.jhu.edu/">Johns Hopkins</a> under <a href="https://www.hopkinsmedicine.org/research/labs/tom-woolf-lab">Tom Woolf</a>. Before that, I studied math and computer science at <a href="https://www.math.rutgers.edu/">Rutgers</a> and wrote code for the <a href="https://bme.rutgers.edu/prabhas-v-moghe">Moghe Lab</a>.
+I completed my master's at <a href="https://engineering.jhu.edu/">Johns Hopkins</a> under <a href="https://www.hopkinsmedicine.org/research/labs/tom-woolf-lab">Tom Woolf</a>. Before that, I studied math and computer science at <a href="https://www.math.rutgers.edu/">Rutgers</a> and worked in the <a href="https://bme.rutgers.edu/prabhas-v-moghe">Moghe Lab</a>.
 
 
 <!-- Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically. -->
