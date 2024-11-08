@@ -17,7 +17,7 @@ social: true  # includes social icons at the bottom of the page
 
 ###### **Present:**
 
-I am a Data Science Fellow at <a href="https://www.lmi.org/">LMI</a>. There, I have served as machine learning lead for the <a href="https://www.lmi.org/capabilities/solutions/liger">LIGER</a> platform, modeled the climatic and operational impacts of synthetic jet fuel, developed software for maritime logistics, and more.
+I am <a href="https://www.lmi.org/about/team/lucas-mccabe">Data Science Fellow</a> at <a href="https://www.lmi.org/">LMI</a>. There, I have served as machine learning lead for the <a href="https://www.lmi.org/capabilities/solutions/liger">LIGER</a> platform, modeled the climatic and operational impacts of synthetic jet fuel, developed software for maritime logistics, and more.
 
 I am also a computer science PhD candidate at <a href="https://www.cs.seas.gwu.edu">GW</a>, advised by <a href="https://www2.seas.gwu.edu/~howie/">Howie Huang</a>. My work primarily pertains to natural language processing and computational social science; see my <a href="https://lucasmccabe.github.io/research/">research page</a> for more. 
 
