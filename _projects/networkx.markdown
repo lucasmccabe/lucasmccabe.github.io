@@ -3,7 +3,7 @@ layout: page
 title: NetworkX
 description: software for network analysis and graph algorithms
 img: https://raw.githubusercontent.com/networkx/networkx.github.io/c3942ae93687b71feed30e1b9abe92a69d10b420/_static/networkx_logo.svg
-importance: 995
+importance: 999
 category: work
 ---
 

@@ -3,7 +3,7 @@ layout: page
 title: cosasi
 description: COntagion Simulation And Source Identification
 img: https://raw.githubusercontent.com/lmiconsulting/cosasi/main/docs/_assets/grasshopper.png
-importance: 994
+importance: 998
 category: work
 ---
 
