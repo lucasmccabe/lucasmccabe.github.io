@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Data Science Fellow @ <a href="https://www.lmi.org/">LMI</a>. PhD Candidate @ <a href="https://www.cs.seas.gwu.edu">GW</a>.
+subtitle: Data Science Fellow @ LMI. PhD Candidate @ GW CS.
 
 profile:
   align: right
@@ -17,7 +17,7 @@ social: true  # includes social icons at the bottom of the page
 
 ###### **Present:**
 
-I am a <a href="https://www.lmi.org/about/team/lucas-mccabe">Data Science Fellow</a> at <a href="https://www.lmi.org/">LMI Consulting</a> and a computer science PhD candidate at <a href="https://www.cs.seas.gwu.edu"> The George Washington University</a>, advised by <a href="https://www2.seas.gwu.edu/~howie/">H. Howie Huang</a>. My work primarily pertains to natural language processing and computational social science; see my <a href="https://lucasmccabe.github.io/research/">research page</a> for more. 
+I am a Data Science Fellow at LMI Consulting and a computer science PhD candidate at The George Washington University, advised by <a href="https://www2.seas.gwu.edu/~howie/">H. Howie Huang</a>. My work primarily pertains to natural language processing and computational social science; see my <a href="https://lucasmccabe.github.io/research/">research page</a> for more. 
 
 I am grateful to have been recognized as a <a href="https://forward.darpa.mil/risers">DARPA Riser</a>, Luminary Awardee (<a href="https://www.lmi.org/">LMI</a>), and Bernstein Scholar (<a href="https://iqb.rutgers.edu">Institute for Quantitative Biomedicine</a>, formerly "BioMaPS").
 
