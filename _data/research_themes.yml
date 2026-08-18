@@ -1,0 +1,30 @@
+# Research themes / areas
+# id: used to tag publications in publications.yml (themes: [id1, id2])
+- id: lorem-ipsum
+  title: "Lorem Ipsum Theory"
+  description: >
+    Foundational questions in lorem ipsum, with particular attention to the
+    structure of dolor sit amet equilibria and their welfare implications.
+    Recent work has focused on dynamic settings with adipiscing elit.
+
+- id: mechanism-design
+  title: "Consectetur Mechanism Design"
+  description: >
+    Design of institutions and incentive structures in the presence of
+    asymmetric information. We study settings where agents have private
+    eiusmod tempor and the planner seeks to maximize a social objective
+    subject to incentive and participation constraints.
+
+- id: empirical
+  title: "Empirical Adipiscing"
+  description: >
+    Developing and applying new econometric methods for causal inference
+    in non-standard data environments. Current projects use large-scale
+    administrative data on ut enim ad minim veniam.
+
+- id: market-microstructure
+  title: "Market Microstructure"
+  description: >
+    Price formation and trading dynamics in financial markets, with emphasis
+    on the role of quis nostrud exercitation and information asymmetries
+    between market participants.

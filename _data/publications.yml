@@ -1,0 +1,89 @@
+# Publications and preprints
+# Fields: title, authors, venue, year, type (journal/conference/preprint),
+#         selected (true/false), url, pdf, doi, code, abstract
+#         themes: list of theme IDs from research_themes.yml
+# Link priority: url (HTML landing page) > pdf
+
+- title: "Nonparametric Identification of Ut Enim Models"
+  authors: "Lastname, F. & Veniam, Q."
+  venue: "Working Paper"
+  year: 2024
+  type: preprint
+  selected: true
+  themes: [empirical]
+  url: ""
+  pdf: "assets/pdf/paper4.pdf"
+  doi: ""
+  code: ""
+  abstract: ""
+
+- title: "Lorem Ipsum and the Foundations of Dolor Sit Amet Theory"
+  authors: "Lastname, F., Adipiscing, E., & Consectetur, A."
+  venue: "Journal of Lorem Ipsum Studies"
+  year: 2024
+  type: journal
+  selected: true
+  themes: [lorem-ipsum, mechanism-design]
+  url: "https://example.com/paper1"
+  pdf: "assets/pdf/paper1.pdf"
+  doi: "10.0000/example"
+  code: ""
+  abstract: >
+    We establish foundational results connecting lorem ipsum to dolor sit amet
+    in the presence of adipiscing elit. Our main theorem shows that under mild
+    regularity conditions, the consectetur hypothesis holds almost surely.
+
+- title: "On the Asymptotic Properties of Consectetur Estimators"
+  authors: "Lastname, F. & Tempor, I."
+  venue: "Annals of Elit Statistics"
+  year: 2024
+  type: journal
+  selected: true
+  themes: [empirical]
+  url: "https://example.com/paper2"
+  pdf: ""
+  doi: ""
+  code: "https://github.com/"
+  abstract: >
+    This paper derives sharp asymptotic bounds for consectetur estimators under
+    heteroskedastic dolor. We propose a new class of robust procedures and
+    demonstrate their efficiency gains over existing methods.
+
+- title: "Eiusmod Tempor: A Unified Framework for Incididunt Analysis"
+  authors: "Adipiscing, E., Lastname, F., Labore, U., & Dolore, M."
+  venue: "Review of Economic Studies"
+  year: 2023
+  type: journal
+  selected: true
+  themes: [lorem-ipsum, empirical]
+  url: ""
+  pdf: "assets/pdf/paper3.pdf"
+  doi: "10.0000/example2"
+  code: ""
+  abstract: ""
+
+- title: "Exercitation Ullamco and Market Design"
+  authors: "Nostrud, Q., Lastname, F., & Laboris, N."
+  venue: "Journal of Political Economy"
+  year: 2022
+  type: journal
+  selected: false
+  themes: [mechanism-design, market-microstructure]
+  url: "https://example.com/paper5"
+  pdf: ""
+  doi: "10.0000/example3"
+  code: ""
+  abstract: ""
+
+- title: "Aliquip Ex Ea Commodo: A Structural Approach"
+  authors: "Lastname, F."
+  venue: "Econometrica"
+  year: 2021
+  type: journal
+  selected: false
+  themes: [market-microstructure]
+  url: ""
+  pdf: ""
+  doi: "10.0000/example4"
+  code: "https://github.com/"
+  abstract: ""

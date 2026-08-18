@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  {% include header.html %}
+  <main>
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    <span class="site-footer__text">{{ site.author.name }}</span>
+    <div class="site-info">
+      <button class="site-info__btn" aria-label="About this site" onclick="document.getElementById('site-info-popup').classList.toggle('open')">
+        About this site
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      </button>
+      <div class="site-info__popup" id="site-info-popup" role="dialog" aria-modal="true">
+        <p>&copy; Copyright {{ site.time | date: "%Y" }} {{ site.author.name }}</p>
+        <p>Aspects are inspired by the <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a> theme, whose license is <a href="{{ '/assets/md/al_folio_license.txt' | relative_url }}" target="_blank" rel="noopener">here</a>.</p>
+        <p>This site uses Jekyll and GitHub Pages.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('click', function(e) {
+      var popup = document.getElementById('site-info-popup');
+      if (popup.classList.contains('open') && !popup.contains(e.target) && !e.target.closest('.site-info__btn')) {
+        popup.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>

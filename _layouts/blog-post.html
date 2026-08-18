@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<div class="page-wrapper">
+
+  <div class="blog-header">
+    <div class="blog-header__title">{{ page.title }}</div>
+    <div class="blog-header__date">{{ page.date | date: "%B %-d, %Y" }}</div>
+  </div>
+
+  <div class="blog-content">
+    {{ content }}
+  </div>
+
+</div>

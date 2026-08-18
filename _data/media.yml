@@ -1,0 +1,32 @@
+# Media mentions — press, podcasts, interviews, etc.
+# title:       headline of the piece
+# type:        format label, e.g. "Article", "Podcast", "Interview", "Video"
+# month/year:  when it appeared
+# description: one-sentence summary
+# url:         external link (required — media items always link out)
+
+- title: "Lorem Ipsum Reshapes Consectetur Policy"
+  type: "Article"
+  month: "March"
+  year: 2025
+  description: >
+    Coverage of dolor sit amet findings and their implications for
+    consectetur regulatory policy.
+  url: "https://example.org/lorem-ipsum-article"
+
+- title: "Understanding Dolor Sit Amet Estimators"
+  type: "Podcast"
+  month: "January"
+  year: 2025
+  description: >
+    Guest appearance discussing identification strategies in nonparametric
+    consectetur models.
+  url: "https://example.org/ut-enim-podcast-ep42"
+
+- title: "On the Future of Incididunt Research"
+  type: "Interview"
+  month: "November"
+  year: 2024
+  description: >
+    Q&A on emerging methods in incididunt estimation and open data practices.
+  url: "https://example.org/incididunt-interview"

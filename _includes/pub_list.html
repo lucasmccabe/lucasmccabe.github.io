@@ -1,0 +1,41 @@
+{% assign pubs = include.publications | reverse | sort: "year" | reverse %}
+{% assign years = pubs | map: "year" | uniq %}
+
+<ul class="pub-list">
+{% for year in years %}
+  {% assign year_pubs = pubs | where: "year", year %}
+  <li class="pub-year-group">
+    <div class="pub-year-label">{{ year }}</div>
+    {% for pub in year_pubs %}
+    <div class="pub-item">
+      <div>
+        <div class="pub-title">{{ pub.title }}</div>
+        <div class="pub-authors">{% assign authors = pub.authors %}{% for alias in site.author.aliases %}{% assign bold = '<strong>' | append: alias | append: '</strong>' %}{% assign authors = authors | replace: alias, bold %}{% endfor %}{{ authors }}</div>
+        <div class="pub-venue">{{ pub.venue }}</div>
+        <div class="pub-meta">
+          {% if pub.type == "preprint" %}
+            <span class="pub-badge pub-badge--preprint">Preprint</span>
+          {% endif %}
+          {% if pub.url != "" and pub.url %}
+            <a href="{{ pub.url }}" class="pub-link" target="_blank" rel="noopener">HTML</a>
+          {% endif %}
+          {% if pub.pdf != "" and pub.pdf %}
+            <a href="{{ pub.pdf | relative_url }}" class="pub-link" target="_blank" rel="noopener">PDF</a>
+          {% endif %}
+          {% if pub.doi != "" and pub.doi %}
+            <a href="https://doi.org/{{ pub.doi }}" class="pub-link" target="_blank" rel="noopener">DOI</a>
+          {% endif %}
+          {% if pub.code != "" and pub.code %}
+            <a href="{{ pub.code }}" class="pub-link" target="_blank" rel="noopener">Code</a>
+          {% endif %}
+          {% if pub.abstract != "" and pub.abstract %}
+            <button class="pub-abstract-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? 'Abstract ↑' : 'Abstract ↓'">Abstract ↓</button>
+            <div class="pub-abstract">{{ pub.abstract }}</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </li>
+{% endfor %}
+</ul>

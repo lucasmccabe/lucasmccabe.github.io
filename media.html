@@ -1,0 +1,28 @@
+---
+layout: default
+title: "Media"
+permalink: /media/
+nav_id: media
+---
+
+<div class="page-wrapper">
+
+  <div class="section-header">
+    <span class="section-title">Media</span>
+    <span class="section-rule"></span>
+  </div>
+
+  <div class="media-list">
+    {% for item in site.data.media %}
+    <div class="media-item">
+      <div class="media-item__meta">
+        <span class="media-item__date">{{ item.month }} {{ item.year }}</span>
+        <span class="media-item__type">{{ item.type }}</span>
+      </div>
+      <a href="{{ item.url }}" class="media-item__title" target="_blank" rel="noopener">{{ item.title }}</a>
+      <p class="media-item__desc">{{ item.description }}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>

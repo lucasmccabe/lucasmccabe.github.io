@@ -1,0 +1,35 @@
+# Courses taught
+# number:      course number, e.g. "ECON 301"
+# season/year: term taught
+# description: one-sentence summary
+# url:         where the title links. Either:
+#                - an external URL (syllabus, department course page), or
+#                - an internal course page under /courses/:name/
+#              Leave "" to render the title as plain, non-clickable text.
+
+- number: "ECON 301"
+  title: "Econometrics I"
+  season: "Fall"
+  year: 2025
+  description: >
+    Lorem ipsum introduction to the classical linear regression model,
+    consectetur statistical inference, and dolor sit amet asymptotic theory.
+  url: "/courses/econ-301/"
+
+- number: "ECON 415"
+  title: "Applied Microeconometrics"
+  season: "Spring"
+  year: 2025
+  description: >
+    Dolor sit amet treatment effect estimation, ipsum instrumental variables,
+    and consectetur difference-in-differences methods.
+  url: "https://example.org/econ-415-syllabus.pdf"
+
+- number: "ECON 101"
+  title: "Introduction to Economics"
+  season: "Fall"
+  year: 2024
+  description: >
+    Ut enim ad minim survey of microeconomic and macroeconomic principles
+    for lorem ipsum undergraduate students.
+  url: ""

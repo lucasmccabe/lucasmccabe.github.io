@@ -1,0 +1,26 @@
+---
+layout: default
+title: "Works"
+permalink: /works/
+nav_id: works
+---
+
+<div class="page-wrapper">
+
+  <div class="section-header">
+    <span class="section-title">In Preparation or Under Review</span>
+    <span class="section-rule"></span>
+  </div>
+
+  {% assign preprints = site.data.publications | where: "type", "preprint" %}
+  {% include pub_list.html publications=preprints %}
+
+  <div class="section-header" style="margin-top: var(--sp-8);">
+    <span class="section-title">Works</span>
+    <span class="section-rule"></span>
+  </div>
+
+  {% assign other_pubs = site.data.publications | where_exp: "pub", "pub.type != 'preprint'" %}
+  {% include pub_list.html publications=other_pubs %}
+
+</div>

@@ -1,0 +1,31 @@
+---
+layout: default
+title: "Open Source"
+permalink: /open-source/
+nav_id: open_source
+---
+
+<div class="page-wrapper">
+
+  <div class="section-header">
+    <span class="section-title">Open Source</span>
+    <span class="section-rule"></span>
+  </div>
+
+  <div class="oss-list">
+    {% for project in site.data.open_source %}
+    <div class="oss-item">
+      <div>
+        {% if project.project_url != "" and project.project_url %}
+          <a href="{{ project.project_url }}" class="oss-item__name">{{ project.name }}</a>
+        {% else %}
+          <a href="{{ project.github }}" class="oss-item__name" target="_blank" rel="noopener">{{ project.name }}</a>
+        {% endif %}
+        <p class="oss-item__desc">{{ project.description }}</p>
+      </div>
+      <a href="{{ project.github }}" class="oss-item__link" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>

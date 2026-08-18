@@ -1,0 +1,36 @@
+---
+layout: default
+title: "Teaching"
+permalink: /teaching/
+nav_id: teaching
+---
+
+<div class="page-wrapper">
+
+  <div class="section-header">
+    <span class="section-title">Teaching</span>
+    <span class="section-rule"></span>
+  </div>
+
+  <div class="course-list">
+    {% for course in site.data.teaching %}
+    <div class="course-item">
+      <div class="course-item__meta">
+        <span class="course-item__number">{{ course.number }}</span>
+        <span class="course-item__semester">{{ course.season }} {{ course.year }}</span>
+      </div>
+      {% if course.url != "" and course.url %}
+        {% if course.url contains "://" %}
+          <a href="{{ course.url }}" class="course-item__title" target="_blank" rel="noopener">{{ course.title }}</a>
+        {% else %}
+          <a href="{{ course.url | relative_url }}" class="course-item__title">{{ course.title }}</a>
+        {% endif %}
+      {% else %}
+        <span class="course-item__title course-item__title--plain">{{ course.title }}</span>
+      {% endif %}
+      <p class="course-item__desc">{{ course.description }}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>

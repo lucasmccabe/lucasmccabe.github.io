@@ -1,0 +1,76 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__name" href="{{ '/' | relative_url }}">
+      {{ site.author.name }}
+    </a>
+
+    <div class="site-header__spacer"></div>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="this.closest('.site-header').querySelector('.site-nav').classList.toggle('open')">
+      <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </button>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      {% for item in site.nav %}
+        {% if site.active_pages[item.id] %}
+          {% assign is_active = false %}
+          {% if item.url == "/" and page.url == "/" %}
+            {% assign is_active = true %}
+          {% elsif item.url != "/" and page.url contains item.url %}
+            {% assign is_active = true %}
+          {% endif %}
+          <a href="{{ item.url | relative_url }}"
+             class="site-nav__link{% if is_active %} active{% endif %}">
+            {{ item.title }}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+
+    <div class="site-header__social">
+      {% include social_icons.html %}
+    </div>
+  </div>
+</header>
+
+<script>
+  (function () {
+    var header = document.querySelector('.site-header');
+    var inner = header.querySelector('.site-header__inner');
+    var nav = header.querySelector('.site-nav');
+
+    // As the header narrows, free up space in order: first drop the social
+    // icons, then collapse the tabs to a hamburger. Each step is measured
+    // directly rather than guessed from a fixed viewport breakpoint, so it
+    // stays correct as nav items or the author's name change length.
+    function checkNavFit() {
+      var wasCollapsed = header.classList.contains('nav-collapsed');
+      header.classList.remove('nav-collapsed', 'hide-social');
+
+      if (inner.scrollWidth <= inner.clientWidth + 1) {
+        if (wasCollapsed) nav.classList.remove('open');
+        return;
+      }
+
+      header.classList.add('hide-social');
+      if (inner.scrollWidth <= inner.clientWidth + 1) {
+        if (wasCollapsed) nav.classList.remove('open');
+        return;
+      }
+
+      header.classList.add('nav-collapsed');
+    }
+
+    var pending = null;
+    function scheduleCheck() {
+      if (pending) cancelAnimationFrame(pending);
+      pending = requestAnimationFrame(checkNavFit);
+    }
+
+    checkNavFit();
+    window.addEventListener('resize', scheduleCheck);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(checkNavFit);
+    }
+  })();
+</script>

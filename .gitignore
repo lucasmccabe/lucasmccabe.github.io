@@ -1,0 +1,21 @@
+# Jekyll build output
+_site/
+
+# Jekyll caches
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler local installation (if using --path vendor/bundle)
+vendor/
+.bundle/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.idea/
+.vscode/
+*.swp
+*.swo

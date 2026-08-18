@@ -1,0 +1,117 @@
+title: "Academic Website"
+description: "Personal academic website"
+url: "https://username.github.io"  # replace with your actual GitHub username
+baseurl: ""
+
+# Author / profile data
+author:
+  name: "Firstname Lastname"
+  title: "Associate Professor"
+  department: "Department of Lorem Ipsum"
+  university: "University of Consectetur"
+  email: "name@university.edu"
+  photo: "assets/img/profile.jpg"
+  bio: >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    velit esse cillum dolore eu fugiat nulla pariatur.
+  # How your name appears in author lists — all variants will be bolded
+  aliases:
+    - "Lastname, F."
+
+# Social links (set to "" to hide)
+social:
+  email: "name@university.edu"
+  google_scholar: "https://scholar.google.com/"
+  github: "https://github.com/"
+  twitter: ""
+  linkedin: "https://linkedin.com/in/username"
+  orcid: ""
+  cv: "assets/pdf/cv.pdf"
+
+# Navigation
+nav:
+  - id: about
+    title: "About"
+    url: "/"
+  - id: research
+    title: "Research"
+    url: "/research/"
+  - id: works
+    title: "Works"
+    url: "/works/"
+  - id: teaching
+    title: "Teaching"
+    url: "/teaching/"
+  - id: open_source
+    title: "Open Source"
+    url: "/open-source/"
+  - id: media
+    title: "Media"
+    url: "/media/"
+  - id: blog
+    title: "Blog"
+    url: "/blog/"
+
+# Which pages are active/deployed on the site. A page can be built out in
+# nav above but kept off the live site by setting its flag to false here —
+# useful for staging future pages before they're ready to publish.
+active_pages:
+  about: true
+  research: true
+  teaching: true
+  works: true
+  open_source: true
+  media: true
+  blog: true
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  courses:
+    output: true
+    permalink: /courses/:name/
+  blog:
+    output: true
+    permalink: /blog/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+  - scope:
+      path: ""
+      type: courses
+    values:
+      layout: course
+  - scope:
+      path: ""
+      type: blog
+    values:
+      layout: blog-post
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+kramdown:
+  math_engine: mathjax
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - "*.sh"

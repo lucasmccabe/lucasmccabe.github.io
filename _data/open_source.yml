@@ -1,0 +1,35 @@
+# Open source projects
+# github:      GitHub repo URL (always shown as a link)
+# project_url: Optional — external docs/homepage OR internal /projects/slug/
+#              If set, the project name becomes a link to this URL.
+#              For an internal project detail page, use: /projects/loremipsum-py/
+
+- name: "loremipsum-py"
+  description: >
+    Python package for dolor sit amet estimation. Implements the full suite
+    of consectetur methods from Lastname (2021) with a clean scikit-learn
+    compatible API.
+  github: "https://github.com/"
+  project_url: "/projects/loremipsum-py/"
+  stars: 420
+  language: "Python"
+
+- name: "adipiscing-r"
+  description: >
+    R package for nonparametric identification of ut enim models. Provides
+    efficient implementations of the estimators in Lastname & Veniam (2023),
+    with full documentation and vignettes.
+  github: "https://github.com/"
+  project_url: "https://adipiscing.example.org"
+  stars: 185
+  language: "R"
+
+- name: "eiusmod-data"
+  description: >
+    Curated dataset and replication archive for the unified incididunt
+    analysis framework. Includes raw data, cleaning scripts, and all
+    code necessary to reproduce tables and figures.
+  github: "https://github.com/"
+  project_url: ""
+  stars: 97
+  language: "Stata / R"
