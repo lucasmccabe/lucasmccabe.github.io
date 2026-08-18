@@ -1,30 +1,24 @@
 # Research themes / areas
 # id: used to tag publications in publications.yml (themes: [id1, id2])
-- id: lorem-ipsum
-  title: "Lorem Ipsum Theory"
+- id: uq-dpe
+  title: "Uncertainty Quantification"
   description: >
-    Foundational questions in lorem ipsum, with particular attention to the
-    structure of dolor sit amet equilibria and their welfare implications.
-    Recent work has focused on dynamic settings with adipiscing elit.
+    Generative language models are not always accurate, and they struggle to reliably gauge their intrinsic uncertainty, motivating ancillary systems that do so on their behalf.
+    My work often views this through the lens of distribution property estimation.
 
-- id: mechanism-design
-  title: "Consectetur Mechanism Design"
+- id: model-behavior
+  title: "Model Behavior and Interpretability"
   description: >
-    Design of institutions and incentive structures in the presence of
-    asymmetric information. We study settings where agents have private
-    eiusmod tempor and the planner seeks to maximize a social objective
-    subject to incentive and participation constraints.
+    Generative language models can behave in unexpected ways, for reasons that are notoriously opaque.
+    Responsible deployment of machine learning systems warrants careful examination of such behavior and potential failure modes.
 
-- id: empirical
-  title: "Empirical Adipiscing"
+- id: health-applications
+  title: "Data Science Applications: Health Sciences"
   description: >
-    Developing and applying new econometric methods for causal inference
-    in non-standard data environments. Current projects use large-scale
-    administrative data on ut enim ad minim veniam.
+    It has been suggested that <a href="https://www.rbccm.com/en/gib/healthcare/episode/the_healthcare_data_explosion">~30%</a> of all data generated is attributable to the healthcare sector.
+    Public health and biomedical informatics are rich areas of application for natural language processing and network science.
 
-- id: market-microstructure
-  title: "Market Microstructure"
+- id: log-applications
+  title: "Data Science Applications: Logistics and Engineering"
   description: >
-    Price formation and trading dynamics in financial markets, with emphasis
-    on the role of quis nostrud exercitation and information asymmetries
-    between market participants.
+    Through my experience at the <a href="https://www.lmisolutions.com/">Logistics Management Institute (LMI)</a>, I have had the opportunity to collaborate with industry practioners on practical problems involving technical language processing and simulation.

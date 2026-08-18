@@ -4,86 +4,171 @@
 #         themes: list of theme IDs from research_themes.yml
 # Link priority: url (HTML landing page) > pdf
 
-- title: "Nonparametric Identification of Ut Enim Models"
-  authors: "Lastname, F. & Veniam, Q."
-  venue: "Working Paper"
-  year: 2024
+- title: "SENECA: Small-Sample Discrete Entropy Estimation via Self-Consistent Missing Mass"
+  authors: "L. H. McCabe, and H. H. Huang"
+  venue: "arXiv preprint arXiv:2605.00668"
+  year: 2026
   type: preprint
   selected: true
-  themes: [empirical]
-  url: ""
-  pdf: "assets/pdf/paper4.pdf"
+  themes: [uq-dpe]
+  url: "https://arxiv.org/abs/2605.00668"
+  pdf: "https://arxiv.org/pdf/2605.00668"
   doi: ""
   code: ""
-  abstract: ""
+  abstract: Discrete entropy estimation is a classic information theory problem, wherein the average information content of a discrete random variable is estimated from samples alone. Naive approaches, such as the plugin method, fail to account for the probability mass associated with members of the random variable’s support that are unobserved in a given sample, known as the "missing mass." The resulting systemic underestimation is particularly problematic when data is time-consuming or costly to gather. We propose SENECA, an entropy estimation scheme based on a novel “self-consistent” missing mass calculation. Extensive numerical experiments indicate that our approach outperforms many state-of-the-art alternatives overall in the small-sample setting. We then apply SENECA to two practical use cases, namely biodiversity estimation and the detection of incorrect large language model responses, where our method is competitive with domain-specific approaches. Our work advances SENECA as an effective drop-in replacement for small-sample entropy estimation, with broad utility across several domains.
 
-- title: "Lorem Ipsum and the Foundations of Dolor Sit Amet Theory"
-  authors: "Lastname, F., Adipiscing, E., & Consectetur, A."
-  venue: "Journal of Lorem Ipsum Studies"
-  year: 2024
-  type: journal
+- title: "Estimating Semantic Alphabet Size for LLM Uncertainty Quantification"
+  authors: "L. H. McCabe, R. Melamed, T. Hartvigsen, and H. H. Huang"
+  venue: "International Conference on Learning Representations (ICLR)"
+  year: 2026
+  type: works
   selected: true
-  themes: [lorem-ipsum, mechanism-design]
-  url: "https://example.com/paper1"
-  pdf: "assets/pdf/paper1.pdf"
-  doi: "10.0000/example"
-  code: ""
-  abstract: >
-    We establish foundational results connecting lorem ipsum to dolor sit amet
-    in the presence of adipiscing elit. Our main theorem shows that under mild
-    regularity conditions, the consectetur hypothesis holds almost surely.
+  themes: [uq-dpe]
+  url: "https://proceedings.iclr.cc/paper_files/paper/2026/hash/5f03fc30db670b2764ef9e39e71c04c8-Abstract-Conference.html"
+  pdf: "https://proceedings.iclr.cc/paper_files/paper/2026/file/5f03fc30db670b2764ef9e39e71c04c8-Paper-Conference.pdf"
+  doi: ""
+  code: "https://github.com/lucasmccabe/esa"
+  abstract: Many black-box techniques for quantifying the uncertainty of large language models (LLMs) rely on repeated LLM sampling, which can be computationally expensive. Therefore, practical applicability demands reliable estimation from few samples. Semantic entropy (SE) is a popular sample-based uncertainty estimator with a discrete formulation attractive for the black-box setting. Recent extensions of SE exhibit improved LLM hallucination detection, but do so with less interpretable methods that admit additional hyperparameters. For this reason, we revisit the canonical discrete semantic entropy (DSE) estimator, finding that it underestimates the "true" semantic entropy, as expected from theory. We propose a modified semantic alphabet size estimator, and illustrate that using it to adjust DSE for sample coverage results in more accurate SE estimation in our setting of interest. Furthermore, we find that two semantic alphabet size estimators, including our proposed, flag incorrect LLM responses as well or better than many top-performing alternatives, with the added benefit of remaining highly interpretable.
 
-- title: "On the Asymptotic Properties of Consectetur Estimators"
-  authors: "Lastname, F. & Tempor, I."
-  venue: "Annals of Elit Statistics"
-  year: 2024
-  type: journal
+- title: "Demystifying optimized prompts in language models"
+  authors: "R. Melamed, L. H. McCabe, and H. H. Huang"
+  venue: "Conference on Empirical Methods in Natural Language Processing (EMNLP)"
+  year: 2025
+  type: works
   selected: true
-  themes: [empirical]
-  url: "https://example.com/paper2"
+  themes: [model-behavior]
+  url: "https://aclanthology.org/2025.emnlp-main.147/"
+  pdf: "https://arxiv.org/pdf/2505.02273"
+  doi: ""
+  code: "https://github.com/rimon15/demyst_optim_prompts"
+  abstract: Modern language models (LMs) are not robust to out-of-distribution inputs. Machine generated ("optimized") prompts can be used to modulate LM outputs and induce specific behaviors while appearing completely uninterpretable. In this work, we investigate the composition of optimized prompts, as well as the mechanisms by which LMs parse and build predictions from optimized prompts. We find that optimized prompts primarily consist of punctuation and noun tokens which are more rare in the training data. Internally, optimized prompts are clearly distinguishable from natural language counterparts based on sparse subsets of the model’s activations. Across various families of instruction-tuned models, optimized prompts follow a similar path in how their representations form through the network.
+
+- title: "Network analysis of U.S. non-fatal opioid-involved overdose journeys, 2018–2023"
+  authors: "L. H. McCabe, N. Masuda, S. Casillas, N. Danneman, A. Alic, and R. Law"
+  venue: "Applied Network Science"
+  year: 2024
+  type: works
+  selected: true
+  themes: [health-applications]
+  url: "https://appliednetsci.springeropen.com/articles/10.1007/s41109-024-00661-z"
+  pdf: "https://arxiv.org/pdf/2402.03924.pdf"
+  doi: ""
+  code: 
+  abstract: We present a nation-wide network analysis of non-fatal opioid-involved overdose journeys in the United States. Leveraging a unique proprietary dataset of Emergency Medical Services incidents, we construct a journey-to-overdose geospatial network capturing nearly half a million opioid-involved overdose events spanning 2018-2023. We analyze the structure and sociological profile of the nodes, which are counties or their equivalents, characterize the distribution of overdose journey lengths, and investigate changes in the journey network between 2018 and 2023. Our findings include that authority and hub nodes identified by the HITS algorithm tend to be located in urban areas and involved in overdose journeys with particularly long geographical distances.
+
+- title: "Prompts have evil twins"
+  authors: "R. Melamed, L. H. McCabe, T. Wakhare, Y. Kim, H. H. Huang, and E. Boix-Adsera"
+  venue: "Conference on Empirical Methods in Natural Language Processing (EMNLP)"
+  year: 2024
+  type: works
+  selected: true
+  themes: [model-behavior]
+  url: "https://aclanthology.org/2024.emnlp-main.4"
+  pdf: "https://aclanthology.org/2024.emnlp-main.4.pdf"
+  doi: ""
+  code: "https://github.com/rimon15/evil_twins"
+  abstract: We discover that many natural-language prompts can be replaced by corresponding prompts that are unintelligible to humans but that provably elicit similar behavior in language models. We call these prompts “evil twins” because they are obfuscated and uninterpretable (evil), but at the same time mimic the functionality of the original natural-language prompts (twins). Remarkably, evil twins transfer between models. We find these prompts by solving a maximum-likelihood problem which has applications of independent interest.
+
+- title: "Large Language Model Agents as Prognostics and Health Management Copilots"
+  authors: "S. Lukens, L. H. McCabe, J. Gen, and A. Ali"
+  venue: "Annual Conference of the Prognostics and Health Management Society (PHM)"
+  year: 2024
+  type: works
+  selected: false
+  themes: [log-applications]
+  url: "https://papers.phmsociety.org/index.php/phmconf/article/view/3906"
   pdf: ""
   doi: ""
-  code: "https://github.com/"
-  abstract: >
-    This paper derives sharp asymptotic bounds for consectetur estimators under
-    heteroskedastic dolor. We propose a new class of robust procedures and
-    demonstrate their efficiency gains over existing methods.
+  code: ""
+  abstract: Amid concerns of an aging or diminishing industrial workforce, the recent advancement of large language models (LLMs) presents an opportunity to alleviate potential experience gaps. In this context, we present a practical Prognostics and Health Management (PHM) workflow and selfevaluation framework that leverages LLMs as specialized in-the-loop agents to enhance operational efficiency without subverting human subject matter expertise. Specifically, we automate maintenance recommendations triggered by PHM alerts for monitoring the health of physical assets, using LLM agents to execute structured components of the standard maintenance recommendation protocol, including data processing, failure mode discovery, and evaluation. To illustrate this framework, we provide a case study based on historical data derived from PHM model alerts. We discuss requirements for the design and evaluation of such “PHM Copilots” and formalize key considerations for integrating LLMs into industrial domain applications. Refined deployment of our proposed end-to-end integrated system may enable less experienced and professionals to back-fill existing personnel atreduced costs.
 
-- title: "Eiusmod Tempor: A Unified Framework for Incididunt Analysis"
-  authors: "Adipiscing, E., Lastname, F., Labore, U., & Dolore, M."
-  venue: "Review of Economic Studies"
+- title: "Nonparametric Estimation and Comparison of Distance Distributions from Censored Data"
+  authors: "L. H. McCabe"
+  venue: "Annual Conference on Information Sciences and Systems (CISS)"
+  year: 2024
+  type: works
+  selected: false
+  themes: 
+  url: "https://ieeexplore.ieee.org/abstract/document/10480196"
+  pdf: "https://arxiv.org/pdf/2311.02658v3"
+  doi: ""
+  code: ""
+  abstract: Transportation distance information is a powerful resource, but location records are often censored due to privacy concerns or regulatory mandates. We outline methods to approximate, sample from, and compare distributions of distances between censored location pairs, a task with applications to public health informatics, logistics, and more. We validate empirically via simulation and demonstrate applicability to practical geospatial data analysis tasks.
+
+- title: "Modeling the Operational Feasibility of Synfuel from Seawater"
+  authors: "S. D. Brown, S. M Whittle, L. H. McCabe, B. M. Horio, C. D. Johnson, and M. L. Anderson"
+  venue: "Symposium of the Military Operations Research Society (MORS)"
   year: 2023
-  type: journal
-  selected: true
-  themes: [lorem-ipsum, empirical]
-  url: ""
-  pdf: "assets/pdf/paper3.pdf"
-  doi: "10.0000/example2"
+  type: works
+  selected: false
+  themes: [log-applications]
+  url: "https://osf.io/3auyv/"
+  pdf: ""
+  doi: "10.31219/osf.io/3auyv"
   code: ""
-  abstract: ""
+  abstract: Effective deterrence requires confidence in robust naval replenishment capabilities, in order to maintain extended physical presence and support sustained military operations. While many authors have focused on vulcanizing penetration, projection, and defensive capacity, a compelling synergy arises from synthetic fuel generation, which may be conducted near point-of-need. In this work, we consider a modeling and simulation-driven approach to estimating the logistical and operational impacts of marine and aviation fuel from alternative sources. Toward this end, we present the Fuel Replenishment and Logistics Simulation (FuelSim), a novel agent-based fuel paradigm assessment application designed to be lightweight, flexible, and integrable with large-scale systems analyses.
 
-- title: "Exercitation Ullamco and Market Design"
-  authors: "Nostrud, Q., Lastname, F., & Laboris, N."
-  venue: "Journal of Political Economy"
+- title: "cosasi: Graph Diffusion Source Inference in Python"
+  authors: "L. H. McCabe"
+  venue: "Journal of Open Source Software (JOSS)"
   year: 2022
-  type: journal
+  type: works
   selected: false
-  themes: [mechanism-design, market-microstructure]
-  url: "https://example.com/paper5"
-  pdf: ""
-  doi: "10.0000/example3"
-  code: ""
-  abstract: ""
+  themes:
+  url: "https://joss.theoj.org/papers/10.21105/joss.04894"
+  pdf: "https://www.theoj.org/joss-papers/joss.04894/10.21105.joss.04894.pdf"
+  doi: "10.21105/joss.04894"
+  code: "https://github.com/lmiconsulting/cosasi"
+  abstract: cosasi (COntagion Simulation And Source Inference) is, to the author's knowledge, the first extensible open-source framework for graph diffusion source inference that allows users to perform and evaluate source localization using standard techniques from literature, contribute innovative algorithms to a growing core library, and benchmark new techniques against a battery of comparable schemes. The software is currently used within the Logistics Management Institute. Additional development continues, and we welcome contribution from the broader academic and industrial communities.
 
-- title: "Aliquip Ex Ea Commodo: A Structural Approach"
-  authors: "Lastname, F."
-  venue: "Econometrica"
-  year: 2021
-  type: journal
+- title: "Modeling Fuel Replenishment Logistics and Impacts of Alternative Synthetic Fuels"
+  authors: "B. Horio, S. Brown, C. Johnson, S. Whittle, M. Anderson, and L. H. McCabe"
+  venue: "Interservice/Industry Training, Simulation and Education Conference (I/ITSEC)"
+  year: 2022
+  type: works
+  selected: False
+  themes:
+  url: "https://www.xcdsystem.com/iitsec/proceedings/index.cfm?Year=2022&AbID=112504&CID=944#View"
+  pdf: "https://s3.amazonaws.com/amz.xcdsystem.com/44ECEE4F-033C-295C-BAE73278B7F9CA1D_abstract_File16562/PaperUpload_22316_0825094939.pdf"
+  doi: ""
+  code: ""
+  abstract: "A critical factor for deterrence and any protracted conflict, is the ability to resupply our forces to maintain extended physical presence, which includes an ability to sustain naval air operations in remote areas. Successfully doing so must also minimize dependency on long-distance transport of fuel across oceans and be resilient to disruption of our fuel supply chain and operation of our fuel distribution facilities. This is a nontrivial logistics challenge as fuel replenishment logistics operate within a highly dynamic and interconnected system of combatants, auxiliaries, and fuel supply points, each with specific processes and behaviors that define how they interact with each other. Current logistics for replenishment of conventional aviation fuel have hard constraints that limit scale (e.g., limited fuel tanker resources) and subject to risk of potential cascading impacts due to disruption at strategic fuel supply points (e.g., calls for the Red Hill facility to halt operations due to groundwater contamination concerns). Toward these risks, ongoing research into alternative fuel sources for sustainable aviation fuel—following the motto, produce it when and where you need it—have increasing importance to national security. Advancing technology for scalable and mobile production of synthetic aviation fuel from alternative sources, such as seawater, promises to redefine naval replenishment logistics. While engineering challenges to make these technologies fully scalable are making progress, the operational feasibility of the adapted logistics must be fully understood. In this paper, we examine the system through a complexity lens and use agent-based simulation to develop an experiment platform to evaluate operational and environmental impacts over a range of scenarios. We propose this approach as useful for establishing relevant baselines, quantifying operational feasibility, providing guidance for the engineering teams, and ultimately characterizing the value proposition of synthetic aviation fuel for naval logistics. Finally, we discuss possible applications (e.g., wargaming)."
+
+- title: "The Second NeurIPS Tournament of Reconnaissance Blind Chess"
+  authors: "G. Perrotta, R. W. Gardner, C. Lowman, M. Taufeeque, N. Tongia, S. Kalyanakrishnan, G. Clark, K. Wang, E. Rothberg, B. P. Garrison, D. Prithviraj, C. Canavan, L. H. McCabe"
+  venue: "Proceedings of Machine Learning Research"
+  year: 2022
+  type: works
   selected: false
-  themes: [market-microstructure]
-  url: ""
+  themes: []
+  url: "https://proceedings.mlr.press/v176/perrotta22a.html"
+  pdf: "https://proceedings.mlr.press/v176/perrotta22a/perrotta22a.pdf"
+  doi: ""
+  code: ""
+  abstract: "Reconnaissance Blind Chess is an imperfect-information variant of chess with significant private information that challenges state-of-the-art algorithms. The Johns Hopkins University Applied Physics Laboratory and several organizing partners held the second NeurIPS machine Reconnaissance Blind Chess competition in 2021. 18 bots competed in 9,180 games, revealing a dominant champion with 91% wins. The top four bots in the tournament matched or exceeded the performance of the inaugural tournament’s winner. However, none of the algorithms converge to an optimal, unexploitable strategy or appear to have addressed the core research challenges associated with Reconnaissance Blind Chess."
+
+- title: "Surveillance nanotechnology for multi-organ cancer metastases"
+  authors: H. Kantamneni, M. Zevon, M. J. Donzanti, X. Zhao, Y. Sheng, S. R. Barkund, and L. H. McCabe, W. Banach-Petrosky, L. M. Higgins, S. Ganesan, R. E. Riman, C. M. Roth, M. Tan, M. C. Pierce, V. Ganapathy, P. V. Moghe"
+  venue: "Nature Biomedical Engineering"
+  year: 2017
+  type: works
+  selected: false
+  themes: [health-applications]
+  url: "https://www.nature.com/articles/s41551-017-0167-9"
   pdf: ""
-  doi: "10.0000/example4"
-  code: "https://github.com/"
+  doi: "10.1038/s41551-017-0167-9"
+  code: ""
+  abstract: "The identification and molecular profiling of early metastases remains a major challenge in cancer diagnostics and therapy. Most in vivo imaging methods fail to detect small cancerous lesions, a problem that is compounded by the distinct physical and biological barriers associated with different metastatic niches. Here, we show that intravenously injected rare-earth-doped albumin-encapsulated nanoparticles emitting short-wave infrared light (SWIR) can detect targeted metastatic lesions in vivo, allowing for the longitudinal tracking of multi-organ metastases. In a murine model of human breast cancer, the nanoprobes enabled whole-body SWIR detection of adrenal-gland microlesions and bone lesions that were undetectable via contrast-enhanced magnetic resonance imaging as early as three and five weeks post-inoculation, respectively. Whole-body SWIR imaging of nanoprobes functionalized to differentially target distinct metastatic sites and administered to a biomimetic murine model of human breast cancer resolved multi-organ metastases that showed varied molecular profiles in the lungs, adrenal glands and bones. Real-time surveillance of lesions in multiple organs should facilitate pre- and post-therapy monitoring in preclinical settings."
+
+- title: "Modulating stem cell-substrate interactions and differentiation by controlling substrate topography via microphase separation"
+  authors: "V. Arvind, S. Vega, L. H. McCabe, P. V. Moghe, S. N. Murthy, and J. Kohn"
+  venue: "Frontiers in Bioengineering and Biotechnology"
+  year: 2016
+  type: works
+  selected: false
+  themes: [health-applications]
+  url: "https://www.frontiersin.org/10.3389/conf.FBIOE.2016.01.02444/2893/10th_World_Biomaterials_Congress/all_events/event_abstract"
+  pdf: ""
+  doi: "10.3389/conf.FBIOE.2016.01.02444"
+  code: ""
   abstract: ""

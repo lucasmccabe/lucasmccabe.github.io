@@ -1,35 +1,41 @@
-title: "Academic Website"
-description: "Personal academic website"
-url: "https://username.github.io"  # replace with your actual GitHub username
+title: "Lucas H. McCabe"
+description: "Personal website"
+favicon: "🦑"  # emoji shown as the browser tab icon
+url: "https://lucasmccabe.github.io"  # replace with your actual GitHub username
 baseurl: ""
 
 # Author / profile data
 author:
-  name: "Firstname Lastname"
-  title: "Associate Professor"
-  department: "Department of Lorem Ipsum"
-  university: "University of Consectetur"
-  email: "name@university.edu"
-  photo: "assets/img/profile.jpg"
+  name: "Lucas H. McCabe"
+  title: "PhD Candidate, Department of Computer Science, The George Washington University"
+  department: "Data Science Fellow"
+  university: >
+    <a href="https://www.lmisolutions.com/">Logistics Management Institute (LMI)</a>
+  # "Logistics Management Institute" #""
+  email: "lucasmccabe@gwu.edu"
+  photo: "assets/img/profile.png"
   bio: >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    velit esse cillum dolore eu fugiat nulla pariatur.
+    The primary thrust of my research involves statistical and algorithmic aspects of trustworthiness in machine learning systems.
+    My current focus pertains to generative language models, including uncertainty quantification and interpretability. 
+    I am also interested in interdisciplinary applications of data and network science. 
+    Please see my <a href="/research">research themes</a> and <a href="/works">works</a> for more.
+    I am fortunate to be advised by <a href="https://www2.seas.gwu.edu/~howie/">Professor H. Howie Huang</a>.
   # How your name appears in author lists — all variants will be bolded
   aliases:
-    - "Lastname, F."
+    - "McCabe, L. H."
+    - "L. H. McCabe"
+    - "McCabe, Lucas H."
+    - "Lucas H. McCabe"
 
 # Social links (set to "" to hide)
 social:
-  email: "name@university.edu"
-  google_scholar: "https://scholar.google.com/"
-  github: "https://github.com/"
+  email: "lucasmccabe@gwu.edu"
+  google_scholar: "https://scholar.google.com/citations?user=fXWneGkAAAAJ&hl"
+  github: "https://github.com/lucasmccabe"
   twitter: ""
-  linkedin: "https://linkedin.com/in/username"
+  linkedin: "https://linkedin.com/in/lucashurleymccabe"
   orcid: ""
-  cv: "assets/pdf/cv.pdf"
+  cv: "" #"assets/pdf/cv.pdf"
 
 # Navigation
 nav:
@@ -61,11 +67,11 @@ nav:
 active_pages:
   about: true
   research: true
-  teaching: true
+  teaching: false
   works: true
   open_source: true
-  media: true
-  blog: true
+  media: false
+  blog: false
 
 # Collections
 collections:

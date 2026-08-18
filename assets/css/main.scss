@@ -212,7 +212,7 @@ img { max-width: 100%; display: block; }
 
 .about-hero__photo {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 0.75;
   object-fit: cover;
   object-position: center top;
   filter: grayscale(8%);

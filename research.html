@@ -24,13 +24,13 @@ nav_id: research
           {% for pub in theme_pubs %}
           <li class="theme-card__pub">
             {% if pub.url != "" and pub.url %}
-              <a href="{{ pub.url }}" class="theme-card__pub-title" target="_blank" rel="noopener">{{ pub.title }}</a>
+              <a href="{{ pub.url }}" class="theme-card__pub-title" target="_blank" rel="noopener">{{ pub.title }}.</a>
             {% elsif pub.pdf != "" and pub.pdf %}
               <a href="{{ pub.pdf | relative_url }}" class="theme-card__pub-title" target="_blank" rel="noopener">{{ pub.title }}</a>
             {% else %}
               <span class="theme-card__pub-title">{{ pub.title }}</span>
             {% endif %}
-            <span class="theme-card__pub-meta"> ({{ pub.venue }}, {{ pub.year }})</span>
+            <span class="theme-card__pub-meta"> {{ pub.venue }}, {{ pub.year }}.</span>
           </li>
           {% endfor %}
         </ul>
