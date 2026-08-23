@@ -14,6 +14,8 @@ author:
   # "Logistics Management Institute" #""
   email: "lucasmccabe@gwu.edu"
   photo: "assets/img/profile.png"
+  photo_grayscale: false
+  photo_hazy: true
   bio: >
     The primary thrust of my research involves statistical and algorithmic aspects of trustworthiness in machine learning systems.
     My current focus pertains to generative language models, including uncertainty quantification and interpretability. 

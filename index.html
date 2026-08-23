@@ -10,9 +10,14 @@ nav_id: about
 
     <div class="about-hero__photo-wrap">
       {% if site.author.photo != "" %}
-        <img class="about-hero__photo"
-             src="{{ site.author.photo | relative_url }}"
-             alt="Photo of {{ site.author.name }}">
+        <div class="about-hero__photo-frame{% if site.author.photo_hazy %} about-hero__photo-frame--hazy{% endif %}">
+          <img class="about-hero__photo{% if site.author.photo_grayscale %} about-hero__photo--grayscale{% endif %}"
+               src="{{ site.author.photo | relative_url }}"
+               alt="Photo of {{ site.author.name }}">
+          {% if site.author.photo_hazy %}
+            <img class="about-hero__photo-glow" src="{{ site.author.photo | relative_url }}" alt="" aria-hidden="true">
+          {% endif %}
+        </div>
       {% else %}
         <div class="about-hero__photo--placeholder">Photo</div>
       {% endif %}

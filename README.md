@@ -22,7 +22,7 @@ bundle exec jekyll serve
 | `_projects/*.md` | open source project detail pages |
 | `_courses/*.md` | course detail pages |
 | `_blog/*.md` | blog posts — front matter: `title`, `date`, `summary`; body is the post (LaTeX via `$$...$$`) |
-| `assets/img/profile.jpg` | profile photo |
+| `assets/img/profile.png` | profile photo |
 | `assets/pdf/cv.pdf` | CV file |
 
 ## Tabs
