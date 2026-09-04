@@ -7,7 +7,7 @@
     My work often views this through the lens of distribution property estimation.
 
 - id: model-behavior
-  title: "Model Behavior and Interpretability"
+  title: "Model Behavior & Interpretability"
   description: >
     Generative language models can behave in unexpected ways, for reasons that are notoriously opaque.
     Responsible deployment of machine learning systems warrants careful examination of such behavior and potential failure modes.
@@ -19,6 +19,6 @@
     Public health and biomedical informatics are rich areas of application for natural language processing and network science.
 
 - id: log-applications
-  title: "Data Science Applications: Logistics and Engineering"
+  title: "Data Science Applications: Logistics & Engineering"
   description: >
     Through my experience at the <a href="https://www.lmisolutions.com/">Logistics Management Institute (LMI)</a>, I have had the opportunity to collaborate with industry practioners on practical problems involving technical language processing and simulation.

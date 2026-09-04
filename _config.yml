@@ -17,11 +17,10 @@ author:
   photo_grayscale: false
   photo_hazy: true
   bio: >
-    The primary thrust of my research involves statistical and algorithmic aspects of trustworthiness in machine learning systems.
-    My current focus pertains to generative language models, including uncertainty quantification and interpretability. 
-    I am also interested in interdisciplinary applications of data and network science. 
+    I am a data scientist and PhD candidate dividing time between <a href="https://www.lmisolutions.com/">LMI</a> and GW’s <a href="https://www2.seas.gwu.edu/~howie/">GraphLab</a>.
+    The primary thrust of my research examines statistical and algorithmic aspects of trustworthiness in machine learning systems.
+    My current focus pertains to generative language models, including uncertainty quantification. 
     Please see my <a href="/research">research themes</a> and <a href="/works">works</a> for more.
-    I am fortunate to be advised by <a href="https://www2.seas.gwu.edu/~howie/">Professor H. Howie Huang</a>.
   # How your name appears in author lists — all variants will be bolded
   aliases:
     - "McCabe, L. H."
