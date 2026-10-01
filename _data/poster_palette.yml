@@ -1,0 +1,24 @@
+# Poster colors. Only `bg` is needed: the text on it is derived (_plugins/poster_ink.rb); add
+# `text: "#hex"` to override. Used by:
+#   posters — dealt automatically (_plugins/posters.rb); an entry can pin one by `name` with
+#             `poster_color: <name>`, so reordering this list won't change pinned entries
+#   cards   — Research card N takes the Nth color, in file order: keep the first four in place
+# Keep names unique. Colors come in tiers that share a lightness (OKLCH L) and similar chroma,
+# differing only in hue, so none shouts over its neighbours: light (L 0.86), mid (L 0.75),
+# dark (L 0.37). When adding a color, match its tier.
+- { name: rose, bg: "#E8C8C6" }
+- { name: dusty-blue, bg: "#C0D3E9" }
+- { name: slate, bg: "#3A404B" }
+- { name: sage, bg: "#C7D7BF" }
+
+# dark
+- { name: plum, bg: "#563348" }
+- { name: oxblood, bg: "#642A36" }
+- { name: forest, bg: "#224934" }
+- { name: navy, bg: "#323E5F" }
+
+# mid
+- { name: mustard, bg: "#D4AF5D" }
+
+# light
+- { name: sand, bg: "#DCD0B4" }

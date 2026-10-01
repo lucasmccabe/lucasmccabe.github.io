@@ -7,21 +7,12 @@ nav_id: media
 
 <div class="page-wrapper">
 
-  <div class="section-header">
-    <span class="section-title">Media</span>
-    <span class="section-rule"></span>
-  </div>
+  <h1 class="page-title">{{ page.title }}</h1>
 
-  <div class="media-list">
+  <div class="entry-list">
     {% for item in site.data.media %}
-    <div class="media-item">
-      <div class="media-item__meta">
-        <span class="media-item__date">{{ item.month }} {{ item.year }}</span>
-        <span class="media-item__type">{{ item.type }}</span>
-      </div>
-      <a href="{{ item.url }}" class="media-item__title" target="_blank" rel="noopener">{{ item.title }}</a>
-      <p class="media-item__desc">{{ item.description }}</p>
-    </div>
+      {% capture meta %}{{ item.type }}<br>{{ item.month }} {{ item.year }}{% endcapture %}
+      {% include entry.html title=item.title all=site.data.media poster_color=item.poster_color hide_glyph=item.hide_glyph href=item.url external=true desc=item.description meta=meta poster_label=item.type %}
     {% endfor %}
   </div>
 

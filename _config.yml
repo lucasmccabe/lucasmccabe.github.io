@@ -1,6 +1,6 @@
 title: "Lucas H. McCabe"
 description: "Personal website"
-favicon: "🦑"  # emoji shown as the browser tab icon
+# favicon: "🦑"  # emoji shown as the browser tab icon
 url: "https://lucasmccabe.github.io"  # replace with your actual GitHub username
 baseurl: ""
 

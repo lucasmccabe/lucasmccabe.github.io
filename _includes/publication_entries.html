@@ -1,0 +1,74 @@
+{%- comment -%}
+  PUBLICATION ENTRIES — the publications list (Works, About): entries grouped by year, each a
+  poster plus authors, venue, links and an optional abstract. Param: publications.
+  The poster and title link to the HTML version, or to the PDF when there is no HTML link.
+  Poster colors are dealt from this list in display order, starting from each paper's color in the
+  full publications list (see poster_index), so a paper keeps its color across pages and is only
+  bumped where this page's neighbours would repeat it. A page that shows several lists in a row
+  should pass their concatenation instead. Other lists use entry.html.
+{%- endcomment -%}
+{% assign pubs = include.publications | reverse | sort: "year" | reverse %}
+{% assign canonical_pubs = site.data.publications | reverse | sort: "year" | reverse %}
+{% assign years = pubs | map: "year" | uniq %}
+
+<ul class="entry-list">
+{% for year in years %}
+  {% assign year_pubs = pubs | where: "year", year %}
+  <li class="entry-list__group">
+    <div class="entry-list__year">{{ year }}</div>
+    {% for pub in year_pubs %}
+    <div class="entry">
+      {%- assign pub_href = "" -%}
+      {%- if pub.url != "" and pub.url -%}
+        {%- assign pub_href = pub.url -%}
+      {%- elsif pub.pdf != "" and pub.pdf -%}
+        {%- assign pub_href = pub.pdf | relative_url -%}
+      {%- endif -%}
+      {%- capture poster_classes -%}
+        poster poster-color--{{ pub.title | poster_index: pubs, site.data.poster_palette.size, "title", canonical_pubs }}
+      {%- endcapture -%}
+      {%- capture poster_inner -%}
+        <span class="poster__title">{{ pub.title }}</span><span class="poster__label">{% if pub.venue_abbr and pub.venue_abbr != "" %}{{ pub.venue_abbr }}{% else %}{{ pub.venue }}{% endif %}</span>{% unless pub.hide_glyph %}{{ pub.title | poster_glyph }}{% endunless %}
+      {%- endcapture -%}
+      {% if pub_href != "" %}
+      <a class="{{ poster_classes }}" href="{{ pub_href }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">{{ poster_inner }}</a>
+      {% else %}
+      <div class="{{ poster_classes }}" aria-hidden="true">{{ poster_inner }}</div>
+      {% endif %}
+      <div class="entry__body">
+        <div class="entry__title">
+          {%- if pub_href != "" -%}
+          <a href="{{ pub_href }}" target="_blank" rel="noopener">{{ pub.title }}</a>
+          {%- else -%}{{ pub.title }}{%- endif -%}
+        </div>
+        <div class="entry__authors">{% assign authors = pub.authors %}{% for alias in site.author.aliases %}{% assign bold = '<strong>' | append: alias | append: '</strong>' %}{% assign authors = authors | replace: alias, bold %}{% endfor %}{{ authors }}</div>
+        <div class="entry__venue">{{ pub.venue }}</div>
+        <div class="entry__links">
+          {% if pub.type == "preprint" %}
+            <span class="entry__badge entry__badge--preprint">Preprint</span>
+          {% endif %}
+          {% if pub.url != "" and pub.url %}
+            <a href="{{ pub.url }}" class="entry__link" target="_blank" rel="noopener">HTML</a>
+          {% endif %}
+          {% if pub.pdf != "" and pub.pdf %}
+            <a href="{{ pub.pdf | relative_url }}" class="entry__link" target="_blank" rel="noopener">PDF</a>
+          {% endif %}
+          {% if pub.doi != "" and pub.doi %}
+            <a href="https://doi.org/{{ pub.doi }}" class="entry__link" target="_blank" rel="noopener">DOI</a>
+          {% endif %}
+          {% if pub.code != "" and pub.code %}
+            <a href="{{ pub.code }}" class="entry__link" target="_blank" rel="noopener">Code</a>
+          {% endif %}
+          {% if pub.abstract != "" and pub.abstract %}
+            <button class="entry__abstract-toggle" onclick="var a = this.closest('.entry').querySelector('.entry__abstract'); a.classList.toggle('open'); this.textContent = a.classList.contains('open') ? 'Abstract ↑' : 'Abstract ↓'">Abstract ↓</button>
+          {% endif %}
+        </div>
+      </div>
+      {% if pub.abstract != "" and pub.abstract %}
+      <div class="entry__abstract">{{ pub.abstract }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </li>
+{% endfor %}
+</ul>

@@ -1,0 +1,5 @@
+---
+sitemap: false
+---
+{%- comment -%} Site favicon: the dot-grid glyph (pattern from the site name) on the accent color. Colors match --color-accent and the warm off-white used on dark posters; keep them in sync if the accent changes. {%- endcomment -%}
+{{ site.author.name | poster_glyph_favicon: "#1B2A5C", "#F4EFE6" }}

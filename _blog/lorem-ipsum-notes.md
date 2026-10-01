@@ -1,6 +1,7 @@
 ---
 title: "Notes on Lorem Ipsum Estimation"
 date: 2026-08-10
+poster_color: plum
 summary: >
   Dolor sit amet consectetur notes on identifying the lorem ipsum estimator
   under standard regularity conditions.

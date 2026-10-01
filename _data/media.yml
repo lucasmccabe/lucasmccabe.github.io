@@ -4,6 +4,8 @@
 # month/year:  when it appeared
 # description: one-sentence summary
 # url:         external link (required — media items always link out)
+# poster_color: name of a color pair in poster_palette.yml (e.g. sage) for this entry's poster.
+#              Omit it and the poster is dealt a color automatically.
 
 - title: "Lorem Ipsum Reshapes Consectetur Policy"
   type: "Article"
@@ -13,6 +15,7 @@
     Coverage of dolor sit amet findings and their implications for
     consectetur regulatory policy.
   url: "https://example.org/lorem-ipsum-article"
+  poster_color: mustard
 
 - title: "Understanding Dolor Sit Amet Estimators"
   type: "Podcast"
@@ -30,3 +33,4 @@
   description: >
     Q&A on emerging methods in incididunt estimation and open data practices.
   url: "https://example.org/incididunt-interview"
+  poster_color: plum

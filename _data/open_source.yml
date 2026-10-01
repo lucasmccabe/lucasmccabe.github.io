@@ -1,23 +1,29 @@
 # Open source projects
+# type:        "Software Release" or "Project Contributions" (printed bottom-right on the poster)
 # github:      GitHub repo URL (always shown as a link)
 # project_url: Optional — external docs/homepage OR internal /projects/slug/
 #              If set, the project name becomes a link to this URL.
 #              For an internal project detail page, use: /projects/loremipsum-py/
+# poster_color: name of a color pair in poster_palette.yml (e.g. sage) for this entry's poster.
+#              Omit it and the poster is dealt a color automatically.
 
 - name: "cosasi"
   description: >
     COntagion Simulation And Source Identification: a Python package for graph diffusion source localization.
   github: "https://github.com/lmiconsulting/cosasi"
   project_url: "https://github.com/lmiconsulting/cosasi"
+  type: "Software Release"
 
 - name: "NetworkX"
   description: >
     PRs integrated into core Python library for network analysis.
   github: "https://github.com/networkx/networkx"
   project_url: "/projects/networkx/"
+  type: "Project Contributions"
 
 - name: "contagion"
   description: >
     Python package for node immunization and network contagion simulation.
   github: "https://github.com/lucasmccabe/contagion"
   project_url: "https://github.com/lucasmccabe/contagion"
+  type: "Software Release"

@@ -7,29 +7,18 @@ nav_id: teaching
 
 <div class="page-wrapper">
 
-  <div class="section-header">
-    <span class="section-title">Teaching</span>
-    <span class="section-rule"></span>
-  </div>
+  <h1 class="page-title">{{ page.title }}</h1>
 
-  <div class="course-list">
+  <div class="entry-list">
     {% for course in site.data.teaching %}
-    <div class="course-item">
-      <div class="course-item__meta">
-        <span class="course-item__number">{{ course.number }}</span>
-        <span class="course-item__semester">{{ course.season }} {{ course.year }}</span>
-      </div>
+      {% assign href = "" %}{% assign ext = false %}
       {% if course.url != "" and course.url %}
-        {% if course.url contains "://" %}
-          <a href="{{ course.url }}" class="course-item__title" target="_blank" rel="noopener">{{ course.title }}</a>
-        {% else %}
-          <a href="{{ course.url | relative_url }}" class="course-item__title">{{ course.title }}</a>
-        {% endif %}
-      {% else %}
-        <span class="course-item__title course-item__title--plain">{{ course.title }}</span>
+        {% if course.url contains "://" %}{% assign href = course.url %}{% assign ext = true %}
+        {% else %}{% assign href = course.url | relative_url %}{% endif %}
       {% endif %}
-      <p class="course-item__desc">{{ course.description }}</p>
-    </div>
+      {% capture term %}{{ course.season }} {{ course.year }}{% endcapture %}
+      {% capture meta %}{{ course.number }}<br>{{ term }}{% endcapture %}
+      {% include entry.html title=course.title all=site.data.teaching poster_color=course.poster_color hide_glyph=course.hide_glyph href=href external=ext desc=course.description meta=meta poster_label=term %}
     {% endfor %}
   </div>
 

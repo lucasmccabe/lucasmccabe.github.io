@@ -7,24 +7,15 @@ nav_id: open_source
 
 <div class="page-wrapper">
 
-  <div class="section-header">
-    <span class="section-title">Open Source</span>
-    <span class="section-rule"></span>
-  </div>
+  <h1 class="page-title">{{ page.title }}</h1>
 
-  <div class="oss-list">
+  <div class="entry-list">
     {% for project in site.data.open_source %}
-    <div class="oss-item">
-      <div>
-        {% if project.project_url != "" and project.project_url %}
-          <a href="{{ project.project_url }}" class="oss-item__name">{{ project.name }}</a>
-        {% else %}
-          <a href="{{ project.github }}" class="oss-item__name" target="_blank" rel="noopener">{{ project.name }}</a>
-        {% endif %}
-        <p class="oss-item__desc">{{ project.description }}</p>
-      </div>
-      <a href="{{ project.github }}" class="oss-item__link" target="_blank" rel="noopener">GitHub</a>
-    </div>
+      {% assign href = project.github %}{% assign ext = true %}
+      {% if project.project_url != "" and project.project_url %}
+        {% assign href = project.project_url %}{% assign ext = false %}
+      {% endif %}
+      {% include entry.html title=project.name key="name" all=site.data.open_source poster_color=project.poster_color hide_glyph=project.hide_glyph href=href external=ext desc=project.description link_url=project.github link_label="GitHub" poster_label=project.type %}
     {% endfor %}
   </div>
 

@@ -7,33 +7,37 @@ nav_id: research
 
 <div class="page-wrapper">
 
-  <div class="section-header">
-    <span class="section-title">Research Themes</span>
-    <span class="section-rule"></span>
-  </div>
+  <h1 class="page-title">{{ page.title }}</h1>
 
-  <div class="theme-grid">
+  <div class="card-grid">
     {% for theme in site.data.research_themes %}
       {% assign theme_pubs = site.data.publications | where_exp: "pub", "pub.themes contains theme.id" | reverse | sort: "year" | reverse %}
-      <div class="theme-card">
-        <h2 class="theme-card__title">{{ theme.title }}</h2>
-        <p class="theme-card__desc">{{ theme.description }}</p>
+      {% assign color_n = forloop.index0 | modulo: site.data.poster_palette.size | plus: 1 %}
+      <div class="card poster-color--{{ color_n }}">
+        <h2 class="card__title">{{ theme.title }}</h2>
+        <div class="card__body">
+        <p class="card__desc">{{ theme.description }}</p>
         {% if theme_pubs.size > 0 %}
-        <ul class="theme-card__pubs">
+        <div class="card__pubs-header">
+          <span class="card__pubs-label">Reference Works</span>
+          <span class="card__pubs-rule"></span>
+        </div>
+        <ul class="card__pubs">
           {% for pub in theme_pubs %}
-          <li class="theme-card__pub">
+          <li class="card__pub">
             {% if pub.url != "" and pub.url %}
-              <a href="{{ pub.url }}" class="theme-card__pub-title" target="_blank" rel="noopener">{{ pub.title }}.</a>
+              <a href="{{ pub.url }}" class="card__pub-title" target="_blank" rel="noopener">{{ pub.title }}.</a>
             {% elsif pub.pdf != "" and pub.pdf %}
-              <a href="{{ pub.pdf | relative_url }}" class="theme-card__pub-title" target="_blank" rel="noopener">{{ pub.title }}</a>
+              <a href="{{ pub.pdf | relative_url }}" class="card__pub-title" target="_blank" rel="noopener">{{ pub.title }}</a>
             {% else %}
-              <span class="theme-card__pub-title">{{ pub.title }}</span>
+              <span class="card__pub-title">{{ pub.title }}</span>
             {% endif %}
-            <span class="theme-card__pub-meta"> {{ pub.venue }}, {{ pub.year }}.</span>
+            <span class="card__pub-meta"> {{ pub.venue }}, {{ pub.year }}.</span>
           </li>
           {% endfor %}
         </ul>
         {% endif %}
+        </div>
       </div>
     {% endfor %}
   </div>

@@ -6,6 +6,8 @@
 #                - an external URL (syllabus, department course page), or
 #                - an internal course page under /courses/:name/
 #              Leave "" to render the title as plain, non-clickable text.
+# poster_color: name of a color pair in poster_palette.yml (e.g. sage) for this entry's poster.
+#              Omit it and the poster is dealt a color automatically.
 
 - number: "ECON 301"
   title: "Econometrics I"
@@ -24,6 +26,7 @@
     Dolor sit amet treatment effect estimation, ipsum instrumental variables,
     and consectetur difference-in-differences methods.
   url: "https://example.org/econ-415-syllabus.pdf"
+  poster_color: sage
 
 - number: "ECON 101"
   title: "Introduction to Economics"
@@ -33,3 +36,4 @@
     Ut enim ad minim survey of microeconomic and macroeconomic principles
     for lorem ipsum undergraduate students.
   url: ""
+  poster_color: navy

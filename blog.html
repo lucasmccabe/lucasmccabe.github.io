@@ -7,19 +7,15 @@ nav_id: blog
 
 <div class="page-wrapper">
 
-  <div class="section-header">
-    <span class="section-title">Blog</span>
-    <span class="section-rule"></span>
-  </div>
+  <h1 class="page-title">{{ page.title }}</h1>
 
-  <div class="blog-list">
+  <div class="entry-list">
     {% assign posts = site.blog | sort: "date" | reverse %}
     {% for post in posts %}
-    <div class="blog-item">
-      <span class="blog-item__date">{{ post.date | date: "%B %-d, %Y" }}</span>
-      <a href="{{ post.url | relative_url }}" class="blog-item__title">{{ post.title }}</a>
-      <p class="blog-item__desc">{{ post.summary }}</p>
-    </div>
+      {% assign href = post.url | relative_url %}
+      {% capture meta %}{{ post.date | date: "%B %Y" }}{% endcapture %}
+      {% capture short_date %}{{ post.date | date: "%b %Y" }}{% endcapture %}
+      {% include entry.html title=post.title all=posts poster_color=post.poster_color hide_glyph=post.hide_glyph href=href desc=post.summary meta=meta poster_label=short_date %}
     {% endfor %}
   </div>
 

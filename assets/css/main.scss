@@ -2,24 +2,79 @@
 ---
 
 /* ============================================================
+   VOCABULARY
+   poster — a fixed-shape colored rectangle with text printed on it (.poster)
+   entry  — a list row: a poster on the left, text on the right (.entry, in .entry-list)
+   card   — a full-color panel using the same palette (.card, in .card-grid)
+   Colors come from _data/poster_palette.yml (see POSTER PALETTE below).
+   ============================================================ */
+
+/* ============================================================
    TOKENS
    ============================================================ */
 
 :root {
-  /* Tol-safe palette */
-  --black:       #111111;
-  --gray-100:    #f0eeeb;
-  --gray-200:    #d8d4cc;
-  --gray-400:    #9e9890;
-  --gray-600:    #5a5650;
-  --indigo:      #332288;
-  --indigo-light:#5544bb;
-  --indigo-muted:#e8e5f5;
+  /* Color tokens — named by role, not by hue, so the palette can be
+     swapped by editing only the values in this block. */
 
-  /* Typography */
+  /* Text */
+  --color-text:            #111111;  /* body copy, headings */
+  --color-text-secondary:  #5a5650;  /* descriptions, metadata, nav links */
+  --color-text-muted:      var(--color-text-secondary);  /* dates, captions, icons, section labels — same as secondary for now; original was #9e9890 (milky gray) */
+
+  /* Backgrounds & surfaces */
+  --color-bg:              #ffffff;  /* page, header, dropdowns */
+  --color-surface:         #fdfdfc;  /* cards, popups, active nav tab */
+  --color-surface-sunken:  #f6f5f4;  /* badges, tags, abstracts */
+  --color-code-bg:         #f0eeeb;  /* inline code, code blocks, blockquotes */
+  --color-placeholder-bg:  #d8d4cc;  /* empty image placeholder */
+  --color-poster:          #d8d4cc;  /* fallback poster base (used if a poster has no palette pair) */
+  --color-poster-text:     #3f3c37;  /* fallback title text printed on a poster */
+
+  /* Borders */
+  --color-border:          #d8d4cc;  /* card outlines, header/footer rules */
+  --color-border-subtle:   #f0eeeb;  /* list dividers inside a card/section */
+
+  /* Accent (links, emphasis, active states) */
+  --color-accent:          #1B2A5C;
+  --color-accent-subtle:   #e3e7f0;  /* quote/abstract edge rule */
+
+  /* Text selection */
+  --color-selection-bg:    #5a5650;
+  --color-selection-text:  #ffffff;
+
+  /* Elevation */
+  --shadow-card-hover: 0 8px 20px rgba(0, 0, 0, 0.09);
+  --shadow-popup:      0 4px 16px rgba(0, 0, 0, 0.04);
+  --shadow-dropdown:   0 6px 16px rgba(0, 0, 0, 0.07);
+
+  /* Typography — one sans family (Inter), one matching monospace, named weights and a
+     seven-step size scale. Use these instead of raw values. */
   --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --font-size-base: 16px;
   --line-height-base: 1.65;
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  --text-xs:   0.75rem;    /* 12px  micro labels, tags, small UI */
+  --text-sm:   0.8125rem;  /* 13px  metadata, nav, secondary lines */
+  --text-md:   0.9375rem;  /* 15px  descriptions, list titles */
+  --text-base: 1rem;       /* 16px  body copy, site name */
+  --text-lg:   1.125rem;   /* 18px  sub-headings */
+  --text-xl:   1.5rem;     /* 24px  section and card headings */
+  --text-2xl:  1.875rem;   /* 30px  page titles */
+  --text-poster-title: 0.53125rem;  /* 8.5px  title printed on a poster */
+  --text-poster-label: 0.4375rem;   /* 7px    label printed on a poster */
+
+  /* Shape — two corner radii and two stroke weights */
+  --radius-sm: 2px;          /* posters, badges, inline code */
+  --radius-lg: 8px;          /* cards, popups */
+  --stroke-hairline: 1px;    /* dividers and outlines */
+  --stroke-accent:   2px;    /* accent rules: nav underline, quote edges */
 
   /* Spacing grid (8px base) */
   --sp-1:  8px;
@@ -34,6 +89,100 @@
   --content-max:  1060px;
   --nav-height:   56px;
   --photo-width:  200px;
+  --card-hover-lift: -4px;   /* how far cards rise on hover */
+  --poster-width: 87px;
+  --poster-aspect: 0.87;   /* width / height; every poster keeps this shape */
+}
+
+/* ============================================================
+   POSTER PALETTE — generated from _data/poster_palette.yml
+   Each color (bg, plus text derived from bg unless given) becomes CSS variables
+   (--poster-N-bg / --poster-N-text), a .poster-color--N class and, if it has a `name`, a
+   .poster-color--NAME class. Posters are dealt one by the poster_index filter
+   (_plugins/posters.rb) or pin one with `poster_color: <name>`; Research cards take 1, 2, 3… in order.
+   ============================================================ */
+
+:root {
+{%- for pair in site.data.poster_palette %}
+  --poster-{{ forloop.index }}-bg:   {{ pair.bg }};
+  --poster-{{ forloop.index }}-text: {% if pair.text %}{{ pair.text }}{% else %}{{ pair.bg | poster_ink }}{% endif %};
+{%- endfor %}
+}
+
+{% for pair in site.data.poster_palette -%}
+.poster-color--{{ forloop.index }}{% if pair.name %},
+.poster-color--{{ pair.name }}{% endif %} {
+  --poster-bg:   var(--poster-{{ forloop.index }}-bg);
+  --poster-text: var(--poster-{{ forloop.index }}-text);
+}
+{% endfor %}
+/* ============================================================
+   POSTERS
+   A poster is a fixed-shape (--poster-aspect) colored rectangle: title top-left, glyph
+   bottom-left, small label bottom-right. Its colors come from a .poster-color--* class.
+   ============================================================ */
+
+.poster {
+  aspect-ratio: var(--poster-aspect);
+  background: var(--poster-bg, var(--color-poster));
+  border-radius: var(--radius-sm);
+  padding: 7px 6px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 4px;
+  --glyph-size: 0.8125rem;
+}
+
+/* Poster glyph (experiment): a 3x3 dot grid at the bottom-left, level with the label. The label's
+   font size is derived from the grid's height (see .poster__label) so a two-line label is exactly
+   as tall as the grid; the two are always vertically centered on each other.
+   To revert: delete this block and the poster_glyph calls, and give the label its own font size. */
+.poster__glyph {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+  width: var(--glyph-size);
+  height: var(--glyph-size);
+  color: var(--poster-text, var(--color-poster-text));
+}
+
+.poster__title {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 0;
+  overflow: hidden;
+  font-size: var(--text-poster-title);
+  font-weight: var(--weight-semibold);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: var(--poster-text, var(--color-poster-text));
+  overflow-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Small secondary text (venue, term, type, date…), bottom-right; the title is clipped before it reaches it. */
+.poster__label {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: center;
+  display: block;
+  /* Line-height is half the glyph height, so two lines match the grid whatever the font size
+     (about 0.93 at 7px text; a bigger glyph loosens it). */
+  font-size: var(--text-poster-label);
+  font-weight: var(--weight-medium);
+  font-style: italic;
+  line-height: calc(var(--glyph-size) / 2);
+  letter-spacing: 0.01em;
+  color: var(--poster-text, var(--color-poster-text));
+  opacity: 0.85;
+  text-align: right;
+  overflow-wrap: break-word;
 }
 
 /* ============================================================
@@ -43,8 +192,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 ::selection {
-  background: var(--gray-600);
-  color: white;
+  background: var(--color-selection-bg);
+  color: var(--color-selection-text);
 }
 
 html {
@@ -55,23 +204,33 @@ html {
 
 body {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: var(--line-height-base);
-  color: var(--black);
-  background: white;
+  color: var(--color-text);
+  background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
+
+  /* Sticky footer: at least one screen tall, with <main> taking the spare height. */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;   /* the visible height on mobile */
 }
 
+main { flex: 1 0 auto; }
+
 a {
-  color: var(--indigo);
+  color: var(--color-accent);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  /* underline draws in from the left on hover and retracts toward the right on
+     un-hover (position snaps, only size animates); opt out with background-image: none */
+  background: linear-gradient(currentColor, currentColor) no-repeat 100% 100% / 0 1px;
+  transition: background-size 0.35s ease, color 0.15s ease;
 }
 
 a:hover {
-  border-bottom-color: var(--indigo-light);
-  color: var(--indigo-light);
+  background-position: 0 100%;
+  background-size: 100% 1px;
 }
 
 p { margin-bottom: var(--sp-3); }
@@ -84,12 +243,12 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 
 .site-header {
+  flex: none;
   position: sticky;
   top: 0;
   z-index: 100;
   height: var(--nav-height);
-  background: white;
-  border-bottom: 1px solid var(--gray-200);
+  background: var(--color-bg);
   display: flex;
   align-items: center;
 }
@@ -105,19 +264,28 @@ img { max-width: 100%; display: block; }
 }
 
 .site-header__name {
-  font-size: 0.875rem;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
   letter-spacing: 0;
-  color: var(--black);
+  color: var(--color-text);
   border-bottom: none;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-.site-header__name:hover {
-  color: var(--indigo);
-  border-bottom: none;
+.site-header__glyph {
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+  color: var(--color-accent);
 }
+
+/* Dots fade when the shuffle script in _layouts/default.html changes which are lit. */
+.site-header__glyph circle { transition: opacity 0.75s ease; }
+@media (prefers-reduced-motion: reduce) { .site-header__glyph circle { transition: none; } }
 
 .site-header__spacer { flex: 1; }
 
@@ -128,29 +296,29 @@ img { max-width: 100%; display: block; }
 }
 
 .site-nav__link {
+  /* accent bar draws in from the left over the (transparent) border area */
+  background: linear-gradient(var(--color-accent), var(--color-accent)) no-repeat 100% 100% / 0 2px border-box;
   display: block;
   padding: 0 var(--sp-2);
-  font-size: 0.8125rem;
-  font-weight: 400;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
   letter-spacing: 0.04em;
-  color: var(--gray-600);
+  color: var(--color-text-secondary);
   border-bottom: none;
   white-space: nowrap;
   height: var(--nav-height);
   line-height: var(--nav-height);
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  border-bottom: var(--stroke-accent) solid transparent;
+  transition: background-size 0.35s ease, color 0.15s ease;
 }
 
 .site-nav__link:hover,
 .site-nav__link.active {
-  color: var(--black);
-  border-bottom-color: var(--indigo);
+  background-position: 0 100%;
+  background-size: 100% 2px;
 }
 
-.site-nav__link.active {
-  background: #fdfdfc;
-}
+.site-nav__link.active { color: var(--color-text); }
 
 .site-header__social {
   display: flex;
@@ -159,20 +327,15 @@ img { max-width: 100%; display: block; }
   flex-shrink: 0;
   margin-left: var(--sp-2);
   padding-left: var(--sp-2);
-  border-left: 1px solid var(--gray-200);
+  border-left: var(--stroke-hairline) solid var(--color-border);
 }
 
 .social-icon {
   display: flex;
   align-items: center;
-  color: var(--gray-400);
+  color: var(--color-text-muted);
   border-bottom: none;
-  transition: color 0.15s ease;
-}
-
-.social-icon:hover {
-  color: var(--indigo);
-  border-bottom: none;
+  transition: background-size 0.35s ease, color 0.15s ease;
 }
 
 .social-icon svg {
@@ -188,7 +351,7 @@ img { max-width: 100%; display: block; }
   border: none;
   cursor: pointer;
   padding: var(--sp-1);
-  color: var(--black);
+  color: var(--color-text);
 }
 
 .nav-toggle svg { width: 20px; height: 20px; fill: currentColor; }
@@ -224,7 +387,7 @@ img { max-width: 100%; display: block; }
   object-fit: cover;
   object-position: center top;
   filter: grayscale(8%);
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
 }
 
 .about-hero__photo--grayscale {
@@ -233,7 +396,7 @@ img { max-width: 100%; display: block; }
 
 .about-hero__photo-frame {
   position: relative;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
@@ -250,7 +413,7 @@ img { max-width: 100%; display: block; }
   object-position: center top;
   filter: blur(8px) brightness(125%) saturate(85%);
   mix-blend-mode: screen;
-  opacity: 0.15;
+  opacity: 0.2;
   pointer-events: none;
 }
 
@@ -266,46 +429,39 @@ img { max-width: 100%; display: block; }
 .about-hero__photo--placeholder {
   width: 100%;
   aspect-ratio: 1;
-  background: var(--gray-200);
+  background: var(--color-placeholder-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gray-400);
-  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
   letter-spacing: 0.06em;
 }
 
 .about-hero__name {
-  font-size: 1.875rem;
-  font-weight: 700;
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin-bottom: var(--sp-2);
-  color: var(--black);
+  color: var(--color-text);
 }
 
 .about-hero__title {
-  font-size: 0.875rem;
-  color: var(--gray-600);
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
   margin-bottom: 2px;
 }
 
 .about-hero__affil {
-  font-size: 0.875rem;
-  color: var(--gray-600);
-  margin-bottom: var(--sp-4);
-}
-
-.about-hero__divider {
-  width: 32px;
-  height: 2px;
-  background: var(--indigo);
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
   margin-bottom: var(--sp-4);
 }
 
 .about-hero__bio {
-  font-size: 0.9375rem;
-  color: var(--black);
+  font-size: var(--text-md);
+  color: var(--color-text);
   margin-bottom: var(--sp-4);
 }
 
@@ -320,18 +476,13 @@ img { max-width: 100%; display: block; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
   letter-spacing: 0.03em;
-  color: var(--gray-600);
+  color: var(--color-text-secondary);
   border-bottom: none;
   padding: 4px 0;
-  transition: color 0.15s ease;
-}
-
-.hero-link:hover {
-  color: var(--indigo);
-  border-bottom: none;
+  transition: background-size 0.35s ease, color 0.15s ease;
 }
 
 .hero-link svg {
@@ -342,9 +493,9 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-link--sep {
-  color: var(--gray-200);
+  color: var(--color-border);
   cursor: default;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
 }
 
 /* ============================================================
@@ -358,78 +509,115 @@ img { max-width: 100%; display: block; }
   margin-bottom: var(--sp-4);
 }
 
+/* Heading-style section title (About page): the page-title look one step smaller, with a link at the right. */
+.section-header--heading { flex-wrap: wrap; }
+
+.section-heading,
+.section-heading__aside {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.section-heading__aside {
+  margin-left: auto;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
+}
+
 .section-title {
-  font-size: 0.6875rem;
-  font-weight: 600;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
   letter-spacing: 0.14em;
-  color: var(--gray-400);
+  color: var(--color-text-muted);
   white-space: nowrap;
 }
 
 .section-rule {
   flex: 1;
   height: 1px;
-  background: var(--gray-200);
+  background: var(--color-border);
 }
-
-.section-link {
-  font-size: 0.75rem;
-  color: var(--indigo);
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.section-link:hover { color: var(--indigo-light); }
 
 /* ============================================================
-   PUBLICATIONS LIST
+   ENTRIES
+   An entry is a list row: a poster on the left, text on the right. Used for
+   Works / About publications (grouped by year via .entry-list__group) and for
+   the Teaching, Open Source, Media and Blog lists.
    ============================================================ */
 
-.pub-list { list-style: none; }
+.entry-list { list-style: none; }
 
-.pub-year-group { margin-bottom: var(--sp-6); }
+.entry-list__group { margin-bottom: var(--sp-6); }
 
-.pub-year-label {
-  font-size: 0.75rem;
-  font-weight: 600;
+.entry-list__year {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
   letter-spacing: 0.1em;
-  color: var(--indigo);
+  color: var(--color-text);
   margin-bottom: var(--sp-2);
 }
 
-.pub-item {
+.entry {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: var(--poster-width) minmax(0, 1fr);
+  column-gap: var(--sp-3);
   padding: var(--sp-2) 0;
-  border-top: 1px solid var(--gray-100);
+  border-top: var(--stroke-hairline) solid var(--color-border-subtle);
 }
 
-.pub-item:first-child { border-top: none; }
+.entry:first-child { border-top: none; }
 
-.pub-title {
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--black);
+/* The poster fills the first row; the abstract sits in row 2 so expanding it
+   doesn't stretch the poster. */
+.entry .poster {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+}
+
+.entry__body {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.entry__title {
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
   margin-bottom: 3px;
   line-height: 1.4;
 }
 
-.pub-authors {
-  font-size: 0.8125rem;
-  color: var(--gray-600);
+.entry__title a { color: inherit; }
+
+.entry__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
   margin-bottom: 3px;
 }
 
-.pub-authors .self { font-weight: 600; color: var(--black); }
+.entry-list { list-style: none; }
 
-.pub-venue {
-  font-size: 0.8125rem;
-  color: var(--gray-600);
+.entry__authors {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: 3px;
+}
+
+.entry__authors .self { font-weight: var(--weight-semibold); color: var(--color-text); }
+
+.entry__venue {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
   font-style: italic;
 }
 
-.pub-meta {
+.entry__links {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -437,379 +625,184 @@ img { max-width: 100%; display: block; }
   margin-top: var(--sp-1);
 }
 
-.pub-badge {
-  font-size: 0.6875rem;
-  font-weight: 600;
+.entry__badge {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
   letter-spacing: 0.08em;
   padding: 2px 7px;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 
-.pub-badge--preprint {
-  background: #f6f5f4;
-  color: var(--gray-600);
+.entry__badge--preprint {
+  background: var(--color-surface-sunken);
+  color: var(--color-text-secondary);
 }
 
-.pub-link {
-  font-size: 0.75rem;
-  font-weight: 500;
+.entry__link {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
   letter-spacing: 0.04em;
-  color: var(--indigo);
+  color: var(--color-accent);
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  transition: color 0.15s ease;
+  transition: background-size 0.35s ease, color 0.15s ease;
 }
 
-.pub-link:hover { color: var(--indigo-light); }
 
-.pub-abstract-toggle {
-  background: none;
+.entry__abstract-toggle {
+  background: linear-gradient(currentColor, currentColor) no-repeat 100% 100% / 0 1px;
   border: none;
-  border-bottom: 1px solid transparent;
   cursor: pointer;
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
   letter-spacing: 0.04em;
-  color: var(--gray-400);
+  color: var(--color-text-muted);
   padding: 0;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: background-size 0.35s ease;
 }
 
-.pub-abstract-toggle:hover { color: var(--black); border-bottom-color: var(--black); }
+.entry__abstract-toggle:hover { background-position: 0 100%; background-size: 100% 1px; }
 
-.pub-abstract {
+.entry__abstract {
+  grid-column: 2;
+  grid-row: 2;
   display: none;
   margin-top: var(--sp-2);
   padding: var(--sp-2) var(--sp-3);
-  background: #f6f5f4;
-  border-left: 2px solid var(--indigo-muted);
-  font-size: 0.875rem;
-  color: var(--gray-600);
+  background: var(--color-surface-sunken);
+  border-left: var(--stroke-accent) solid var(--color-accent);
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
   line-height: 1.6;
 }
 
-.pub-abstract.open { display: block; }
+.entry__abstract.open { display: block; }
 
 /* ============================================================
-   RESEARCH THEMES
+   CARDS
+   A card is a full-color poster panel: the palette pair (poster-color--N) fills
+   the whole card, with the title at the top left followed by the body. Used for
+   the Research themes: theme N takes the Nth pair of poster_palette.yml.
    ============================================================ */
 
-.theme-grid {
+.card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--sp-4);
 }
 
-.theme-card {
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
   padding: var(--sp-4);
-  border: 1px solid var(--gray-200);
-  border-radius: 8px;
-  background: #fdfdfc;
+  border-radius: var(--radius-lg);
+  background: var(--poster-bg, var(--color-poster));
+  color: var(--poster-text, var(--color-poster-text));
   position: relative;
   overflow: hidden;
 }
 
-.theme-card__number {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--indigo);
-  margin-bottom: var(--sp-2);
+/* Selected text inverts the card's palette too: fill = the card's text color, text = its base. */
+.card ::selection,
+.card::selection {
+  background: var(--poster-text, var(--color-poster-text));
+  color: var(--poster-bg, var(--color-poster));
 }
 
-.theme-card__title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: var(--sp-2);
-  line-height: 1.3;
+/* Links inside a card take the card's text color; the hover underline still shows. */
+.card a { color: inherit; }
+
+.card__title {
+  align-self: flex-start;   /* shrink-wrap so a link title's underline fits the text */
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
-.theme-card__desc {
-  font-size: 0.875rem;
-  color: var(--gray-600);
+.card__body { flex: 1 1 auto; }
+
+.card__desc {
+  font-size: var(--text-md);
   line-height: 1.6;
   margin-bottom: 0;
 }
 
-.theme-card__pubs {
-  list-style: none;
+/* "Reference Works" label followed by a rule, above the card's publication list */
+.card__pubs-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
   margin-top: var(--sp-3);
-  padding-top: var(--sp-3);
-  border-top: 1px solid var(--gray-100);
+  margin-bottom: var(--sp-2);
+}
+
+.card__pubs-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+}
+
+.card__pubs-rule {
+  flex: 1;
+  height: 1px;
+  background: color-mix(in srgb, currentColor 25%, transparent);
+}
+
+.card__pubs {
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.theme-card__pub {
-  font-size: 0.8125rem;
-  color: var(--gray-600);
+.card__pub {
+  font-size: var(--text-sm);
   line-height: 1.4;
 }
 
-.theme-card__pub-title {
-  color: var(--indigo);
-  font-weight: 500;
+.card__pub-title {
+  color: inherit;
+  font-weight: var(--weight-semibold);
 }
 
-a.theme-card__pub-title:hover {
-  color: var(--indigo-light);
+/* Venue/year and the "Reference Works" label are dimmed by fading the text color, not the
+   element's opacity, so a text selection over them keeps the same solid highlight as the
+   rest of the card. */
+.card__pub-meta,
+.card__pubs-label {
+  color: color-mix(in srgb, currentColor 75%, transparent);
 }
 
-.theme-card__pub-meta {
-  color: var(--gray-400);
-}
-
-/* ============================================================
-   OPEN SOURCE
-   ============================================================ */
-
-.oss-list { display: flex; flex-direction: column; gap: var(--sp-4); }
-
-.oss-item {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: var(--sp-3);
-  align-items: start;
-  padding: var(--sp-4);
-  border: 1px solid var(--gray-200);
-  border-radius: 8px;
-  background: #fdfdfc;
-  position: relative;
-  overflow: hidden;
-}
-
-.oss-item__desc {
-  font-size: 0.875rem;
-  color: var(--gray-600);
-  line-height: 1.6;
-  margin-bottom: var(--sp-2);
-}
-
-.oss-item__tags {
-  display: flex;
-  gap: var(--sp-1);
-  flex-wrap: wrap;
-}
-
-.oss-tag {
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  padding: 2px 8px;
-  background: #f6f5f4;
-  color: var(--gray-600);
-  border-radius: 2px;
-}
-
-.oss-item__link {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--gray-400);
-  border-bottom: none;
-  white-space: nowrap;
-  padding-top: 2px;
-  transition: color 0.15s ease;
-}
-
-.oss-item__link:hover { color: var(--indigo); border-bottom: none; }
-
-.oss-item__name {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--indigo);
-  display: inline-block;
-  margin-bottom: var(--sp-1);
-}
-
-.oss-item__name:hover {
-  color: var(--indigo-light);
-}
-
-/* ============================================================
-   TEACHING
-   ============================================================ */
-
-.course-list { display: flex; flex-direction: column; gap: var(--sp-4); }
-
-.course-item {
-  padding: var(--sp-4);
-  border: 1px solid var(--gray-200);
-  border-radius: 8px;
-  background: #fdfdfc;
-  position: relative;
-  overflow: hidden;
-}
-
-.course-item__meta {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--sp-3);
-  margin-bottom: var(--sp-1);
-}
-
-.course-item__number {
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  color: var(--gray-400);
-}
-
-.course-item__semester {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--gray-600);
-  background: #f6f5f4;
-  padding: 2px 8px;
-  border-radius: 2px;
-  white-space: nowrap;
-}
-
-.course-item__title {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--indigo);
-  display: inline-block;
-  margin-bottom: var(--sp-1);
-}
-
-a.course-item__title:hover { color: var(--indigo-light); }
-
-.course-item__title--plain {
-  color: var(--black);
-  cursor: default;
-}
-
-.course-item__desc {
-  font-size: 0.875rem;
-  color: var(--gray-600);
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
-/* ============================================================
-   MEDIA
-   ============================================================ */
-
-.media-list { display: flex; flex-direction: column; gap: var(--sp-4); }
-
-.media-item {
-  padding: var(--sp-4);
-  border: 1px solid var(--gray-200);
-  border-radius: 8px;
-  background: #fdfdfc;
-  position: relative;
-  overflow: hidden;
-}
-
-.media-item__meta {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--sp-3);
-  margin-bottom: var(--sp-1);
-}
-
-.media-item__date {
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  color: var(--gray-400);
-}
-
-.media-item__type {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--gray-600);
-  background: #f6f5f4;
-  padding: 2px 8px;
-  border-radius: 2px;
-  white-space: nowrap;
-}
-
-.media-item__title {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--indigo);
-  display: inline-block;
-  margin-bottom: var(--sp-1);
-}
-
-.media-item__title:hover { color: var(--indigo-light); }
-
-.media-item__desc {
-  font-size: 0.875rem;
-  color: var(--gray-600);
-  line-height: 1.6;
-  margin-bottom: 0;
-}
 
 /* ============================================================
    BLOG
    ============================================================ */
-
-.blog-list { display: flex; flex-direction: column; gap: var(--sp-4); }
-
-.blog-item {
-  padding: var(--sp-4);
-  border: 1px solid var(--gray-200);
-  border-radius: 8px;
-  background: #fdfdfc;
-  position: relative;
-  overflow: hidden;
-}
-
-.blog-item__date {
-  display: block;
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  color: var(--gray-400);
-  margin-bottom: var(--sp-1);
-}
-
-.blog-item__title {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--indigo);
-  display: inline-block;
-  margin-bottom: var(--sp-1);
-}
-
-.blog-item__title:hover { color: var(--indigo-light); }
-
-.blog-item__desc {
-  font-size: 0.875rem;
-  color: var(--gray-600);
-  line-height: 1.6;
-  margin-bottom: 0;
-}
 
 .blog-header {
   margin-bottom: var(--sp-6);
 }
 
 .blog-header__title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--indigo);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
   letter-spacing: -0.02em;
   line-height: 1.3;
   margin-bottom: var(--sp-2);
 }
 
 .blog-header__date {
-  font-size: 0.8125rem;
-  color: var(--gray-400);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
 }
 
 .blog-content {
-  font-size: 0.9375rem;
-  color: var(--black);
+  font-size: var(--text-md);
+  color: var(--color-text);
   line-height: 1.7;
   max-width: 680px;
 }
@@ -818,9 +811,9 @@ a.course-item__title:hover { color: var(--indigo-light); }
 .blog-content p:last-child { margin-bottom: 0; }
 
 .blog-content h2 {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--black);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
   margin-top: var(--sp-6);
   margin-bottom: var(--sp-3);
 }
@@ -828,9 +821,9 @@ a.course-item__title:hover { color: var(--indigo-light); }
 .blog-content h2:first-child { margin-top: 0; }
 
 .blog-content h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--black);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
   margin-top: var(--sp-5);
   margin-bottom: var(--sp-2);
 }
@@ -845,23 +838,23 @@ a.course-item__title:hover { color: var(--indigo-light); }
 .blog-content blockquote {
   margin: 0 0 var(--sp-3);
   padding: var(--sp-2) var(--sp-3);
-  background: var(--gray-100);
-  border-left: 2px solid var(--indigo-muted);
-  color: var(--gray-600);
+  background: var(--color-code-bg);
+  border-left: var(--stroke-accent) solid var(--color-accent);
+  color: var(--color-text-secondary);
 }
 
 .blog-content code {
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--font-mono);
   font-size: 0.875em;
-  background: var(--gray-100);
+  background: var(--color-code-bg);
   padding: 1px 5px;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 
 .blog-content pre {
   overflow-x: auto;
   padding: var(--sp-3);
-  background: var(--gray-100);
+  background: var(--color-code-bg);
   margin-bottom: var(--sp-3);
 }
 
@@ -885,16 +878,16 @@ a.course-item__title:hover { color: var(--indigo-light); }
 }
 
 .project-header__name {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--indigo);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
   letter-spacing: -0.02em;
   margin-bottom: var(--sp-2);
 }
 
 .project-header__desc {
-  font-size: 0.9375rem;
-  color: var(--gray-600);
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
   margin-bottom: var(--sp-2);
 }
 
@@ -913,20 +906,18 @@ a.course-item__title:hover { color: var(--indigo-light); }
 }
 
 .project-header__link {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
   letter-spacing: 0.06em;
-  color: var(--gray-400);
+  color: var(--color-text-muted);
   border-bottom: none;
   white-space: nowrap;
-  transition: color 0.15s ease;
+  transition: background-size 0.35s ease, color 0.15s ease;
 }
 
-.project-header__link:hover { color: var(--indigo); border-bottom: none; }
-
 .project-blurb {
-  font-size: 0.9375rem;
-  color: var(--black);
+  font-size: var(--text-md);
+  color: var(--color-text);
   line-height: 1.7;
   max-width: 680px;
 }
@@ -935,11 +926,11 @@ a.course-item__title:hover { color: var(--indigo-light); }
 .project-blurb p:last-child { margin-bottom: 0; }
 
 .project-blurb code {
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--font-mono);
   font-size: 0.875em;
-  background: var(--gray-100);
+  background: var(--color-code-bg);
   padding: 1px 5px;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 
 .pr-list {
@@ -953,27 +944,26 @@ a.course-item__title:hover { color: var(--indigo-light); }
   align-items: baseline;
   gap: var(--sp-2);
   padding: var(--sp-2) 0;
-  border-top: 1px solid var(--gray-100);
-  font-size: 0.875rem;
+  border-top: var(--stroke-hairline) solid var(--color-border-subtle);
+  font-size: var(--text-md);
 }
 
 .pr-item:first-child { border-top: none; }
 
 .pr-number {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: var(--indigo);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
   border-bottom: none;
   flex-shrink: 0;
   min-width: 3.5rem;
-  transition: color 0.15s ease;
+  transition: background-size 0.35s ease, color 0.15s ease;
 }
 
-.pr-number:hover { color: var(--indigo-light); border-bottom: none; }
 
 .pr-desc {
-  color: var(--gray-600);
+  color: var(--color-text-secondary);
   line-height: 1.5;
 }
 
@@ -982,8 +972,9 @@ a.course-item__title:hover { color: var(--indigo-light); }
    ============================================================ */
 
 .site-footer {
-  border-top: 1px solid var(--gray-200);
+  border-top: var(--stroke-hairline) solid var(--color-border);
   padding: var(--sp-4) 0;
+  width: 100%;   /* the auto side margins would otherwise shrink it to its content in the flex column */
   max-width: var(--content-max);
   margin: 0 auto;
   padding-left: var(--sp-4);
@@ -994,8 +985,8 @@ a.course-item__title:hover { color: var(--indigo-light); }
 }
 
 .site-footer__text {
-  font-size: 0.75rem;
-  color: var(--gray-400);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
 }
 
 .site-info {
@@ -1006,17 +997,17 @@ a.course-item__title:hover { color: var(--indigo-light); }
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: none;
+  background: linear-gradient(currentColor, currentColor) no-repeat 100% 100% / 0 1px;
   border: none;
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-family: var(--font-sans);
-  color: var(--gray-400);
+  color: var(--color-text-muted);
   padding: 0;
-  transition: color 0.15s ease;
+  transition: background-size 0.35s ease;
 }
 
-.site-info__btn:hover { color: var(--black); }
+.site-info__btn:hover { background-position: 0 100%; background-size: 100% 1px; }
 
 .site-info__btn svg {
   width: 14px;
@@ -1030,14 +1021,14 @@ a.course-item__title:hover { color: var(--indigo-light); }
   position: absolute;
   bottom: calc(100% + 10px);
   right: 0;
-  background: #fdfdfc;
-  border: 1px solid var(--gray-200);
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  background: var(--color-surface);
+  border: var(--stroke-hairline) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-popup);
   padding: var(--sp-2) var(--sp-3);
   white-space: nowrap;
-  font-size: 0.8125rem;
-  color: var(--gray-600);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
   z-index: 200;
 }
 
@@ -1058,21 +1049,13 @@ a.course-item__title:hover { color: var(--indigo-light); }
 .site-info__popup p { margin-bottom: 4px; }
 .site-info__popup p:last-child { margin-bottom: 0; }
 
-.theme-card,
-.oss-item,
-.course-item,
-.media-item,
-.blog-item {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.theme-card:hover,
-.oss-item:hover,
-.course-item:hover,
-.media-item:hover,
-.blog-item:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+.card:hover {
+  transform: translateY(var(--card-hover-lift));
+  box-shadow: var(--shadow-card-hover);
 }
 
 /* ============================================================
@@ -1080,11 +1063,11 @@ a.course-item__title:hover { color: var(--indigo-light); }
    ============================================================ */
 
 .page-title {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
   letter-spacing: -0.02em;
   margin-bottom: var(--sp-6);
-  color: var(--black);
+  color: var(--color-text);
 }
 
 /* ============================================================
@@ -1101,15 +1084,21 @@ a.course-item__title:hover { color: var(--indigo-light); }
     gap: var(--sp-4);
   }
 
-  .about-hero__name { font-size: 1.375rem; }
+  .about-hero__name { font-size: calc(var(--text-xl) - 2px); }   /* one step down: 22px */
 
-  .theme-grid { grid-template-columns: 1fr; }
-
-  .oss-item { grid-template-columns: 1fr; }
-  .oss-item__link { justify-self: start; }
+  .card-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 520px) {
+  :root { --poster-width: 80px; }
+
+  .entry { column-gap: var(--sp-2); }
+
+  .card { padding: var(--sp-3); }
+
+  /* Let the abstract use the full width under the poster + text */
+  .entry__abstract { grid-column: 1 / -1; }
+
   .about-hero {
     grid-template-columns: 1fr;
   }
@@ -1136,9 +1125,9 @@ a.course-item__title:hover { color: var(--indigo-light); }
   top: var(--nav-height);
   left: 0;
   right: 0;
-  background: white;
-  border-bottom: 1px solid var(--gray-200);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+  background: var(--color-bg);
+  border-bottom: var(--stroke-hairline) solid var(--color-border);
+  box-shadow: var(--shadow-dropdown);
   padding: var(--sp-1) 0;
   z-index: 99;
 }
@@ -1146,18 +1135,19 @@ a.course-item__title:hover { color: var(--indigo-light); }
 .site-header.nav-collapsed .site-nav.open { display: block; }
 
 .site-header.nav-collapsed .site-nav__link {
+  background-image: none;
   display: block;
   width: 100%;
   height: auto;
   line-height: 1.2;
   padding: var(--sp-2) var(--sp-4);
   border-bottom: none;
-  border-left: 2px solid transparent;
+  border-left: var(--stroke-accent) solid transparent;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .site-header.nav-collapsed .site-nav__link:hover,
 .site-header.nav-collapsed .site-nav__link.active {
   border-bottom: none;
-  border-left-color: var(--indigo);
+  border-left-color: var(--color-accent);
 }

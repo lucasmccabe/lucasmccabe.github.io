@@ -28,8 +28,6 @@ nav_id: about
       <p class="about-hero__title">{{ site.author.title }}</p>
       <p class="about-hero__affil">{{ site.author.department }}, {{ site.author.university }}</p>
 
-      <div class="about-hero__divider"></div>
-
       <p class="about-hero__bio">{{ site.author.bio }}</p>
 
       <div class="about-hero__links">
@@ -73,16 +71,15 @@ nav_id: about
 
   </section>
 
-  <!-- ── Selected publications ─────────────────────── -->
+  <!-- ── Selected works ─────────────────────── -->
   <section>
-    <div class="section-header">
-      <span class="section-title">Selected Publications</span>
-      <span class="section-rule"></span>
-      <a class="section-link" href="{{ '/works/' | relative_url }}">All Works</a>
+    <div class="section-header section-header--heading">
+      <h2 class="section-heading">Selected Works</h2>
+      <p class="section-heading__aside"><a href="{{ '/works/' | relative_url }}">All Works<span aria-hidden="true">&nbsp;&#8599;</span></a></p>
     </div>
 
     {% assign selected = site.data.publications | where: "selected", true %}
-    {% include pub_list.html publications=selected %}
+    {% include publication_entries.html publications=selected %}
   </section>
 
 </div>

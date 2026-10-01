@@ -1,0 +1,40 @@
+{%- comment -%}
+  ENTRY — a list row: a poster on the left, text on the right (same look as the Works list).
+  Params:
+    title; key (the title field in `all`; default "title"); all (the whole list, in display order,
+    for dealing poster colors);
+    poster_color (optional palette color name; otherwise dealt); hide_glyph (optional; true = no glyph);
+    poster_label (optional small text printed on the poster);
+    href, external (the poster and title link there); desc; meta (italic line);
+    link_url + link_label (optional extra link).
+{%- endcomment -%}
+<div class="entry">
+  {%- capture poster_classes -%}
+    poster {% if include.poster_color %}poster-color--{{ include.poster_color }}{% else %}poster-color--{{ include.title | poster_index: include.all, site.data.poster_palette.size, include.key }}{% endif %}
+  {%- endcapture -%}
+  {%- capture poster_inner -%}
+    <span class="poster__title">{{ include.title }}</span>
+    {% if include.poster_label and include.poster_label != "" %}<span class="poster__label">{{ include.poster_label }}</span>{% endif %}
+    {% unless include.hide_glyph %}{{ include.title | poster_glyph }}{% endunless %}
+  {%- endcapture -%}
+  {%- comment -%} The poster links where the title does; it's skipped by keyboard/screen readers since the title link is the same target. {%- endcomment -%}
+  {% if include.href and include.href != "" %}
+  <a class="{{ poster_classes }}" href="{{ include.href }}"{% if include.external %} target="_blank" rel="noopener"{% endif %} tabindex="-1" aria-hidden="true">{{ poster_inner }}</a>
+  {% else %}
+  <div class="{{ poster_classes }}" aria-hidden="true">{{ poster_inner }}</div>
+  {% endif %}
+  <div class="entry__body">
+    <div class="entry__title">
+      {%- if include.href and include.href != "" -%}
+      <a href="{{ include.href }}"{% if include.external %} target="_blank" rel="noopener"{% endif %}>{{ include.title }}</a>
+      {%- else -%}{{ include.title }}{%- endif -%}
+    </div>
+    {% if include.desc and include.desc != "" %}<div class="entry__desc">{{ include.desc }}</div>{% endif %}
+    {% if include.meta and include.meta != "" %}<div class="entry__venue">{{ include.meta }}</div>{% endif %}
+    {% if include.link_url and include.link_url != "" %}
+    <div class="entry__links">
+      <a href="{{ include.link_url }}" class="entry__link" target="_blank" rel="noopener">{{ include.link_label }}</a>
+    </div>
+    {% endif %}
+  </div>
+</div>

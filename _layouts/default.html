@@ -31,5 +31,81 @@
       }
     });
   </script>
+
+  {%- comment -%} Cuts poster titles to at most 6 lines (fewer if the poster lacks room), ending in " [...]". CSS line-clamp can't: it only ends in an ellipsis character. {%- endcomment -%}
+  <script>
+    (function() {
+      var MAX_TITLE_LINES = 6;
+
+      function fitTitle(title) {
+        if (!title.dataset.full) title.dataset.full = title.textContent.trim();
+        var words = title.dataset.full.split(/\s+/);
+        var line = parseFloat(getComputedStyle(title).lineHeight);
+        // The title box fills the poster's top row, so its height is the room available.
+        var limit = Math.min(line * MAX_TITLE_LINES, title.clientHeight) + 1;
+        var range = document.createRange();
+        function fits(n) {
+          title.textContent = n === words.length ? words.join(' ') : words.slice(0, n).join(' ') + ' [...]';
+          // Measure the text, not the box: scrollHeight is never less than the stretched box.
+          range.selectNodeContents(title);
+          return range.getBoundingClientRect().height <= limit;
+        }
+        if (fits(words.length)) return;
+        var lo = 0, hi = words.length - 1;   // largest word count that fits with the [...]
+        while (lo < hi) {
+          var mid = Math.ceil((lo + hi) / 2);
+          if (fits(mid)) lo = mid; else hi = mid - 1;
+        }
+        fits(lo);
+        // Fill the last line with as many letters of the next word as fit.
+        var next = words[lo] || '', base = words.slice(0, lo).join(' ');
+        function fitsPartial(k) {
+          title.textContent = (base ? base + ' ' : '') + next.slice(0, k) + '[...]';
+          range.selectNodeContents(title);
+          return range.getBoundingClientRect().height <= limit;
+        }
+        var klo = 0, khi = next.length - 1;
+        while (klo < khi) {
+          var kmid = Math.ceil((klo + khi) / 2);
+          if (fitsPartial(kmid)) klo = kmid; else khi = kmid - 1;
+        }
+        if (klo >= 3 && fitsPartial(klo)) return;
+        fits(lo);
+      }
+
+      function fitPosters() {
+        document.querySelectorAll('.poster').forEach(function(poster) {
+          var title = poster.querySelector('.poster__title');
+          if (title) fitTitle(title);
+        });
+      }
+      fitPosters();
+      window.addEventListener('load', fitPosters);
+      window.addEventListener('resize', fitPosters);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitPosters);
+    })();
+  </script>
+
+  {%- comment -%} EXPERIMENT: reshuffles which dots of the site-name glyph are lit. To revert, delete this script and the .site-header__glyph circle rules in main.scss. {%- endcomment -%}
+  <script>
+    (function() {
+      var dots = document.querySelectorAll('.site-header__glyph circle');
+      if (dots.length !== 9) return;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var INTERVAL_MS = 3500, MIN_ON = 3, MAX_ON = 6;
+      var last = '';
+      function shuffle() {
+        if (document.hidden) return;
+        var order = [0, 1, 2, 3, 4, 5, 6, 7, 8].sort(function() { return Math.random() - 0.5; });
+        var count = MIN_ON + Math.floor(Math.random() * (MAX_ON - MIN_ON + 1));
+        var on = order.slice(0, count).sort().join();
+        if (on === last) return;
+        last = on;
+        dots.forEach(function(dot, i) { dot.style.opacity = order.slice(0, count).indexOf(i) >= 0 ? '1' : '0'; });
+      }
+      setInterval(shuffle, INTERVAL_MS);
+    })();
+  </script>
 </body>
 </html>
