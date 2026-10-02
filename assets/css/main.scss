@@ -88,7 +88,7 @@
   /* Layout */
   --content-max:  1060px;
   --nav-height:   56px;
-  --photo-width:  200px;
+  --photo-width:  170px;
   --card-hover-lift: -4px;   /* how far cards rise on hover */
   --poster-width: 87px;
   --poster-aspect: 0.87;   /* width / height; every poster keeps this shape */
@@ -182,6 +182,8 @@
   color: var(--poster-text, var(--color-poster-text));
   opacity: 0.85;
   text-align: right;
+  /* Italic glyphs overhang the line box on the right; keep the last letter from being clipped. */
+  padding-right: 0.15em;
   overflow-wrap: break-word;
 }
 
@@ -231,6 +233,37 @@ a {
 a:hover {
   background-position: 0 100%;
   background-size: 100% 1px;
+}
+
+/* In-text links rest underlined and replay the draw-in on hover (about bio, research card descriptions).
+   Bio: a faint line sitting just below the text (clear of descenders) that goes solid on hover.
+   Cards: a faint line directly under the text that darkens on hover. */
+.about-hero__bio a,
+.about-hero__title a,
+.about-hero__affil a,
+.card__desc a {
+  --link-rule: color-mix(in srgb, currentColor 40%, transparent);
+  background-image: linear-gradient(var(--link-rule), var(--link-rule));
+  background-position: 0 100%;
+  background-size: 100% 1px;
+}
+
+.about-hero__bio a,
+.about-hero__title a,
+.about-hero__affil a { padding-bottom: 2px; }   /* room for the offset line; inline padding doesn't affect layout */
+
+.about-hero__bio a:hover,
+.about-hero__title a:hover,
+.about-hero__affil a:hover,
+.card__desc a:hover {
+  --link-rule: currentColor;
+  background-position: 0 100%;
+  animation: link-underline-draw 0.35s ease;
+}
+
+@keyframes link-underline-draw {
+  from { background-size: 0 1px; }
+  to   { background-size: 100% 1px; }
 }
 
 p { margin-bottom: var(--sp-3); }
@@ -525,21 +558,7 @@ img { max-width: 100%; display: block; }
 .section-heading__aside {
   margin-left: auto;
   font-size: var(--text-sm);
-  font-weight: var(--weight-regular);
-}
-
-.section-title {
-  font-size: var(--text-xs);
-  font-weight: var(--weight-regular);
-  letter-spacing: 0.14em;
-  color: var(--color-text-muted);
-  white-space: nowrap;
-}
-
-.section-rule {
-  flex: 1;
-  height: 1px;
-  background: var(--color-border);
+  font-weight: var(--weight-medium);
 }
 
 /* ============================================================
@@ -582,6 +601,23 @@ img { max-width: 100%; display: block; }
 .entry__body {
   grid-column: 2;
   grid-row: 1;
+}
+
+/* Title row: the title, with an optional link ("GitHub ↗") at the right, styled like the About page's "All Works". */
+.entry__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.entry__aside {
+  flex-shrink: 0;
+  margin-left: auto;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
 }
 
 .entry__title {
@@ -1076,7 +1112,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 700px) {
   :root {
-    --photo-width: 140px;
+    --photo-width: 116px;
   }
 
   .about-hero {
@@ -1106,6 +1142,7 @@ img { max-width: 100%; display: block; }
   .about-hero__photo-wrap {
     display: none;
   }
+
 }
 
 /* As the header narrows, header.html's script tries two things in order,

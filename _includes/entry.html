@@ -6,7 +6,7 @@
     poster_color (optional palette color name; otherwise dealt); hide_glyph (optional; true = no glyph);
     poster_label (optional small text printed on the poster);
     href, external (the poster and title link there); desc; meta (italic line);
-    link_url + link_label (optional extra link).
+    link_url + link_label (optional extra link, shown top-right in the title row).
 {%- endcomment -%}
 <div class="entry">
   {%- capture poster_classes -%}
@@ -24,17 +24,15 @@
   <div class="{{ poster_classes }}" aria-hidden="true">{{ poster_inner }}</div>
   {% endif %}
   <div class="entry__body">
-    <div class="entry__title">
-      {%- if include.href and include.href != "" -%}
-      <a href="{{ include.href }}"{% if include.external %} target="_blank" rel="noopener"{% endif %}>{{ include.title }}</a>
-      {%- else -%}{{ include.title }}{%- endif -%}
+    <div class="entry__header">
+      <div class="entry__title">
+        {%- if include.href and include.href != "" -%}
+        <a href="{{ include.href }}"{% if include.external %} target="_blank" rel="noopener"{% endif %}>{{ include.title }}</a>
+        {%- else -%}{{ include.title }}{%- endif -%}
+      </div>
+      {% if include.link_url and include.link_url != "" %}<a href="{{ include.link_url }}" class="entry__aside" target="_blank" rel="noopener">{{ include.link_label }}</a>{% endif %}
     </div>
     {% if include.desc and include.desc != "" %}<div class="entry__desc">{{ include.desc }}</div>{% endif %}
     {% if include.meta and include.meta != "" %}<div class="entry__venue">{{ include.meta }}</div>{% endif %}
-    {% if include.link_url and include.link_url != "" %}
-    <div class="entry__links">
-      <a href="{{ include.link_url }}" class="entry__link" target="_blank" rel="noopener">{{ include.link_label }}</a>
-    </div>
-    {% endif %}
   </div>
 </div>
