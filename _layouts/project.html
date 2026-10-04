@@ -10,9 +10,9 @@ layout: default
       <p class="project-header__desc">{{ page.description }}</p>
     </div>
     <div class="project-header__links">
-      <a href="{{ page.github }}" class="project-header__link" target="_blank" rel="noopener">GitHub</a>
+      <a href="{{ page.github }}" class="project-header__link" target="_blank" rel="noopener">GitHub<span aria-hidden="true">&nbsp;&#8599;&#xFE0E;</span></a>
       {% if page.url_external != "" and page.url_external %}
-        <a href="{{ page.url_external }}" class="project-header__link" target="_blank" rel="noopener">Project Site</a>
+        <a href="{{ page.url_external }}" class="project-header__link" target="_blank" rel="noopener">Project Site<span aria-hidden="true">&nbsp;&#8599;&#xFE0E;</span></a>
       {% endif %}
     </div>
   </div>
