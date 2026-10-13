@@ -1179,3 +1179,6 @@ img { max-width: 100%; display: block; }
   border-bottom: none;
   border-left-color: var(--color-accent);
 }
+
+/* External/"more" arrow: an inline SVG rather than the ↗ glyph, which mobile browsers can swap for an emoji. */
+.ext-arrow { display: inline-block; vertical-align: baseline; }
