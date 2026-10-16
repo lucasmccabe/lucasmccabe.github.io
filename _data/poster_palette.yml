@@ -11,14 +11,18 @@
 - { name: slate, bg: "#3A404B" }
 - { name: sage, bg: "#C7D7BF" }
 
-# dark
-- { name: plum, bg: "#563348" }
-- { name: oxblood, bg: "#642A36" }
-- { name: forest, bg: "#224934" }
-- { name: navy, bg: "#323E5F" }
-
 # mid
 - { name: mustard, bg: "#D4AF5D" }
 
 # light
 - { name: sand, bg: "#DCD0B4" }
+- { name: lilac, bg: "#DCCAD7" }
+# - { name: mist, bg: "#CDD1D8" }
+# - { name: peach, bg: "#EBC9B4" }
+# - { name: seafoam, bg: "#BDD6D3" }
+
+# dark
+- { name: plum, bg: "#563348" }
+- { name: oxblood, bg: "#642A36" }
+- { name: forest, bg: "#224934" }
+- { name: navy, bg: "#323E5F" }

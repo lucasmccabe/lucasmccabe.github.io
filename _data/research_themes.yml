@@ -7,7 +7,7 @@
     My work often views this through the lens of distribution property estimation.
 
 - id: model-behavior
-  title: "Model Behavior & Interpretability"
+  title: "Model Behavior, Interpretability, & Evaluations"
   description: >
     Generative language models can behave in unexpected ways, for reasons that are notoriously opaque.
     Responsible deployment of machine learning systems warrants careful examination of such behavior and potential failure modes.
