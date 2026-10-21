@@ -20,6 +20,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # The CV is not tracked in git; it is stored as an asset of the "cv" release.
+      - name: Fetch CV from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p assets/pdf
+          gh release download cv -p cv.pdf -D assets/pdf --repo "$GITHUB_REPOSITORY" \
+            || echo "::warning::No 'cv' release with cv.pdf found; CV link will be broken."
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.1"

@@ -19,3 +19,6 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+
+# CV is supplied from a GitHub Release, not tracked
+assets/pdf/cv.pdf
