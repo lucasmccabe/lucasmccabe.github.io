@@ -36,7 +36,7 @@ social:
   twitter: ""
   linkedin: "https://linkedin.com/in/lucashurleymccabe"
   orcid: ""
-  cv: "" #"assets/pdf/cv.pdf"
+  cv: "assets/pdf/cv.pdf"
 
 # Navigation
 nav:

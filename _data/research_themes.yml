@@ -1,7 +1,7 @@
 # Research themes / areas
 # id: used to tag publications in publications.yml (themes: [id1, id2])
 - id: uq-dpe
-  title: "Uncertainty Quantification"
+  title: "Uncertainty Quantification & Distribution Property Estimation"
   description: >
     Generative language models are not always accurate, and they struggle to reliably gauge their intrinsic uncertainty, motivating ancillary systems that do so on their behalf.
     My work often views this through the lens of distribution property estimation.
