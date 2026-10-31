@@ -9,6 +9,46 @@ nav_id: works
 
   <h1 class="page-title">{{ page.title }}</h1>
 
+  {% include theme_legend.html %}
+
   {% include publication_entries.html publications=site.data.publications %}
 
+  <p class="theme-filter-empty" hidden>No works are tagged with this theme.</p>
+
 </div>
+
+{%- comment -%} Theme filter: the legend items all start pressed (every work shows). Clicking one selects only that theme, showing just the works tagged with it (any of their themes, not just the first) and fading the other items; clicking another switches to that one; clicking the selected one again clears the filter. Year groups left empty are hidden too. {%- endcomment -%}
+<script>
+  (function() {
+    var items = document.querySelectorAll('.theme-legend__item');
+    var entries = document.querySelectorAll('.entry');
+    var groups = document.querySelectorAll('.entry-list__group');
+    var empty = document.querySelector('.theme-filter-empty');
+    var current = null;
+
+    function apply() {
+      entries.forEach(function(entry) {
+        var themes = (entry.getAttribute('data-themes') || '').split(' ');
+        entry.hidden = current !== null && themes.indexOf(current) === -1;
+      });
+      var shown = 0;
+      groups.forEach(function(group) {
+        var visible = group.querySelectorAll('.entry:not([hidden])').length;
+        group.hidden = visible === 0;
+        shown += visible;
+      });
+      empty.hidden = shown > 0;
+      items.forEach(function(item) {
+        item.setAttribute('aria-pressed', current === null || item.getAttribute('data-theme') === current ? 'true' : 'false');
+      });
+    }
+
+    items.forEach(function(item) {
+      item.addEventListener('click', function() {
+        var theme = item.getAttribute('data-theme');
+        current = current === theme ? null : theme;
+        apply();
+      });
+    });
+  })();
+</script>

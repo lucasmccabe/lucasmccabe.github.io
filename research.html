@@ -11,7 +11,7 @@ nav_id: research
 
   <div class="card-grid">
     {% for theme in site.data.research_themes %}
-      {% assign theme_pubs = site.data.publications | where_exp: "pub", "pub.themes contains theme.id" | reverse | sort: "year" | reverse %}
+      {% assign theme_pubs = site.data.publications | where_exp: "pub", "pub.themes contains theme.id and pub.show_in_themes" | reverse | sort: "year" | reverse %}
       {% if theme.color and theme.color != "" %}{% assign card_color = theme.color %}{% else %}{% assign card_color = forloop.index0 | modulo: site.data.poster_palette.size | plus: 1 %}{% endif %}
       <div class="card poster-color--{{ card_color }}">
         <h2 class="card__title">{{ theme.title }}</h2>

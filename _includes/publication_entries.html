@@ -18,7 +18,7 @@
   <li class="entry-list__group">
     <div class="entry-list__year">{{ year }}</div>
     {% for pub in year_pubs %}
-    <div class="entry">
+    <div class="entry"{% if pub.themes %} data-themes="{{ pub.themes | join: ' ' }}"{% endif %}>
       {%- assign pub_href = "" -%}
       {%- if pub.url != "" and pub.url -%}
         {%- assign pub_href = pub.url -%}

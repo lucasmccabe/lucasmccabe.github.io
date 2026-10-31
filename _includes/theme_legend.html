@@ -1,0 +1,11 @@
+{%- comment -%}
+  THEME LEGEND — a row of squares in the theme's poster color, each with the theme title beside it, one per research theme (in research_themes.yml order), so a
+  poster's color on a works list can be matched to its theme. Same color rule as the Research cards.
+  Each item is a button (data-theme = the theme id) that starts pressed: all themes show. The page decides what a click does (see works.html).
+{%- endcomment -%}
+<ul class="theme-legend" aria-label="Poster colors by research theme">
+  {%- for theme in site.data.research_themes -%}
+    {%- if theme.color and theme.color != "" -%}{%- assign legend_color = theme.color -%}{%- else -%}{%- assign legend_color = forloop.index0 | modulo: site.data.poster_palette.size | plus: 1 -%}{%- endif -%}
+  <li class="poster-color--{{ legend_color }}"><button type="button" class="theme-legend__item" data-theme="{{ theme.id }}" aria-pressed="true"><span class="theme-legend__swatch"></span>{{ theme.title }}</button></li>
+  {%- endfor -%}
+</ul>

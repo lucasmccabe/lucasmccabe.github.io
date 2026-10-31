@@ -4,6 +4,8 @@
 #         hide_glyph (optional; true = no dot-grid glyph on the poster)
 #         themes: list of theme IDs from research_themes.yml; the first one sets the poster color
 #                 (the theme's `color`); works without themes get a dealt color
+#         show_in_themes (true/false, default false): list the work under its themes on the Research
+#                 page. Themes always color the poster, whether or not this is set
 #         poster_color (optional; a poster_palette.yml name; overrides the theme color)
 # Link priority: url (HTML landing page) > pdf
 
@@ -13,6 +15,7 @@
   year: 2026
   type: preprint
   selected: true
+  show_in_themes: true
   themes: [uq-dpe]
   url: "https://arxiv.org/abs/2605.00668"
   pdf: "https://arxiv.org/pdf/2605.00668"
@@ -27,6 +30,7 @@
   year: 2026
   type: preprint
   selected: true
+  show_in_themes: true
   themes: [model-behavior]
   url: "https://arxiv.org/abs/arXiv:2610.19291"
   pdf: "https://arxiv.org/pdf/arXiv:2610.19291"
@@ -40,6 +44,7 @@
   venue: "International Conference on Learning Representations (ICLR)"
   year: 2026
   type: works
+  show_in_themes: true
   selected: true
   themes: [uq-dpe]
   url: "https://proceedings.iclr.cc/paper_files/paper/2026/hash/5f03fc30db670b2764ef9e39e71c04c8-Abstract-Conference.html"
@@ -55,6 +60,7 @@
   year: 2025
   type: works
   selected: true
+  show_in_themes: true
   themes: [model-behavior]
   url: "https://aclanthology.org/2025.emnlp-main.147/"
   pdf: "https://arxiv.org/pdf/2505.02273"
@@ -68,6 +74,7 @@
   venue: "Applied Network Science"
   year: 2024
   type: works
+  show_in_themes: true
   selected: true
   themes: [health-applications]
   url: "https://appliednetsci.springeropen.com/articles/10.1007/s41109-024-00661-z"
@@ -83,6 +90,7 @@
   year: 2024
   type: works
   selected: true
+  show_in_themes: true
   themes: [model-behavior]
   url: "https://aclanthology.org/2024.emnlp-main.4"
   pdf: "https://aclanthology.org/2024.emnlp-main.4.pdf"
@@ -97,6 +105,7 @@
   year: 2024
   type: works
   selected: false
+  show_in_themes: true
   themes: [log-applications]
   url: "https://papers.phmsociety.org/index.php/phmconf/article/view/3906"
   pdf: ""
@@ -111,6 +120,7 @@
   year: 2024
   type: works
   selected: false
+  show_in_themes: false
   themes: 
   url: "https://ieeexplore.ieee.org/abstract/document/10480196"
   pdf: "https://arxiv.org/pdf/2311.02658v3"
@@ -126,6 +136,7 @@
   year: 2023
   type: works
   selected: false
+  show_in_themes: true
   themes: [log-applications]
   url: "https://osf.io/3auyv/"
   pdf: ""
@@ -140,7 +151,8 @@
   year: 2022
   type: works
   selected: false
-  themes:
+  show_in_themes: false
+  themes: 
   url: "https://joss.theoj.org/papers/10.21105/joss.04894"
   pdf: "https://www.theoj.org/joss-papers/joss.04894/10.21105.joss.04894.pdf"
   doi: "10.21105/joss.04894"
@@ -154,7 +166,8 @@
   year: 2022
   type: works
   selected: False
-  themes:
+  show_in_themes: true
+  themes: [log-applications]
   url: "https://www.xcdsystem.com/iitsec/proceedings/index.cfm?Year=2022&AbID=112504&CID=944#View"
   pdf: "https://s3.amazonaws.com/amz.xcdsystem.com/44ECEE4F-033C-295C-BAE73278B7F9CA1D_abstract_File16562/PaperUpload_22316_0825094939.pdf"
   doi: ""

@@ -6,22 +6,19 @@
 #                 (the theme's `color`); works without themes get a dealt color
 #         poster_color (optional; a poster_palette.yml name; overrides the theme color)
 # Link priority: url (HTML landing page) > pdf
-- { name: dusty-blue, bg: "#C0D3E9" }
-- { name: lilac, bg: "#DCCAD7" }
-- { name: sage, bg: "#C7D7BF" }
-- { name: mist, bg: "#CDD1D8" }
-- { name: seafoam, bg: "#BDD6D3" }
 
 # mid
 - { name: mustard, bg: "#D4AF5D" }
 
 # light
+- { name: dusty-blue, bg: "#C0D3E9" }
+- { name: sage, bg: "#C7D7BF" }
 - { name: sand, bg: "#DCD0B4" }
-# - { name: lilac, bg: "#DCCAD7" }
+- { name: lilac, bg: "#DCCAD7" }
 - { name: rose, bg: "#E8C8C6" }
-# - { name: mist, bg: "#CDD1D8" }
+- { name: mist, bg: "#CDD1D8" }
 # - { name: peach, bg: "#EBC9B4" }
-# - { name: seafoam, bg: "#BDD6D3" }
+- { name: seafoam, bg: "#BDD6D3" }
 
 # dark
 - { name: slate, bg: "#3A404B" }

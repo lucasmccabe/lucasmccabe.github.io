@@ -708,6 +708,59 @@ img { max-width: 100%; display: block; }
 
 .entry__abstract.open { display: block; }
 
+/* Theme legend (Works page): a key to the poster colors. Each swatch is a square as tall as the line
+   of text beside it (the palette colors are pale, so anything smaller than the line looks like a
+   footnote marker and fades out), with the theme title in --text-sm. */
+.theme-legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-3);
+  /* --sp-2 below the page title (whose own margin is --sp-6), --sp-4 above the list: it reads as
+     a subtitle of the page, with a larger gap before the content. */
+  margin: calc(var(--sp-2) - var(--sp-6)) 0 var(--sp-4);
+  padding: 0;
+}
+
+/* Each item is a button that starts pressed (all themes show). Clicking one selects only that theme
+   and the rest fade back; clicking it again clears the filter (see works.html). */
+.theme-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.theme-legend__item:hover { color: var(--color-text); }
+
+.theme-legend__item[aria-pressed="true"] { color: var(--color-text); }
+.theme-legend__item[aria-pressed="false"] { opacity: 0.5; }
+.theme-legend__item[aria-pressed="false"]:hover { opacity: 1; }
+
+.entry[hidden],
+.entry-list__group[hidden] { display: none; }
+
+.theme-filter-empty {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.theme-legend__swatch {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-sm);
+  background: var(--poster-bg, var(--color-poster));
+}
+
 /* ============================================================
    CARDS
    A card is a full-color poster panel: the palette pair (poster-color--N) fills
