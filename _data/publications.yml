@@ -152,7 +152,7 @@
   type: works
   selected: false
   show_in_themes: false
-  themes: 
+  themes: [health-applications]
   url: "https://joss.theoj.org/papers/10.21105/joss.04894"
   pdf: "https://www.theoj.org/joss-papers/joss.04894/10.21105.joss.04894.pdf"
   doi: "10.21105/joss.04894"
@@ -166,7 +166,7 @@
   year: 2022
   type: works
   selected: False
-  show_in_themes: true
+  show_in_themes: false
   themes: [log-applications]
   url: "https://www.xcdsystem.com/iitsec/proceedings/index.cfm?Year=2022&AbID=112504&CID=944#View"
   pdf: "https://s3.amazonaws.com/amz.xcdsystem.com/44ECEE4F-033C-295C-BAE73278B7F9CA1D_abstract_File16562/PaperUpload_22316_0825094939.pdf"
@@ -181,6 +181,7 @@
   year: 2022
   type: works
   selected: false
+  show_in_themes: false
   themes: []
   url: "https://proceedings.mlr.press/v176/perrotta22a.html"
   pdf: "https://proceedings.mlr.press/v176/perrotta22a/perrotta22a.pdf"
@@ -195,6 +196,7 @@
   year: 2017
   type: works
   selected: false
+  show_in_themes: true
   themes: [health-applications]
   url: "https://www.nature.com/articles/s41551-017-0167-9"
   pdf: ""
@@ -209,6 +211,7 @@
   year: 2016
   type: works
   selected: false
+  show_in_themes: false
   themes: [health-applications]
   url: "https://www.frontiersin.org/10.3389/conf.FBIOE.2016.01.02444/2893/10th_World_Biomaterials_Congress/all_events/event_abstract"
   pdf: ""
