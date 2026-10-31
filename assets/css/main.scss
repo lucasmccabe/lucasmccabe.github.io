@@ -726,7 +726,10 @@ img { max-width: 100%; display: block; }
    and the rest fade back; clicking it again clears the filter (see works.html). */
 .theme-legend__item {
   display: inline-flex;
-  align-items: center;
+  /* Buttons center their text by default; left-align so a name that wraps to two lines lines up with
+     the single-line ones, and keep the swatch beside the first line. */
+  align-items: flex-start;
+  text-align: left;
   gap: var(--sp-1);
   padding: 0;
   border: none;
