@@ -7,6 +7,9 @@ require "digest"
 # Titles are ranked by hash and dealt like a shuffled deck (stable across builds). The list is
 # then walked in order and a color matching either of the previous SEPARATION entries is
 # bumped to the next palette color, so no two entries within SEPARATION places share one.
+# An entry's color is `poster_color` if set, else the `color` of the first of its `themes` in
+# research_themes.yml, else it is dealt. Entries with such a color are "pinned" below: they keep it
+# and earlier entries steer clear of it; nearby entries that pin the same color stay as pinned.
 # A pinned entry (`poster_color`) keeps its color and earlier entries steer clear of it; nearby
 # entries that pin the same color stay as pinned. Best-effort if the palette is tiny.
 #
@@ -14,6 +17,8 @@ require "digest"
 # of it (About shows the selected works). Colors are first dealt over `canonical`, so an entry
 # gets the same color on every page, and are then bumped on this page only where the subset
 # creates a repeat. Without it the list is its own canonical list.
+# Dealt colors skip every color a research theme uses, so only themed works and the Research cards
+# show those. (If the themes use the whole palette, nothing is skipped.)
 # Trade-off: a poster's color depends on the whole list and its order.
 module PosterIndexFilter
   SEPARATION = 2
@@ -22,28 +27,44 @@ module PosterIndexFilter
     size = size.to_i
     return 1 if size < 1
 
+    free = free_positions(size)
+
     key = key.to_s.empty? ? "title" : key.to_s
     title = title.to_s
     entries = Array(publications)
     titles = entries.map { |p| p[key].to_s }
     unless titles.include?(title)
       ranked = (titles.uniq << title).sort_by { |t| [Digest::MD5.hexdigest(t), t] }
-      return ranked.index(title) % size + 1
+      return free[ranked.index(title) % free.size]
     end
 
-    preferred = canonical ? deal(Array(canonical), key, size).first : nil
-    deal(entries, key, size, preferred).last[titles.index(title)]
+    preferred = canonical ? deal(Array(canonical), key, size, free).first : nil
+    deal(entries, key, size, free, preferred).last[titles.index(title)]
   end
 
   private
 
+  # The palette positions open to dealing: all of 1..size, without the colors the research themes use.
+  def free_positions(size)
+    all = (1..size).to_a
+    site = @context.registers[:site]
+    palette = site.data["poster_palette"] || []
+    taken = (site.data["research_themes"] || []).each_with_index.map do |theme, i|
+      by_name = palette.index { |pair| pair["name"] == theme["color"].to_s }
+      by_name ? by_name + 1 : (theme["color"].to_s.empty? ? i % size + 1 : nil)
+    end
+    free = all - taken.compact
+    free.empty? ? all : free
+  end
+
   # Deals colors to `entries` in order. Returns [color by title (first occurrence), colors by
-  # position]. `preferred` (title => color) supplies each entry's starting color when given.
-  def deal(entries, key, size, preferred = nil)
+  # position]. `size` is the palette size; `free` is the palette positions to deal from. `preferred` (title => color) supplies
+  # each entry's starting color when given.
+  def deal(entries, key, size, free, preferred = nil)
     titles = entries.map { |p| p[key].to_s }
     ranked = titles.uniq.sort_by { |t| [Digest::MD5.hexdigest(t), t] }
-    base = ->(t) { ranked.index(t) % size + 1 }
-    pinned = entries.map { |e| pinned_poster_index(e["poster_color"], size) }
+    base = ->(t) { free[ranked.index(t) % free.size] }
+    pinned = entries.map { |e| pinned_poster_index(fixed_poster_color(e), size) }
 
     colors = []
     titles.each_with_index do |t, i|
@@ -53,10 +74,10 @@ module PosterIndexFilter
       end
       color = (preferred && preferred[t]) || base.(t)
       avoid = (1..SEPARATION).flat_map { |d| [(colors[i - d] if i - d >= 0), pinned[i + d]] }.compact
-      size.times do
-        break unless avoid.include?(color)
+      free.size.times do
+        break unless avoid.include?(color) || !free.include?(color)
 
-        color = color % size + 1
+        color = free[(free.index(color) || -1) + 1] || free.first
       end
       colors << color
     end
@@ -64,6 +85,18 @@ module PosterIndexFilter
     by_title = {}
     titles.each_with_index { |t, i| by_title[t] ||= colors[i] }
     [by_title, colors]
+  end
+
+  # The palette name an entry is fixed to: its own `poster_color`, else the `color` of its first theme.
+  def fixed_poster_color(entry)
+    own = entry["poster_color"]
+    return own unless own.nil? || own.to_s.empty?
+
+    first = Array(entry["themes"]).first
+    return nil if first.nil?
+
+    theme = (@context.registers[:site].data["research_themes"] || []).find { |t| t["id"] == first }
+    theme && theme["color"]
   end
 
   # A pinned `poster_color` is a palette name (or a 1-based position); returns its position.

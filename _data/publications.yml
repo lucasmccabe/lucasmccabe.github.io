@@ -2,22 +2,10 @@
 # Fields: title, authors, venue, venue_abbr (optional; shown on the poster instead of venue), year, type (journal/conference/preprint),
 #         selected (true/false), url, pdf, doi, code, abstract
 #         hide_glyph (optional; true = no dot-grid glyph on the poster)
-#         themes: list of theme IDs from research_themes.yml
+#         themes: list of theme IDs from research_themes.yml; the first one sets the poster color
+#                 (the theme's `color`); works without themes get a dealt color
+#         poster_color (optional; a poster_palette.yml name; overrides the theme color)
 # Link priority: url (HTML landing page) > pdf
-
-- title: "Can LLM Agents Efficiently Identify Appliance Faults? Insights From Diagnosing a Simulated Appliance"
-  authors: "L. H. McCabe, S. Lukens, and H. H. Huang"
-  venue: "arXiv preprint arXiv:arXiv:2610.19291"
-  year: 2026
-  type: preprint
-  selected: false
-  themes: [model-behavior]
-  url: "https://arxiv.org/abs/arXiv:2610.19291"
-  pdf: "https://arxiv.org/pdf/arXiv:2610.19291"
-  doi: ""
-  code: ""
-  venue_abbr: "Preprint"
-  abstract: "In so-called 'Industry 4.0,' integrated sensors, analytics tools, and other digital technologies supplement industrial workflows, potentiating enhanced visibility and automation. Prognostics and health management (PHM) and natural language processing (NLP) practitioners alike have explored the application of large language models (LLMs) to industrial asset management, but many prior works' focus on exam-like benchmarks has limited their assessment of LLMs' ability to automate practical operations. Herein, we introduce CoffeeBench, a fault diagnostics task for LLM agents, using a simulated appliance. The LLMs we evaluate struggle to consistently identify faults from the sensor information alone, but the best-performing ones can iteratively refine the fault-option space to eventually obtain a successful diagnosis. Our subsequent analyses, therefore, focus on: differentiating models by diagnostic efficiency (RQ1); examining the lagging performance of the three worst models (RQ2); and identifying viable heuristics for selective prediction (RQ3), including that initial diagnostic uncertainty and LLM-judged soundness of reasoning are high-signal predictors of diagnostic success. In addition to our benchmark results (Section 3.1), we provide practical insights for improving the performance of the open-weight models on CoffeeBench, such as by explicitly tracking episode state on their behalf to reduce timeouts (Section 3.2) or applying a deliberation loop to refine diagnostic hypotheses (Section 3.3)."
 
 - title: "SENECA: Small-Sample Discrete Entropy Estimation via Self-Consistent Missing Mass"
   authors: "L. H. McCabe, and H. H. Huang"
@@ -32,6 +20,20 @@
   code: ""
   venue_abbr: "Preprint"
   abstract: Discrete entropy estimation is a classic information theory problem, wherein the average information content of a discrete random variable is estimated from samples alone. Naive approaches, such as the plugin method, fail to account for the probability mass associated with members of the random variable’s support that are unobserved in a given sample, known as the "missing mass." The resulting systemic underestimation is particularly problematic when data is time-consuming or costly to gather. We propose SENECA, an entropy estimation scheme based on a novel “self-consistent” missing mass calculation. Extensive numerical experiments indicate that our approach outperforms many state-of-the-art alternatives overall in the small-sample setting. We then apply SENECA to two practical use cases, namely biodiversity estimation and the detection of incorrect large language model responses, where our method is competitive with domain-specific approaches. Our work advances SENECA as an effective drop-in replacement for small-sample entropy estimation, with broad utility across several domains.
+
+- title: "Can LLM Agents Efficiently Identify Appliance Faults? Insights From Diagnosing a Simulated Appliance"
+  authors: "L. H. McCabe, S. Lukens, and H. H. Huang"
+  venue: "arXiv preprint arXiv:arXiv:2610.19291"
+  year: 2026
+  type: preprint
+  selected: true
+  themes: [model-behavior]
+  url: "https://arxiv.org/abs/arXiv:2610.19291"
+  pdf: "https://arxiv.org/pdf/arXiv:2610.19291"
+  doi: ""
+  code: ""
+  venue_abbr: "Preprint"
+  abstract: "In so-called 'Industry 4.0,' integrated sensors, analytics tools, and other digital technologies supplement industrial workflows, potentiating enhanced visibility and automation. Prognostics and health management (PHM) and natural language processing (NLP) practitioners alike have explored the application of large language models (LLMs) to industrial asset management, but many prior works' focus on exam-like benchmarks has limited their assessment of LLMs' ability to automate practical operations. Herein, we introduce CoffeeBench, a fault diagnostics task for LLM agents, using a simulated appliance. The LLMs we evaluate struggle to consistently identify faults from the sensor information alone, but the best-performing ones can iteratively refine the fault-option space to eventually obtain a successful diagnosis. Our subsequent analyses, therefore, focus on: differentiating models by diagnostic efficiency (RQ1); examining the lagging performance of the three worst models (RQ2); and identifying viable heuristics for selective prediction (RQ3), including that initial diagnostic uncertainty and LLM-judged soundness of reasoning are high-signal predictors of diagnostic success. In addition to our benchmark results (Section 3.1), we provide practical insights for improving the performance of the open-weight models on CoffeeBench, such as by explicitly tracking episode state on their behalf to reduce timeouts (Section 3.2) or applying a deliberation loop to refine diagnostic hypotheses (Section 3.3)."
 
 - title: "Estimating Semantic Alphabet Size for LLM Uncertainty Quantification"
   authors: "L. H. McCabe, R. Melamed, T. Hartvigsen, and H. H. Huang"

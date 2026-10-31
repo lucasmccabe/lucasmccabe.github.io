@@ -4,7 +4,8 @@
   The poster and title link to the HTML version, or to the PDF when there is no HTML link.
   Poster colors are dealt from this list in display order, starting from each paper's color in the
   full publications list (see poster_index), so a paper keeps its color across pages and is only
-  bumped where this page's neighbours would repeat it. A page that shows several lists in a row
+  bumped where this page's neighbours would repeat it. A paper with a theme takes its theme's color;
+  the others are dealt only colors that no theme uses. A page that shows several lists in a row
   should pass their concatenation instead. Other lists use entry.html.
 {%- endcomment -%}
 {% assign pubs = include.publications | reverse | sort: "year" | reverse %}

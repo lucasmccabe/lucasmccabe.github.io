@@ -91,7 +91,7 @@
    Each color (bg, plus text derived from bg unless given) becomes CSS variables
    (--poster-N-bg / --poster-N-text), a .poster-color--N class and, if it has a `name`, a
    .poster-color--NAME class. Posters are dealt one by the poster_index filter
-   (_plugins/posters.rb) or pin one with `poster_color: <name>`; Research cards take 1, 2, 3… in order.
+   (_plugins/posters.rb), take their first theme's `color` (research_themes.yml), or pin one with `poster_color: <name>`.
    ============================================================ */
 
 :root {
@@ -712,7 +712,7 @@ img { max-width: 100%; display: block; }
    CARDS
    A card is a full-color poster panel: the palette pair (poster-color--N) fills
    the whole card, with the title at the top left followed by the body. Used for
-   the Research themes: theme N takes the Nth pair of poster_palette.yml.
+   the Research themes: each theme names its palette color in research_themes.yml.
    ============================================================ */
 
 .card-grid {
