@@ -739,6 +739,8 @@ img { max-width: 100%; display: block; }
   font-size: var(--text-sm);
   font-weight: var(--weight-medium);
   color: var(--color-text-secondary);
+  line-height: var(--line-height-base);
+  text-wrap: balance;
   transition: color 0.15s ease, opacity 0.15s ease;
 }
 
@@ -762,6 +764,15 @@ img { max-width: 100%; display: block; }
   height: 18px;
   border-radius: var(--radius-sm);
   background: var(--poster-bg, var(--color-poster));
+  /* Optically center the swatch on the first line of text, so it stays put when the name wraps. */
+  margin-top: calc((var(--line-height-base) * 1em - 18px) / 2);
+}
+
+/* Phones: the legend stacks and long names wrap, so give each item a comfortable tap height
+   (~44px for one line) and more space between items than between the lines inside one. */
+@media (max-width: 600px) {
+  .theme-legend { row-gap: 0; }
+  .theme-legend__item { padding: var(--sp-1) 0; min-height: 44px; }
 }
 
 /* ============================================================
