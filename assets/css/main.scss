@@ -857,6 +857,30 @@ img { max-width: 100%; display: block; }
   margin-bottom: var(--sp-2);
 }
 
+/* Heading anchors: shown on hover or keyboard focus (always on touch screens, where there is no hover). */
+.blog-content h2[id],
+.blog-content h3[id] { scroll-margin-top: calc(var(--nav-height) + var(--sp-3)); }
+
+.heading-anchor {
+  margin-left: var(--sp-1);
+  display: inline-flex;
+  vertical-align: middle;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.heading-anchor svg { width: 0.8em; height: 0.8em; }
+
+.blog-content h2:hover .heading-anchor,
+.blog-content h3:hover .heading-anchor,
+.heading-anchor:focus-visible { opacity: 1; }
+
+.heading-anchor:hover { color: var(--color-accent); }
+
+@media (hover: none) { .heading-anchor { opacity: 1; } }
+
 .blog-content ul,
 .blog-content ol {
   margin: 0 0 var(--sp-3) var(--sp-4);
@@ -893,6 +917,63 @@ img { max-width: 100%; display: block; }
   overflow-x: auto;
   overflow-y: hidden;
 }
+
+/* BibTeX reference at the bottom of a post */
+.bibtex {
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-3);
+  border-top: var(--stroke-hairline) solid var(--color-border);
+}
+
+.bibtex__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--sp-2);
+}
+
+.bibtex__label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-muted);
+}
+
+.bibtex__copy {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.bibtex__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bibtex__copy:hover { color: var(--color-text); }
+
+.bibtex__icon { width: 1.1em; height: 1.1em; }
+.bibtex__icon--done,
+.bibtex__copy.is-copied .bibtex__icon--copy { display: none; }
+.bibtex__copy.is-copied .bibtex__icon--done { display: inline; }
+
+.bibtex__code {
+  margin: 0;
+  overflow-x: auto;
+  padding: var(--sp-3);
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+}
+
+.bibtex__code code { background: none; padding: 0; font: inherit; }
 
 /* ============================================================
    PROJECT DETAIL PAGE

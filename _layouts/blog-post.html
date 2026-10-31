@@ -13,4 +13,41 @@ layout: default
     {{ content }}
   </div>
 
+  {%- comment -%} BibTeX reference: a @misc entry built from the post's front matter, with a copy button. {%- endcomment -%}
+  {%- assign lb = "{" -%}
+  {%- assign rb = "}" -%}
+  {%- capture bibtex -%}
+@misc{{ lb }}{{ page.slug }},
+  author = {{ lb }}{{ site.author.name }}{{ rb }},
+  title  = {{ lb }}{{ lb }}{{ page.title | replace: "&", "\\&" }}{{ rb }}{{ rb }},
+  year   = {{ lb }}{{ page.date | date: "%Y" }}{{ rb }},
+  month  = {{ page.date | date: "%b" | downcase }},
+  url    = {{ lb }}{{ page.url | canonical_url }}{{ rb }},
+  note   = {{ lb }}Blog post{{ rb }}
+{{ rb }}
+  {%- endcapture -%}
+  <section class="bibtex">
+    <div class="bibtex__header">
+      <span class="bibtex__label">Cite this post</span>
+      <button class="bibtex__copy" type="button" onclick="var b = this; navigator.clipboard.writeText(document.getElementById('bibtex-code').textContent).then(function() { b.classList.add('is-copied'); b.querySelector('.bibtex__copy-label').textContent = 'Copied'; setTimeout(function() { b.classList.remove('is-copied'); b.querySelector('.bibtex__copy-label').textContent = 'Copy'; }, 1500); })">
+        <svg class="bibtex__icon bibtex__icon--copy" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        <svg class="bibtex__icon bibtex__icon--done" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <span class="bibtex__copy-label">Copy</span>
+      </button>
+    </div>
+    <pre class="bibtex__code"><code id="bibtex-code">{{ bibtex | strip }}</code></pre>
+  </section>
+
 </div>
+
+{%- comment -%} Heading anchors: a link-icon after each section heading (kramdown already gives them ids). Added here, not in the markup, so the feed stays clean. {%- endcomment -%}
+<script>
+  document.querySelectorAll('.blog-content h2[id], .blog-content h3[id]').forEach(function(h) {
+    var a = document.createElement('a');
+    a.className = 'heading-anchor';
+    a.href = '#' + h.id;
+    a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>';
+    a.setAttribute('aria-label', 'Link to this section: ' + h.textContent);
+    h.appendChild(a);
+  });
+</script>
